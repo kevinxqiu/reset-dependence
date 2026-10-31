@@ -1,0 +1,25 @@
+# GPU training and rendering dependencies for the code repository.
+# Use Python >=3.12 for these pins. Some JAX/CUDA wheels in this stack are not
+# visible to pip under Python 3.10, even though the CPU analysis path below is
+# intentionally Python >=3.10 compatible.
+#
+# These pins reflect the CUDA/MJX environment used for the paper corpus. JAX
+# CUDA wheels are platform-sensitive; if installation fails, install the JAX
+# CUDA 12 wheel matching the local driver, then keep the remaining pins fixed.
+#
+# Analysis-only reproduction uses requirements-analysis.txt.
+brax==0.14.2
+flax==0.12.6
+jax==0.9.2
+jax-cuda12-pjrt==0.9.2
+jax-cuda12-plugin==0.9.2
+jaxlib==0.9.2
+mujoco==3.6.0
+mujoco-mjx==3.6.0
+numpy==2.4.4
+optax==0.2.8
+orbax-checkpoint==0.11.33
+scipy==1.17.1
+tensorboardX==2.6.5
+imageio==2.37.3
+imageio-ffmpeg==0.6.0

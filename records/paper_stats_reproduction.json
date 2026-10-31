@@ -1,0 +1,268 @@
+{
+  "bootstrap_B": 10000,
+  "bootstrap_seed": 42,
+  "eval_key": "eval_tau020",
+  "n_bodies": 100,
+  "table1_family_means": {
+    "floor": {
+      "n": 41,
+      "epi": 2.4282760389032942,
+      "strict": 1.8371907222114847,
+      "rf": 1.4534488430369814,
+      "rf_over_epi": 0.5453438797957033,
+      "str_over_epi": 0.7764790840620207
+    },
+    "vt": {
+      "n": 37,
+      "epi": 2.3041079127702893,
+      "strict": 1.4674684242429663,
+      "rf": 1.9994918460383546,
+      "rf_over_epi": 0.8432855906036817,
+      "str_over_epi": 0.6583772624951434
+    },
+    "mvt": {
+      "n": 22,
+      "epi": 2.651109491474786,
+      "strict": 2.316913590382438,
+      "rf": 2.0883080634450284,
+      "rf_over_epi": 0.7215837487706562,
+      "str_over_epi": 0.9119052331983437
+    }
+  },
+  "oneway_rf_over_epi": {
+    "anova_f": 6.4643911400535625,
+    "anova_p": 0.0023148634591589833,
+    "kruskal_h": 11.763841183063619,
+    "kruskal_p": 0.0027894227853289166,
+    "floor_vs_vt_cohens_d": -0.8275743226699493,
+    "eta_squared": 0.11761052939860264
+  },
+  "twoway_interaction_900": {
+    "interaction_f": 12.538280173992158,
+    "interaction_p": 6.764120242946998e-10,
+    "protocol_f": 66.31462350996829,
+    "protocol_p": 2.328391579117727e-27,
+    "family_f": 19.128648535528836,
+    "family_p": 7.699590648193527e-09,
+    "partial_eta_squared": 0.059412350042157634,
+    "df_residual": 794,
+    "cluster_robust_wald_F": 4.776850615038337,
+    "cluster_robust_wald_p": 0.0014482988953603176,
+    "cluster_robust_wald_df": [
+      4,
+      99
+    ],
+    "gee_wald_chi2": 21.907910942350554,
+    "gee_wald_p": 0.00020905916795643301,
+    "gee_wald_df": 4,
+    "rank_interaction_p_per_seed": 5.060901959590747e-09
+  },
+  "twoway_interaction_seed_avg": {
+    "interaction_f": 4.785219488766044,
+    "interaction_p": 0.0010552513531819558,
+    "df_residual": 194,
+    "rank_interaction_p": 0.008270070195115307
+  },
+  "per_seed_oneway": {
+    "42": {
+      "f": 5.021218686209268,
+      "p": 0.00841324666036272
+    },
+    "43": {
+      "f": 4.897700151145603,
+      "p": 0.009410886513628756
+    },
+    "44": {
+      "f": 3.2391998176359404,
+      "p": 0.04347288831179206
+    }
+  },
+  "spearman_rankings": {
+    "episodic_vs_reset_free": {
+      "rho": 0.7227122712271226,
+      "ci_lo": 0.5818663422326965,
+      "ci_hi": 0.8259478728727356
+    },
+    "episodic_vs_strict": {
+      "rho": 0.4576777677767776,
+      "ci_lo": 0.2618276364490012,
+      "ci_hi": 0.6244713055537188
+    },
+    "reset_free_vs_strict": {
+      "rho": 0.20572457245724568,
+      "ci_lo": -0.017517996129479487,
+      "ci_hi": 0.4039821654453613
+    }
+  },
+  "top10_overlaps": {
+    "episodic_vs_reset_free": {
+      "point": 8,
+      "ci_lo": 0.3,
+      "ci_hi": 0.8
+    },
+    "episodic_vs_strict": {
+      "point": 4,
+      "ci_lo": 0.1,
+      "ci_hi": 0.5
+    },
+    "reset_free_vs_strict": {
+      "point": 5,
+      "ci_lo": 0.1,
+      "ci_hi": 0.5
+    }
+  },
+  "distance_transitions": {
+    "tau_eval_0p20": {
+      "floor": {
+        "walk_epi_stop_rf": 12,
+        "walk_epi_stop_strict": 1
+      },
+      "vt": {
+        "walk_epi_stop_rf": 4,
+        "walk_epi_stop_strict": 10
+      },
+      "mvt": {
+        "walk_epi_stop_rf": 5,
+        "walk_epi_stop_strict": 0
+      }
+    },
+    "tau_eval_neutral": {
+      "floor": {
+        "walk_epi_stop_rf": 0,
+        "walk_epi_stop_strict": 1
+      },
+      "vt": {
+        "walk_epi_stop_rf": 0,
+        "walk_epi_stop_strict": 10
+      },
+      "mvt": {
+        "walk_epi_stop_rf": 0,
+        "walk_epi_stop_strict": 0
+      }
+    }
+  },
+  "distance_rf_over_epi_anova": {
+    "f": 8.373248089761075,
+    "p": 0.0004420127245440185
+  },
+  "fixed_horizon_fitness_tmax": {
+    "family_ratios": {
+      "floor": {
+        "n": 41,
+        "fit_str_over_epi": 0.7990962013492574,
+        "fit_rf_over_epi": 0.4729076932810509
+      },
+      "vt": {
+        "n": 37,
+        "fit_str_over_epi": 0.6933841106288106,
+        "fit_rf_over_epi": 0.8471941063026015
+      },
+      "mvt": {
+        "n": 22,
+        "fit_str_over_epi": 0.9542910071927954,
+        "fit_rf_over_epi": 0.6776422205900973
+      }
+    },
+    "oneway_anova_fit_rf_epi": {
+      "f": 8.370532828236101,
+      "p": 0.0004430374167331092
+    },
+    "rank_corr_psr_vs_fitness_tmax": {
+      "episodic": 0.9527392739273927,
+      "strict": 0.9528472847284728,
+      "reset_free": 0.9866906690669065
+    }
+  },
+  "residual_delta_regression": {
+    "r_squared": 0.3937282123740351,
+    "beta_z0": 2.4358899773555094,
+    "beta_n_limbs": -0.08702580082773889,
+    "intercept": -0.11158368167733178,
+    "raw_delta_sd": 0.8032521576209967,
+    "residual_delta_sd": 0.6254398952698128,
+    "residual_frac_of_raw": 0.7786345661643624,
+    "family_stats": {
+      "floor": {
+        "n": 41,
+        "raw_mean": 0.9748271958663132,
+        "raw_sd": 0.8153204968567008,
+        "residual_mean": 0.24826049595027977,
+        "residual_sd": 0.5761857431987617
+      },
+      "vt": {
+        "n": 37,
+        "raw_mean": 0.30461606673193437,
+        "raw_sd": 0.6290027630207511,
+        "residual_mean": -0.3040844024250221,
+        "residual_sd": 0.6331280977484782
+      },
+      "mvt": {
+        "n": 22,
+        "raw_mean": 0.562801428029758,
+        "raw_sd": 0.8210066276121728,
+        "residual_mean": 0.048747388898382614,
+        "residual_sd": 0.48870840531264004
+      }
+    },
+    "family_anova_f": 8.892858934982202,
+    "family_anova_p": 0.000284359774771983,
+    "family_kruskal_h": 15.460845989674738,
+    "family_kruskal_p": 0.00043925827381714554
+  },
+  "neutral_evaluation_ratios": {
+    "floor": {
+      "rf_over_epi": 0.6425563113164361,
+      "str_over_epi": 0.7629961075382561
+    },
+    "vt": {
+      "rf_over_epi": 0.9533099681106837,
+      "str_over_epi": 0.673054111663311
+    },
+    "mvt": {
+      "rf_over_epi": 0.8469503115480883,
+      "str_over_epi": 0.9287016993716514
+    }
+  },
+  "permutation_interaction": {
+    "scheme_A": {
+      "scheme": "A: one-way ANOVA on RF/Epi ratios, family shuffled",
+      "n_bodies": 100,
+      "family_counts": {
+        "floor": 41,
+        "vt": 37,
+        "mvt": 22
+      },
+      "F_observed": 6.4643911400535625,
+      "B": 10000,
+      "p_permutation": 0.0028997100289971,
+      "null_mean": 1.02151416023443,
+      "null_p95": 3.0635072977284294,
+      "null_max": 10.02234382231859,
+      "elapsed_s": 10.0
+    },
+    "scheme_B": {
+      "scheme": "B: two-way blocked ANOVA F_int, family shuffled",
+      "n_observations": 900,
+      "family_counts": {
+        "floor": 41,
+        "vt": 37,
+        "mvt": 22
+      },
+      "F_observed": 12.538280173992366,
+      "B": 5000,
+      "p_permutation": 0.005198960207958408,
+      "null_mean": 2.7511434249623345,
+      "null_p95": 7.394276433562861,
+      "null_max": 19.025392653487344,
+      "elapsed_s": 303.3
+    },
+    "corpus_input_sha256_16": "cb9254348598f2db",
+    "corpus_n_obs": 900
+  },
+  "permutation_interaction_cache_meta": {
+    "current_corpus_hash": "cb9254348598f2db",
+    "cached_corpus_hash": "cb9254348598f2db",
+    "hash_match": true,
+    "permutation_copied_into_artifact": true
+  }
+}

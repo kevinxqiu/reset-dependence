@@ -1,0 +1,190 @@
+{
+  "seed": 42,
+  "per_family": 10,
+  "per_quintile": 2,
+  "n_quintiles": 5,
+  "eval_key_for_delta_reset": "eval_tau020",
+  "delta_reset_formula": "PSR(train_tau=0p20) - PSR(train_tau=0p00), both at eval_tau020",
+  "panel": [
+    {
+      "body": "floor-5506-2-16-01-10-58-23",
+      "family": "floor",
+      "quintile": 0,
+      "delta_reset": -0.4930878463286046
+    },
+    {
+      "body": "floor-5506-9-12-01-10-32-52",
+      "family": "floor",
+      "quintile": 0,
+      "delta_reset": 0.10870578729786917
+    },
+    {
+      "body": "floor-5506-12-12-01-11-30-00",
+      "family": "floor",
+      "quintile": 1,
+      "delta_reset": 0.27380604214083526
+    },
+    {
+      "body": "floor-5506-12-12-01-15-33-01",
+      "family": "floor",
+      "quintile": 1,
+      "delta_reset": 0.7705708361320929
+    },
+    {
+      "body": "floor-1409-5-4-01-13-42-51",
+      "family": "floor",
+      "quintile": 2,
+      "delta_reset": 0.9814354570928924
+    },
+    {
+      "body": "floor-1409-8-2-01-16-01-05",
+      "family": "floor",
+      "quintile": 2,
+      "delta_reset": 0.7769329649528318
+    },
+    {
+      "body": "floor-1409-11-9-01-10-00-52",
+      "family": "floor",
+      "quintile": 3,
+      "delta_reset": 1.5701084714251188
+    },
+    {
+      "body": "floor-5506-10-9-01-16-04-28",
+      "family": "floor",
+      "quintile": 3,
+      "delta_reset": 1.3210097102099947
+    },
+    {
+      "body": "floor-1409-0-12-01-12-30-07",
+      "family": "floor",
+      "quintile": 4,
+      "delta_reset": 2.1935381326166326
+    },
+    {
+      "body": "floor-1409-6-12-01-13-27-36",
+      "family": "floor",
+      "quintile": 4,
+      "delta_reset": 2.3234197059882757
+    },
+    {
+      "body": "mvt-5506-10-16-17-09-26-11",
+      "family": "mvt",
+      "quintile": 0,
+      "delta_reset": -0.12196545894420074
+    },
+    {
+      "body": "mvt-5506-15-6-17-03-13-08",
+      "family": "mvt",
+      "quintile": 0,
+      "delta_reset": -0.007412928847011724
+    },
+    {
+      "body": "mvt-5506-0-12-17-12-16-55",
+      "family": "mvt",
+      "quintile": 1,
+      "delta_reset": 0.0827032078738359
+    },
+    {
+      "body": "mvt-5506-15-15-17-10-52-43",
+      "family": "mvt",
+      "quintile": 1,
+      "delta_reset": 0.1136408492446388
+    },
+    {
+      "body": "mvt-5506-11-13-17-10-06-36",
+      "family": "mvt",
+      "quintile": 2,
+      "delta_reset": 0.2137365111865459
+    },
+    {
+      "body": "mvt-5506-14-4-17-08-14-37",
+      "family": "mvt",
+      "quintile": 2,
+      "delta_reset": 0.4302561484997982
+    },
+    {
+      "body": "mvt-5506-12-6-17-12-20-06",
+      "family": "mvt",
+      "quintile": 3,
+      "delta_reset": 0.8142833408247168
+    },
+    {
+      "body": "mvt-5506-15-3-17-08-19-25",
+      "family": "mvt",
+      "quintile": 3,
+      "delta_reset": 0.47085883875031476
+    },
+    {
+      "body": "mvt-5506-12-11-17-05-56-16",
+      "family": "mvt",
+      "quintile": 4,
+      "delta_reset": 1.8750565594215889
+    },
+    {
+      "body": "mvt-5506-7-6-17-12-20-01",
+      "family": "mvt",
+      "quintile": 4,
+      "delta_reset": 2.116939173374084
+    },
+    {
+      "body": "vt-1409-14-9-02-19-21-40",
+      "family": "vt",
+      "quintile": 0,
+      "delta_reset": -0.1180401146486334
+    },
+    {
+      "body": "vt-1409-3-14-02-15-26-41",
+      "family": "vt",
+      "quintile": 0,
+      "delta_reset": -0.07654825459062553
+    },
+    {
+      "body": "vt-5506-0-12-02-19-26-55",
+      "family": "vt",
+      "quintile": 1,
+      "delta_reset": 0.018336367172129275
+    },
+    {
+      "body": "vt-5506-3-17-02-18-33-45",
+      "family": "vt",
+      "quintile": 1,
+      "delta_reset": 0.006991374471863265
+    },
+    {
+      "body": "vt-1409-13-5-02-18-04-00",
+      "family": "vt",
+      "quintile": 2,
+      "delta_reset": 0.09809487361171909
+    },
+    {
+      "body": "vt-5506-14-2-02-15-14-46",
+      "family": "vt",
+      "quintile": 2,
+      "delta_reset": 0.09171230515904982
+    },
+    {
+      "body": "vt-1409-12-10-02-21-04-52",
+      "family": "vt",
+      "quintile": 3,
+      "delta_reset": 0.42643894788722037
+    },
+    {
+      "body": "vt-1409-2-1-02-19-18-03",
+      "family": "vt",
+      "quintile": 3,
+      "delta_reset": 0.6539133767248827
+    },
+    {
+      "body": "vt-1409-9-17-02-21-12-51",
+      "family": "vt",
+      "quintile": 4,
+      "delta_reset": 1.6271876329993509
+    },
+    {
+      "body": "vt-5506-9-3-02-15-19-17",
+      "family": "vt",
+      "quintile": 4,
+      "delta_reset": 1.3996368620921613
+    }
+  ]
+}

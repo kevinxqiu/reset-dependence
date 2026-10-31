@@ -1,0 +1,103 @@
+{
+  "spec": "supplementary SAC scope-check record",
+  "provenance": {
+    "git_head": "74a05518649b90c41e326ad92bcf503b16696db5",
+    "git_describe": "74a0551-dirty",
+    "working_tree_clean": false,
+    "file_hashes": {
+      "scripts/train_sac_mjx.py": "a21b4a8151873b9008f3a3c7529df4552da820b54f831c445fadc55f244112aa",
+      "slurm/train_sac_mjx.sh": "f6a67ffe2091184f99884ca50f20658cac056499e98e6b9d6f64f30a539e57a1",
+      "scripts/mechanism_morphologies.txt": "aa66b82229e519b65ba9618643de77bf1219b99daec1f23835a30ef9172de158"
+    }
+  },
+  "n_bodies": 24,
+  "qc": {
+    "cells": {
+      "bodies": 24,
+      "expected_cells": 216,
+      "observed_valid_cells": 216,
+      "missing_or_invalid_cells": 0,
+      "status_histogram": {
+        "valid": 216
+      },
+      "passes_min_valid": true,
+      "min_valid_threshold": 204,
+      "undercovered_body_tau": [],
+      "missing_body_tau_cells": [],
+      "invalid_cells_sample": [],
+      "file_errors": []
+    },
+    "reliability": {
+      "median_sd_rf": 0.14813754578189092,
+      "median_sd_epi": 0.18086190596029658,
+      "median_sd_strict": 0.2567973211119392,
+      "existing_max_for_comparator": 0.2567973211119392,
+      "any_existing_below_floor": false,
+      "threshold": 0.5135946422238784,
+      "rule_applied": "2.0x larger of existing medians",
+      "passes": true
+    },
+    "rf_floor": {
+      "bodies_below_floor": 0,
+      "threshold_bodies": 3,
+      "floor_psr": 0.05,
+      "below_list": [],
+      "passes": true
+    }
+  },
+  "anova_interaction": {
+    "interaction_F": 6.708306208182055,
+    "interaction_df_num": 4.0,
+    "interaction_p": 4.588791197842045e-05,
+    "residual_df": 186.0,
+    "n_cells": 216
+  },
+  "family_ratios_seed_avg": {
+    "floor": {
+      "n": 6,
+      "n_floor_ok": 6,
+      "mean_str_over_rf": 2.4114228629368393,
+      "mean_rf_over_epi": 0.7215111360721802,
+      "mean_str_over_epi": 1.1233960227041955,
+      "psr_epi": 3.921031396561071,
+      "psr_rf": 2.8030583862107523,
+      "psr_strict": 4.336359859970002
+    },
+    "vt": {
+      "n": 13,
+      "n_floor_ok": 13,
+      "mean_str_over_rf": 1.5244364435031523,
+      "mean_rf_over_epi": 0.8777338420182174,
+      "mean_str_over_epi": 0.8527000912498216,
+      "psr_epi": 3.432849417270042,
+      "psr_rf": 2.972317439746144,
+      "psr_strict": 3.0959388731576496
+    },
+    "mvt": {
+      "n": 5,
+      "n_floor_ok": 5,
+      "mean_str_over_rf": 0.9555473436126404,
+      "mean_rf_over_epi": 1.0126431562349034,
+      "mean_str_over_epi": 0.9666316122800118,
+      "psr_epi": 4.068193079830843,
+      "psr_rf": 4.104081376073665,
+      "psr_strict": 3.9224830662846997
+    }
+  },
+  "family_ordering_check": {
+    "floor_str_over_rf": 2.4114228629368393,
+    "vt_str_over_rf": 1.5244364435031523,
+    "mvt_str_over_rf": 0.9555473436126404,
+    "strict_floor_gt_vt_gt_mvt": true
+  },
+  "cross_algorithm_spearman": {
+    "n_joint_valid": 23,
+    "spearman_rho": 0.7549407114624507,
+    "spearman_p": 3.137176503339823e-05,
+    "dropped_bodies": [
+      "floor-1409-1-6-01-07-43-16"
+    ]
+  },
+  "gate_verdict": "MAIN-TEXT",
+  "verdict_reason": "interaction p = 0.0000 < 0.01 AND Floor (2.41) > VT (1.52) > MVT (0.96)"
+}

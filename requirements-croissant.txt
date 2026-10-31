@@ -1,0 +1,15 @@
+# Croissant validation and record loading (dataset/croissant.json).
+#   pip install -r requirements-croissant.txt
+#   mlcroissant validate --jsonld dataset/croissant.json
+#   python dataset/load_croissant_records.py --archives <dir with runs.zip, logs.zip and panels.zip>
+#
+# pandas is held below 3: with pandas 3.0 and mlcroissant 1.1.1, loading the
+# records of the released archives failed inside mlcroissant, while
+# validation was unaffected. With pandas 2.3 all nine record sets of the
+# released archives load (3,306 runs, 160 feature rows, 5,860 review-panel
+# cells and 16,200 evaluation points, checked by the authors). The NeurIPS
+# reference validator (mlcommons/croissant, health/croissant-validator-neurips)
+# also pins pandas 2.2.2. Works with Python 3.10 to 3.12.
+# Install this in its own environment if the analysis environment uses pandas 3.
+mlcroissant==1.1.1
+pandas>=2.2,<3

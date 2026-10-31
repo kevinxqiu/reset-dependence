@@ -1,0 +1,183 @@
+{
+  "description": "Phase 1b 50M asymptotic panel. 12 Eq-A bodies + 6 extras picked to span the (delta_reset, baseline_psr) 2D plane, addressing the baseline-skill confound (corpus rho=-0.74 between the two).",
+  "estimand": "Delta_reset(m) = PSR_train_tau020(m; eval_tau020) - PSR_train_tau000(m; eval_tau020)",
+  "selection_rule_frozen_on": "2026-04-15",
+  "n_bodies": 18,
+  "n_taus": 3,
+  "taus": [
+    "0p00",
+    "0p20",
+    "0p50"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "steps_per_run": 50000000,
+  "total_runs": 162,
+  "bodies": [
+    {
+      "name": "floor-5506-10-6-01-15-48-35",
+      "family": "floor",
+      "delta_reset": -0.094943,
+      "baseline_psr_tau000": 3.907943,
+      "psr_tau020": 3.812999,
+      "init_height": 0.3,
+      "source": "eq_a"
+    },
+    {
+      "name": "vt-1409-8-12-02-19-46-23",
+      "family": "vt",
+      "delta_reset": -0.063924,
+      "baseline_psr_tau000": 2.332752,
+      "psr_tau020": 2.268828,
+      "init_height": 0.75,
+      "source": "eq_a"
+    },
+    {
+      "name": "mvt-5506-14-2-17-07-59-45",
+      "family": "mvt",
+      "delta_reset": -0.04459,
+      "baseline_psr_tau000": 2.656491,
+      "psr_tau020": 2.611901,
+      "init_height": 0.52,
+      "source": "eq_a"
+    },
+    {
+      "name": "vt-1409-5-9-02-21-58-06",
+      "family": "vt",
+      "delta_reset": 0.078173,
+      "baseline_psr_tau000": 3.235897,
+      "psr_tau020": 3.31407,
+      "init_height": 0.75,
+      "source": "eq_a"
+    },
+    {
+      "name": "mvt-5506-4-9-17-09-31-55",
+      "family": "mvt",
+      "delta_reset": 0.08769,
+      "baseline_psr_tau000": 3.064773,
+      "psr_tau020": 3.152463,
+      "init_height": 0.52,
+      "source": "eq_a"
+    },
+    {
+      "name": "vt-5506-13-4-02-21-40-07",
+      "family": "vt",
+      "delta_reset": 0.261788,
+      "baseline_psr_tau000": 2.758087,
+      "psr_tau020": 3.019874,
+      "init_height": 0.95,
+      "source": "eq_a"
+    },
+    {
+      "name": "floor-5506-8-16-01-13-07-43",
+      "family": "floor",
+      "delta_reset": 0.254597,
+      "baseline_psr_tau000": 3.03392,
+      "psr_tau020": 3.288517,
+      "init_height": 0.3,
+      "source": "eq_a"
+    },
+    {
+      "name": "floor-1409-5-4-01-13-42-51",
+      "family": "floor",
+      "delta_reset": 0.981435,
+      "baseline_psr_tau000": 0.925416,
+      "psr_tau020": 1.906851,
+      "init_height": 0.65,
+      "source": "eq_a"
+    },
+    {
+      "name": "vt-5506-8-0-02-20-33-52",
+      "family": "vt",
+      "delta_reset": 1.109953,
+      "baseline_psr_tau000": 1.617451,
+      "psr_tau020": 2.727404,
+      "init_height": 0.65,
+      "source": "eq_a"
+    },
+    {
+      "name": "floor-1409-11-11-01-08-26-42",
+      "family": "floor",
+      "delta_reset": 1.844889,
+      "baseline_psr_tau000": 0.827907,
+      "psr_tau020": 2.672795,
+      "init_height": 0.75,
+      "source": "eq_a"
+    },
+    {
+      "name": "mvt-5506-2-16-17-07-02-57",
+      "family": "mvt",
+      "delta_reset": 1.72912,
+      "baseline_psr_tau000": 0.231988,
+      "psr_tau020": 1.961109,
+      "init_height": 1.04,
+      "source": "eq_a"
+    },
+    {
+      "name": "vt-5506-9-14-02-16-04-50",
+      "family": "vt",
+      "delta_reset": 1.710967,
+      "baseline_psr_tau000": 0.076022,
+      "psr_tau020": 1.786989,
+      "init_height": 0.65,
+      "source": "eq_a"
+    },
+    {
+      "name": "mvt-5506-10-14-17-10-38-34",
+      "family": "mvt",
+      "delta_reset": 0.017539,
+      "baseline_psr_tau000": 1.428716,
+      "psr_tau020": 1.446255,
+      "init_height": 0.52,
+      "source": "asymptotic_extra"
+    },
+    {
+      "name": "floor-1409-8-8-01-14-47-11",
+      "family": "floor",
+      "delta_reset": 1.103976,
+      "baseline_psr_tau000": 2.056961,
+      "psr_tau020": 3.160937,
+      "init_height": 0.75,
+      "source": "asymptotic_extra"
+    },
+    {
+      "name": "mvt-5506-0-12-17-12-16-55",
+      "family": "mvt",
+      "delta_reset": 0.082703,
+      "baseline_psr_tau000": 1.529948,
+      "psr_tau020": 1.612651,
+      "init_height": 0.56,
+      "source": "asymptotic_extra"
+    },
+    {
+      "name": "floor-1409-8-2-01-16-01-05",
+      "family": "floor",
+      "delta_reset": 0.776933,
+      "baseline_psr_tau000": 2.131921,
+      "psr_tau020": 2.908854,
+      "init_height": 0.75,
+      "source": "asymptotic_extra"
+    },
+    {
+      "name": "vt-1409-3-14-02-15-26-41",
+      "family": "vt",
+      "delta_reset": -0.076548,
+      "baseline_psr_tau000": 1.726153,
+      "psr_tau020": 1.649605,
+      "init_height": 0.3,
+      "source": "asymptotic_extra"
+    },
+    {
+      "name": "floor-1409-11-14-01-13-30-11",
+      "family": "floor",
+      "delta_reset": 2.935963,
+      "baseline_psr_tau000": 0.246074,
+      "psr_tau020": 3.182037,
+      "init_height": 0.75,
+      "source": "asymptotic_extra"
+    }
+  ]
+}

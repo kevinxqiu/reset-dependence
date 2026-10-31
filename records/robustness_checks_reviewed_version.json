@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "description": "Robustness analyses of the main results of the reviewed version",
+    "n_bodies": 100
+  },
+  "fitness_sensitivity": {
+    "description": "Family ratios using fitness/MAX_STEPS instead of PSR",
+    "family_ratios": {
+      "floor": {
+        "n": 41,
+        "fit_str_over_epi": 0.7990962013492574,
+        "fit_rf_over_epi": 0.4729076932810509,
+        "psr_str_over_epi": 0.7764790840620207,
+        "psr_rf_over_epi": 0.5453438797957033
+      },
+      "vt": {
+        "n": 37,
+        "fit_str_over_epi": 0.6933841106288106,
+        "fit_rf_over_epi": 0.8471941063026015,
+        "psr_str_over_epi": 0.6583772624951434,
+        "psr_rf_over_epi": 0.8432855906036817
+      },
+      "mvt": {
+        "n": 22,
+        "fit_str_over_epi": 0.9542910071927954,
+        "fit_rf_over_epi": 0.6776422205900973,
+        "psr_str_over_epi": 0.9119052331983437,
+        "psr_rf_over_epi": 0.7215837487706562
+      }
+    },
+    "oneway_anova_fit_rf_epi": {
+      "F": 8.370532828236101,
+      "p": 0.0004430374167331092
+    },
+    "rank_corr_epi": 0.9527392739273927,
+    "rank_corr_str": 0.9528472847284728,
+    "rank_corr_rf": 0.9866906690669065
+  },
+  "compute_confound": {
+    "description": "Trained policies survive eval_neutral (no z-termination) for the full 1000 steps under every protocol, so the headline RF-Floor PSR drop at eval_tau020 cannot be attributed to a per-episode compute-budget deficit.",
+    "mean_ep_len_neutral_by_family_protocol": {
+      "floor": {
+        "epi": 1000.0,
+        "str": 999.0191056910569,
+        "rf": 1000.0
+      },
+      "vt": {
+        "epi": 1000.0,
+        "str": 1000.0,
+        "rf": 1000.0
+      },
+      "mvt": {
+        "epi": 1000.0,
+        "str": 1000.0,
+        "rf": 1000.0
+      }
+    },
+    "mean_ep_len_t020_by_family_protocol": {
+      "floor": {
+        "epi": 827.8170731707318,
+        "str": 760.9983739837397,
+        "rf": 511.5691056910569
+      },
+      "vt": {
+        "epi": 909.0166666666668,
+        "str": 919.640990990991,
+        "rf": 822.2563063063063
+      },
+      "mvt": {
+        "epi": 911.4409090909091,
+        "str": 921.5954545454547,
+        "rf": 727.0295454545454
+      }
+    },
+    "distance_neutral_by_family_protocol": {
+      "floor": {
+        "epi": 44.455029800377545,
+        "str": 31.223284334888927,
+        "rf": 31.199515593436857
+      },
+      "vt": {
+        "epi": 44.144367680628235,
+        "str": 27.316132558133113,
+        "rf": 41.91178054957254
+      },
+      "mvt": {
+        "epi": 51.08739213937038,
+        "str": 44.208860666048245,
+        "rf": 44.043373428513405
+      }
+    }
+  },
+  "random_selection_baseline": {
+    "description": "Random top-k selection retention vs each oracle, B=10000 draws (seed=42). Episodic-only selection top-5 retains 49.0% of strict oracle, vs random=52.3% (CI [26.5%, 74.6%]) and worst-case selection 92.3%.",
+    "B": 10000,
+    "k5": {
+      "episodic_selected_vs_strict_oracle": 0.4895683091165851,
+      "random_vs_strict_oracle_median": 0.5278440349006952,
+      "random_vs_strict_oracle_ci95": [
+        0.2753046323698756,
+        0.7512888893086318
+      ],
+      "random_vs_episodic_oracle_median": 0.6369269086187905,
+      "random_vs_rf_oracle_median": 0.4721490596743955
+    },
+    "k10": {
+      "episodic_selected_vs_strict_oracle": 0.749148141970253,
+      "random_vs_strict_oracle_median": 0.5610361512828544,
+      "random_vs_strict_oracle_ci95": [
+        0.3786317587718125,
+        0.7248682317698949
+      ],
+      "random_vs_episodic_oracle_median": 0.6641611743527175,
+      "random_vs_rf_oracle_median": 0.49277497698397293
+    },
+    "k20": {
+      "episodic_selected_vs_strict_oracle": 0.8508260811030757,
+      "random_vs_strict_oracle_median": 0.5998587413934731,
+      "random_vs_strict_oracle_ci95": [
+        0.4718756599300503,
+        0.7213960614887918
+      ],
+      "random_vs_episodic_oracle_median": 0.7045791174113731,
+      "random_vs_rf_oracle_median": 0.5354730792299189
+    }
+  }
+}

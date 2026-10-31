@@ -1,0 +1,103 @@
+{
+  "description": "Phase 1a-bis equivalence pilot bodies, stratified across Delta_reset quintiles with Floor/VT/MVT family balance. Independent of spike bodies.",
+  "estimand": "Delta_reset(m) = PSR_train_tau020(m; eval_tau020) - PSR_train_tau000(m; eval_tau020)",
+  "corpus_source": "results/mjx_ppo_{0p00,0p20}_seed{42,43,44}/results.json",
+  "quintile_targets": {
+    "Q1": 3,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 3
+  },
+  "family_balance": {
+    "floor": 4,
+    "vt": 5,
+    "mvt": 3
+  },
+  "bodies": [
+    {
+      "name": "floor-5506-10-6-01-15-48-35",
+      "family": "floor",
+      "delta_reset": -0.094943,
+      "psr_tau000": 3.907943,
+      "psr_tau020": 3.812999
+    },
+    {
+      "name": "vt-1409-8-12-02-19-46-23",
+      "family": "vt",
+      "delta_reset": -0.063924,
+      "psr_tau000": 2.332752,
+      "psr_tau020": 2.268828
+    },
+    {
+      "name": "mvt-5506-14-2-17-07-59-45",
+      "family": "mvt",
+      "delta_reset": -0.04459,
+      "psr_tau000": 2.656491,
+      "psr_tau020": 2.611901
+    },
+    {
+      "name": "vt-1409-5-9-02-21-58-06",
+      "family": "vt",
+      "delta_reset": 0.078173,
+      "psr_tau000": 3.235897,
+      "psr_tau020": 3.31407
+    },
+    {
+      "name": "mvt-5506-4-9-17-09-31-55",
+      "family": "mvt",
+      "delta_reset": 0.08769,
+      "psr_tau000": 3.064773,
+      "psr_tau020": 3.152463
+    },
+    {
+      "name": "vt-5506-13-4-02-21-40-07",
+      "family": "vt",
+      "delta_reset": 0.261788,
+      "psr_tau000": 2.758087,
+      "psr_tau020": 3.019874
+    },
+    {
+      "name": "floor-5506-8-16-01-13-07-43",
+      "family": "floor",
+      "delta_reset": 0.254597,
+      "psr_tau000": 3.03392,
+      "psr_tau020": 3.288517
+    },
+    {
+      "name": "floor-1409-5-4-01-13-42-51",
+      "family": "floor",
+      "delta_reset": 0.981435,
+      "psr_tau000": 0.925416,
+      "psr_tau020": 1.906851
+    },
+    {
+      "name": "vt-5506-8-0-02-20-33-52",
+      "family": "vt",
+      "delta_reset": 1.109953,
+      "psr_tau000": 1.617451,
+      "psr_tau020": 2.727404
+    },
+    {
+      "name": "floor-1409-11-11-01-08-26-42",
+      "family": "floor",
+      "delta_reset": 1.844889,
+      "psr_tau000": 0.827907,
+      "psr_tau020": 2.672795
+    },
+    {
+      "name": "mvt-5506-2-16-17-07-02-57",
+      "family": "mvt",
+      "delta_reset": 1.72912,
+      "psr_tau000": 0.231988,
+      "psr_tau020": 1.961109
+    },
+    {
+      "name": "vt-5506-9-14-02-16-04-50",
+      "family": "vt",
+      "delta_reset": 1.710967,
+      "psr_tau000": 0.076022,
+      "psr_tau020": 1.786989
+    }
+  ]
+}

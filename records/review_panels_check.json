@@ -1,0 +1,912 @@
+{
+  "script": "scripts/review_panels.py",
+  "spearman": "rankdata and corrcoef (bit-identical to scipy.stats.spearmanr here)",
+  "permutation_p_values": "recomputed (not reported; see the docstring)",
+  "versions": {
+    "python": "3.12.15",
+    "numpy": "1.26.4",
+    "scipy": "1.17.1"
+  },
+  "totals": {
+    "compared": 19619,
+    "statistics": 19176,
+    "exact": 19619,
+    "close": 0,
+    "different": 0
+  },
+  "all_match": true,
+  "panels": {
+    "humanoid-fall-rule": {
+      "cells": 1800,
+      "compared_with": "report.json",
+      "compared": 5264,
+      "exact": 5264,
+      "close": 0,
+      "statistics": 5148,
+      "different": 0,
+      "mismatches": [],
+      "not_recomputable": [
+        "analysis_provenance.frozen_git_revision",
+        "analysis_provenance.git_revision",
+        "analysis_provenance.tracked_tree_clean",
+        "analysis_provenance.untracked_importable_code"
+      ],
+      "integrity": [
+        [
+          "inventory.jsonl sha256 = panel_spec inventory_sha256",
+          true
+        ],
+        [
+          "cells.csv rows = inventory cells",
+          true
+        ],
+        [
+          "cell count = expected_cell_count",
+          true
+        ],
+        [
+          "training revisions allowed by the contract",
+          true
+        ],
+        [
+          "panel_contract.json sha256 = manifest",
+          true
+        ],
+        [
+          "report.json sha256 = manifest",
+          true
+        ],
+        [
+          "report.md sha256 = manifest",
+          true
+        ]
+      ]
+    },
+    "humanoid-time-limit": {
+      "cells": 900,
+      "compared_with": "report.json",
+      "compared": 10191,
+      "exact": 10191,
+      "close": 0,
+      "statistics": 10051,
+      "different": 0,
+      "mismatches": [],
+      "not_recomputable": [
+        "analysis_provenance.analysis_runtime.numpy",
+        "analysis_provenance.analysis_runtime.python",
+        "analysis_provenance.analysis_runtime.scipy",
+        "analysis_provenance.frozen_git_revision",
+        "analysis_provenance.git_revision",
+        "analysis_provenance.tracked_tree_clean",
+        "analysis_provenance.untracked_importable_code",
+        "children.bootstrap.panel_spec_sha256",
+        "children.terminal.panel_spec_sha256",
+        "pools[].rank_stability.native-bootstrap.progress_sha256",
+        "pools[].rank_stability.native-terminal.progress_sha256",
+        "pools[].rank_stability.none-bootstrap.progress_sha256",
+        "pools[].rank_stability.none-terminal.progress_sha256"
+      ],
+      "integrity": [
+        [
+          "inventory.jsonl sha256 = panel_spec inventory_sha256",
+          true
+        ],
+        [
+          "cells.csv rows = inventory cells",
+          true
+        ],
+        [
+          "cell count = expected_cell_count",
+          true
+        ],
+        [
+          "training revisions allowed by the contract",
+          true
+        ],
+        [
+          "bootstrap child panel_contract.json sha256 = manifest",
+          true
+        ],
+        [
+          "terminal child panel_contract.json sha256 = manifest",
+          true
+        ],
+        [
+          "report.json sha256 = manifest",
+          true
+        ],
+        [
+          "report.md sha256 = manifest",
+          true
+        ],
+        [
+          "composite_spec.json sha256 = manifest (masked copy, one design-note path; not comparable)",
+          null
+        ],
+        [
+          "wrapper-verdict status verified, manifest.json sha256 = verdict",
+          true
+        ]
+      ]
+    },
+    "ant-reset-init": {
+      "cells": 160,
+      "compared_with": "report.json",
+      "compared": 560,
+      "exact": 560,
+      "close": 0,
+      "statistics": 479,
+      "different": 0,
+      "mismatches": [],
+      "not_recomputable": [
+        "analysis_provenance.frozen_git_revision",
+        "analysis_provenance.git_revision",
+        "analysis_provenance.tracked_tree_clean",
+        "analysis_provenance.untracked_importable_code"
+      ],
+      "integrity": [
+        [
+          "inventory.jsonl sha256 = panel_spec inventory_sha256",
+          true
+        ],
+        [
+          "cells.csv rows = inventory cells",
+          true
+        ],
+        [
+          "cell count = expected_cell_count",
+          true
+        ],
+        [
+          "training revisions allowed by the contract",
+          true
+        ],
+        [
+          "panel_contract.json sha256 = manifest",
+          true
+        ],
+        [
+          "report.json sha256 = manifest",
+          true
+        ],
+        [
+          "report.md sha256 = manifest",
+          true
+        ]
+      ]
+    },
+    "ant-breadth": {
+      "cells": 1800,
+      "compared_with": "frozen_report.md (summary table, three decimals; the report.json was not kept)",
+      "compared": 38,
+      "exact": 38,
+      "close": 0,
+      "statistics": 38,
+      "different": 0,
+      "mismatches": [],
+      "not_recomputable": [],
+      "integrity": [
+        [
+          "inventory.jsonl sha256 = panel_spec inventory_sha256",
+          true
+        ],
+        [
+          "cells.csv rows = inventory cells",
+          true
+        ],
+        [
+          "cell count = expected_cell_count",
+          true
+        ],
+        [
+          "training revisions allowed by the contract",
+          true
+        ]
+      ]
+    },
+    "evogym-time-limit": {
+      "cells": 1200,
+      "compared_with": "report.json",
+      "compared": 3566,
+      "exact": 3566,
+      "close": 0,
+      "statistics": 3460,
+      "different": 0,
+      "mismatches": [],
+      "not_recomputable": [
+        "analysis_provenance.frozen_git_revision",
+        "analysis_provenance.git_revision",
+        "analysis_provenance.tracked_tree_clean",
+        "analysis_provenance.untracked_importable_code"
+      ],
+      "integrity": [
+        [
+          "inventory.jsonl sha256 = panel_spec inventory_sha256",
+          true
+        ],
+        [
+          "cells.csv rows = inventory cells",
+          true
+        ],
+        [
+          "cell count = expected_cell_count",
+          true
+        ],
+        [
+          "training revisions allowed by the contract",
+          true
+        ],
+        [
+          "panel_contract.json sha256 = manifest",
+          true
+        ],
+        [
+          "report.json sha256 = manifest (masked copy, one design-note path; not comparable)",
+          null
+        ],
+        [
+          "report.md sha256 = manifest",
+          true
+        ]
+      ]
+    }
+  },
+  "headline": {
+    "humanoid-fall-rule": [
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 0,
+        "task": "",
+        "comparison": "none vs native",
+        "rho": 0.5839822024471636,
+        "ci": [
+          0.28089159766560257,
+          0.7803646555206136
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none": 0.26429365962180196,
+          "native": 0.5401557285873193
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 0,
+        "task": "",
+        "comparison": "none vs relative-0.2",
+        "rho": 0.6649610678531702,
+        "ci": [
+          0.3812343404707144,
+          0.8320734353440111
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none": 0.26429365962180196,
+          "relative-0.2": 0.6852057842046718
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 0,
+        "task": "",
+        "comparison": "none vs relative-0.5",
+        "rho": 0.6872080088987764,
+        "ci": [
+          0.43534683730963036,
+          0.8168286655090173
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none": 0.26429365962180196,
+          "relative-0.5": 0.49877641824249164
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 1,
+        "task": "",
+        "comparison": "none vs native",
+        "rho": 0.6053392658509456,
+        "ci": [
+          0.29007368041969617,
+          0.823781033020886
+        ],
+        "top10": 6,
+        "seed_half_medians": {
+          "none": 0.5330367074527252,
+          "native": 0.4511679644048944
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 1,
+        "task": "",
+        "comparison": "none vs relative-0.2",
+        "rho": 0.7334816462736374,
+        "ci": [
+          0.4357188837955529,
+          0.9133551430007016
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "none": 0.5330367074527252,
+          "relative-0.2": 0.6197997775305896
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 1,
+        "task": "",
+        "comparison": "none vs relative-0.5",
+        "rho": 0.7219132369299222,
+        "ci": [
+          0.43795620651281997,
+          0.8936823602489855
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none": 0.5330367074527252,
+          "relative-0.5": 0.5993325917686319
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 2,
+        "task": "",
+        "comparison": "none vs native",
+        "rho": 0.11056729699666296,
+        "ci": [
+          -0.26756230841197404,
+          0.4772696664003519
+        ],
+        "top10": 5,
+        "seed_half_medians": {
+          "none": 0.3030033370411568,
+          "native": 0.5664071190211345
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 2,
+        "task": "",
+        "comparison": "none vs relative-0.2",
+        "rho": 0.16395995550611792,
+        "ci": [
+          -0.2371657584103432,
+          0.5327072425592984
+        ],
+        "top10": 5,
+        "seed_half_medians": {
+          "none": 0.3030033370411568,
+          "relative-0.2": 0.5437152391546162
+        }
+      },
+      {
+        "panel": "humanoid-fall-rule",
+        "pool": 2,
+        "task": "",
+        "comparison": "none vs relative-0.5",
+        "rho": 0.18798665183537264,
+        "ci": [
+          -0.19561774959018388,
+          0.5469653927631271
+        ],
+        "top10": 4,
+        "seed_half_medians": {
+          "none": 0.3030033370411568,
+          "relative-0.5": 0.3911012235817575
+        }
+      }
+    ],
+    "humanoid-time-limit": [
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 0,
+        "task": "",
+        "comparison": "native-bootstrap vs native-terminal",
+        "rho": 0.874972191323693,
+        "ci": [
+          0.7051041666198514,
+          0.9499963930796321
+        ],
+        "top10": 8,
+        "seed_half_medians": {
+          "native-bootstrap": 0.5401557285873193,
+          "native-terminal": 0.36618464961067854
+        },
+        "role": "primary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 0,
+        "task": "",
+        "comparison": "none-bootstrap vs none-terminal",
+        "rho": 0.6462736373748609,
+        "ci": [
+          0.29406052814710976,
+          0.8630083498541714
+        ],
+        "top10": 6,
+        "seed_half_medians": {
+          "none-bootstrap": 0.26429365962180196,
+          "none-terminal": -0.12880978865406006
+        },
+        "role": "primary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 0,
+        "task": "",
+        "comparison": "none-bootstrap vs native-bootstrap",
+        "rho": 0.5839822024471636,
+        "ci": [
+          0.28896954757217136,
+          0.7817940440501104
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none-bootstrap": 0.26429365962180196,
+          "native-bootstrap": 0.5401557285873193
+        },
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 0,
+        "task": "",
+        "comparison": "none-terminal vs native-terminal",
+        "rho": 0.28809788654060065,
+        "ci": [
+          -0.050281017212304255,
+          0.5730993938974422
+        ],
+        "top10": 3,
+        "seed_half_medians": {
+          "none-terminal": -0.12880978865406006,
+          "native-terminal": 0.36618464961067854
+        },
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 0,
+        "task": "",
+        "comparison": "fall-rule rho, terminal minus bootstrapped",
+        "rho": -0.29588431590656294,
+        "ci": [
+          -0.6244494032222044,
+          0.051013018444304836
+        ],
+        "top10": null,
+        "seed_half_medians": {},
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 1,
+        "task": "",
+        "comparison": "native-bootstrap vs native-terminal",
+        "rho": 0.9234705228031145,
+        "ci": [
+          0.783730642136715,
+          0.9785333347194644
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "native-bootstrap": 0.4511679644048944,
+          "native-terminal": 0.5601779755283648
+        },
+        "role": "primary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 1,
+        "task": "",
+        "comparison": "none-bootstrap vs none-terminal",
+        "rho": 0.7432703003337041,
+        "ci": [
+          0.47846306163594465,
+          0.8932831793930716
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none-bootstrap": 0.5330367074527252,
+          "none-terminal": 0.45472747497219135
+        },
+        "role": "primary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 1,
+        "task": "",
+        "comparison": "none-bootstrap vs native-bootstrap",
+        "rho": 0.6053392658509456,
+        "ci": [
+          0.290345267734719,
+          0.8226680260993455
+        ],
+        "top10": 6,
+        "seed_half_medians": {
+          "none-bootstrap": 0.5330367074527252,
+          "native-bootstrap": 0.4511679644048944
+        },
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 1,
+        "task": "",
+        "comparison": "none-terminal vs native-terminal",
+        "rho": 0.47497219132369295,
+        "ci": [
+          0.11184789768603437,
+          0.7351527387596546
+        ],
+        "top10": 6,
+        "seed_half_medians": {
+          "none-terminal": 0.45472747497219135,
+          "native-terminal": 0.5601779755283648
+        },
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 1,
+        "task": "",
+        "comparison": "fall-rule rho, terminal minus bootstrapped",
+        "rho": -0.1303670745272526,
+        "ci": [
+          -0.41861817500897264,
+          0.1484674954519473
+        ],
+        "top10": null,
+        "seed_half_medians": {},
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 2,
+        "task": "",
+        "comparison": "native-bootstrap vs native-terminal",
+        "rho": 0.8954393770856508,
+        "ci": [
+          0.7429130933783913,
+          0.9637988826815643
+        ],
+        "top10": 8,
+        "seed_half_medians": {
+          "native-bootstrap": 0.5664071190211345,
+          "native-terminal": 0.6122358175750834
+        },
+        "role": "primary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 2,
+        "task": "",
+        "comparison": "none-bootstrap vs none-terminal",
+        "rho": 0.6840934371523915,
+        "ci": [
+          0.4371038845459244,
+          0.8398461184589536
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none-bootstrap": 0.3030033370411568,
+          "none-terminal": 0.42335928809788653
+        },
+        "role": "primary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 2,
+        "task": "",
+        "comparison": "none-bootstrap vs native-bootstrap",
+        "rho": 0.11056729699666296,
+        "ci": [
+          -0.2611842282153214,
+          0.4739555161593336
+        ],
+        "top10": 5,
+        "seed_half_medians": {
+          "none-bootstrap": 0.3030033370411568,
+          "native-bootstrap": 0.5664071190211345
+        },
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 2,
+        "task": "",
+        "comparison": "none-terminal vs native-terminal",
+        "rho": 0.5127919911012235,
+        "ci": [
+          0.2263920839632481,
+          0.6831992850759607
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "none-terminal": 0.42335928809788653,
+          "native-terminal": 0.6122358175750834
+        },
+        "role": "secondary"
+      },
+      {
+        "panel": "humanoid-time-limit",
+        "pool": 2,
+        "task": "",
+        "comparison": "fall-rule rho, terminal minus bootstrapped",
+        "rho": 0.4022246941045606,
+        "ci": [
+          0.061242393668695355,
+          0.7059185439877633
+        ],
+        "top10": null,
+        "seed_half_medians": {},
+        "role": "secondary"
+      }
+    ],
+    "ant-reset-init": [
+      {
+        "panel": "ant-reset-init",
+        "pool": 0,
+        "task": "",
+        "comparison": "native vs reset-deterministic",
+        "rho": 0.9909774436090225,
+        "ci": [
+          0.9468074993932529,
+          1.0
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "native": 0.9037593984962405,
+          "reset-deterministic": 0.9338345864661652
+        }
+      }
+    ],
+    "ant-breadth": [
+      {
+        "panel": "ant-breadth",
+        "pool": 0,
+        "task": "",
+        "comparison": "native vs reset-deterministic",
+        "rho": 0.9728587319243605,
+        "ci": [
+          0.9168900804289546,
+          0.9883826140787193
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "native": 0.8471635150166852,
+          "reset-deterministic": 0.8442714126807563
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 0,
+        "task": "",
+        "comparison": "native vs timeout-terminal",
+        "rho": 0.9652947719688543,
+        "ci": [
+          0.8896570204259386,
+          0.9884084462162004
+        ],
+        "top10": 8,
+        "seed_half_medians": {
+          "native": 0.8471635150166852,
+          "timeout-terminal": 0.8211345939933259
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 0,
+        "task": "",
+        "comparison": "native vs observation-noise",
+        "rho": 0.9559510567296997,
+        "ci": [
+          0.8816429299751805,
+          0.9825932682601265
+        ],
+        "top10": 8,
+        "seed_half_medians": {
+          "native": 0.8471635150166852,
+          "observation-noise": 0.8082313681868742
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 1,
+        "task": "",
+        "comparison": "native vs reset-deterministic",
+        "rho": 0.8812013348164627,
+        "ci": [
+          0.7243231147907808,
+          0.9611438012425827
+        ],
+        "top10": 8,
+        "seed_half_medians": {
+          "native": 0.5781979977753059,
+          "reset-deterministic": 0.6244716351501668
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 1,
+        "task": "",
+        "comparison": "native vs timeout-terminal",
+        "rho": 0.9394883203559511,
+        "ci": [
+          0.8424348227123518,
+          0.9772602264236891
+        ],
+        "top10": 8,
+        "seed_half_medians": {
+          "native": 0.5781979977753059,
+          "timeout-terminal": 0.6086763070077865
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 1,
+        "task": "",
+        "comparison": "native vs observation-noise",
+        "rho": 0.9612903225806452,
+        "ci": [
+          0.8774683608842411,
+          0.9874832364774249
+        ],
+        "top10": 10,
+        "seed_half_medians": {
+          "native": 0.5781979977753059,
+          "observation-noise": 0.7025583982202446
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 2,
+        "task": "",
+        "comparison": "native vs reset-deterministic",
+        "rho": 0.9488320355951056,
+        "ci": [
+          0.8416198662034379,
+          0.984814734155651
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "native": 0.6307007786429366,
+          "reset-deterministic": 0.6994438264738598
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 2,
+        "task": "",
+        "comparison": "native vs timeout-terminal",
+        "rho": 0.850055617352614,
+        "ci": [
+          0.6166868395997138,
+          0.9638479601951027
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "native": 0.6307007786429366,
+          "timeout-terminal": 0.6876529477196887
+        }
+      },
+      {
+        "panel": "ant-breadth",
+        "pool": 2,
+        "task": "",
+        "comparison": "native vs observation-noise",
+        "rho": 0.9301446051167965,
+        "ci": [
+          0.8244117112843714,
+          0.9638477587203271
+        ],
+        "top10": 7,
+        "seed_half_medians": {
+          "native": 0.6307007786429366,
+          "observation-noise": 0.6987764182424916
+        }
+      }
+    ],
+    "evogym-time-limit": [
+      {
+        "panel": "evogym-time-limit",
+        "pool": 0,
+        "task": "BridgeWalker-v0",
+        "comparison": "horizon-500-bootstrap vs horizon-500-terminal",
+        "rho": 0.9142857142857143,
+        "ci": [
+          0.7155893536121674,
+          0.9818043972706596
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "horizon-500-bootstrap": 0.8330827067669172,
+          "horizon-500-terminal": 0.7902255639097744
+        }
+      },
+      {
+        "panel": "evogym-time-limit",
+        "pool": 0,
+        "task": "Walker-v0",
+        "comparison": "horizon-500-bootstrap vs horizon-500-terminal",
+        "rho": 0.9172932330827066,
+        "ci": [
+          0.6980193793510872,
+          0.9954477342355973
+        ],
+        "top10": 8,
+        "seed_half_medians": {
+          "horizon-500-bootstrap": 0.9751879699248119,
+          "horizon-500-terminal": 0.9225563909774435
+        }
+      },
+      {
+        "panel": "evogym-time-limit",
+        "pool": 1,
+        "task": "BridgeWalker-v0",
+        "comparison": "horizon-500-bootstrap vs horizon-500-terminal",
+        "rho": 0.8917293233082706,
+        "ci": [
+          0.7181769678492239,
+          0.9726448961787981
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "horizon-500-bootstrap": 0.8458646616541353,
+          "horizon-500-terminal": 0.894736842105263
+        }
+      },
+      {
+        "panel": "evogym-time-limit",
+        "pool": 1,
+        "task": "Walker-v0",
+        "comparison": "horizon-500-bootstrap vs horizon-500-terminal",
+        "rho": 0.9654135338345864,
+        "ci": [
+          0.8515151515151517,
+          0.9939070830159937
+        ],
+        "top10": 9,
+        "seed_half_medians": {
+          "horizon-500-bootstrap": 0.9436090225563909,
+          "horizon-500-terminal": 0.9172932330827067
+        }
+      },
+      {
+        "panel": "evogym-time-limit",
+        "pool": 2,
+        "task": "BridgeWalker-v0",
+        "comparison": "horizon-500-bootstrap vs horizon-500-terminal",
+        "rho": 0.9789473684210527,
+        "ci": [
+          0.9106043662554277,
+          0.9939164653807481
+        ],
+        "top10": 10,
+        "seed_half_medians": {
+          "horizon-500-bootstrap": 0.9037593984962405,
+          "horizon-500-terminal": 0.8804511278195488
+        }
+      },
+      {
+        "panel": "evogym-time-limit",
+        "pool": 2,
+        "task": "Walker-v0",
+        "comparison": "horizon-500-bootstrap vs horizon-500-terminal",
+        "rho": 0.9503759398496241,
+        "ci": [
+          0.8072740829888546,
+          0.9939439818319455
+        ],
+        "top10": 10,
+        "seed_half_medians": {
+          "horizon-500-bootstrap": 0.9609022556390977,
+          "horizon-500-terminal": 0.9729323308270676
+        }
+      }
+    ]
+  }
+}

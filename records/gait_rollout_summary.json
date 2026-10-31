@@ -1,0 +1,65 @@
+[
+  {
+    "body": "floor-5506-10-6-01-15-48-35",
+    "protocol": "tau0p00",
+    "distance": -0.7593482732772827,
+    "ep_steps": 500,
+    "action_l2_per_step": 6.54536767578125
+  },
+  {
+    "body": "floor-5506-10-6-01-15-48-35",
+    "protocol": "tau0p20",
+    "distance": 47.10515213012695,
+    "ep_steps": 500,
+    "action_l2_per_step": 6.5208671875
+  },
+  {
+    "body": "floor-5506-10-6-01-15-48-35",
+    "protocol": "tau0p50",
+    "distance": 0.1578880101442337,
+    "ep_steps": 9,
+    "action_l2_per_step": 7.202258639865452
+  },
+  {
+    "body": "mvt-5506-13-10-17-12-25-45",
+    "protocol": "tau0p00",
+    "distance": 38.080284118652344,
+    "ep_steps": 500,
+    "action_l2_per_step": 9.28341015625
+  },
+  {
+    "body": "mvt-5506-13-10-17-12-25-45",
+    "protocol": "tau0p20",
+    "distance": 48.204551696777344,
+    "ep_steps": 500,
+    "action_l2_per_step": 9.874365234375
+  },
+  {
+    "body": "mvt-5506-13-10-17-12-25-45",
+    "protocol": "tau0p50",
+    "distance": 45.12652587890625,
+    "ep_steps": 500,
+    "action_l2_per_step": 9.687154296875
+  },
+  {
+    "body": "floor-1409-0-7-01-15-15-26",
+    "protocol": "tau0p00",
+    "distance": 36.2075080871582,
+    "ep_steps": 500,
+    "action_l2_per_step": 10.52626171875
+  },
+  {
+    "body": "floor-1409-0-7-01-15-15-26",
+    "protocol": "tau0p20",
+    "distance": 31.889863967895508,
+    "ep_steps": 500,
+    "action_l2_per_step": 10.62844140625
+  },
+  {
+    "body": "floor-1409-0-7-01-15-15-26",
+    "protocol": "tau0p50",
+    "distance": 34.68128204345703,
+    "ep_steps": 500,
+    "action_l2_per_step": 11.046044921875
+  }
+]

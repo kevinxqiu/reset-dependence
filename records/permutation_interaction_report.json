@@ -1,0 +1,36 @@
+{
+  "scheme_A": {
+    "scheme": "A: one-way ANOVA on RF/Epi ratios, family shuffled",
+    "n_bodies": 100,
+    "family_counts": {
+      "floor": 41,
+      "vt": 37,
+      "mvt": 22
+    },
+    "F_observed": 6.4643911400535625,
+    "B": 10000,
+    "p_permutation": 0.0028997100289971,
+    "null_mean": 1.02151416023443,
+    "null_p95": 3.0635072977284294,
+    "null_max": 10.02234382231859,
+    "elapsed_s": 10.0
+  },
+  "scheme_B": {
+    "scheme": "B: two-way blocked ANOVA F_int, family shuffled",
+    "n_observations": 900,
+    "family_counts": {
+      "floor": 41,
+      "vt": 37,
+      "mvt": 22
+    },
+    "F_observed": 12.538280173992366,
+    "B": 5000,
+    "p_permutation": 0.005198960207958408,
+    "null_mean": 2.7511434249623345,
+    "null_p95": 7.394276433562861,
+    "null_max": 19.025392653487344,
+    "elapsed_s": 303.3
+  },
+  "corpus_input_sha256_16": "cb9254348598f2db",
+  "corpus_n_obs": 900
+}

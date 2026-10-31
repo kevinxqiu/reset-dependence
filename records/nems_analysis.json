@@ -1,0 +1,1331 @@
+{
+  "baseline_skill_control": {
+    "n_bodies": 60,
+    "r_squared": 0.09105371901303705,
+    "raw_coefficients": {
+      "initial_height": -0.61604576264336,
+      "intercept": 0.20534361830391912,
+      "num_limbs": 0.046221140958980854,
+      "psr_epi": 0.20024295890170749
+    },
+    "residuals_by_body": {
+      "gen-0001": 0.2220539413197212,
+      "gen-0002": -0.06724140480949797,
+      "gen-0018": -0.07688828777898407,
+      "gen-0028": 0.7156130568896235,
+      "gen-0030": 0.20581987247633504,
+      "gen-0031": 0.12912067174609354,
+      "gen-0033": -0.32002419770904367,
+      "gen-0035": 0.3801683072845719,
+      "gen-0036": 0.31137347676984606,
+      "gen-0041": 0.1008009099076713,
+      "gen-0044": 0.0996331771726913,
+      "gen-0046": 0.052163829880181034,
+      "gen-0059": -0.31495876640275455,
+      "gen-0060": -0.24821570261269127,
+      "gen-0062": -0.22387125923162082,
+      "gen-0065": -0.21326521609192206,
+      "gen-0067": -0.15400222388092616,
+      "gen-0079": 0.31649427444760736,
+      "gen-0082": -0.3249374685897179,
+      "gen-0093": -0.2859956406841433,
+      "gen-0105": -0.5390251777017218,
+      "gen-0109": -0.314334991489316,
+      "gen-0134": -0.49423944499384376,
+      "gen-0145": -0.26338750936666616,
+      "gen-0153": 0.40729497609398696,
+      "gen-0157": 0.08858275799390669,
+      "gen-0170": 0.9095934435010566,
+      "gen-0178": -0.3550424289246107,
+      "gen-0187": -0.14069285716419044,
+      "gen-0192": -0.40555692280650635,
+      "gen-0195": 1.202034054194748,
+      "gen-0196": 0.04176126879779707,
+      "gen-0199": 0.2758382846426868,
+      "gen-0205": -0.9166247666422878,
+      "gen-0206": -0.8325402474772239,
+      "gen-0215": -0.5864965109900573,
+      "gen-0228": 0.05583221282510055,
+      "gen-0239": -0.1471955198320447,
+      "gen-0243": 0.36016493110007686,
+      "gen-0258": 0.2389073731893118,
+      "gen-0273": 0.28096157846206493,
+      "gen-0275": 0.10197929346789919,
+      "gen-0279": 0.3858613128486156,
+      "gen-0280": -0.2914131309579109,
+      "gen-0287": 0.5796531492104364,
+      "gen-0291": -0.3464313610148071,
+      "gen-0296": -0.700782481036995,
+      "gen-0303": -0.9497207920506043,
+      "gen-0304": 0.46609381732903143,
+      "gen-0315": -0.5884142204313594,
+      "gen-0320": 0.8337750870701571,
+      "gen-0325": 0.9996312759307668,
+      "gen-0333": 0.7285691082144816,
+      "gen-0345": -0.535243167571449,
+      "gen-0346": -0.3737574653393437,
+      "gen-0378": 0.8337059115009101,
+      "gen-0386": -0.5209305040078264,
+      "gen-0388": -0.6114707216285756,
+      "gen-0389": 0.25099877751130983,
+      "gen-0399": 0.5682202574399553
+    },
+    "standardized_coefficients": {
+      "initial_height": -0.3267600745487954,
+      "num_limbs": 0.1541312176275951,
+      "psr_epi": 0.2584392348944525
+    }
+  },
+  "cluster": {
+    "anova_per_protocol": {
+      "episodic": {
+        "F": 9.13805991113363,
+        "H": 14.476268518375036,
+        "n_groups": 3,
+        "n_obs": 178,
+        "p": 0.00016797200911164182,
+        "p_kw": 0.0007186513271893244
+      },
+      "reset_free": {
+        "F": 3.4787139243077965,
+        "H": 3.7474206747111793,
+        "n_groups": 3,
+        "n_obs": 179,
+        "p": 0.032984561811650465,
+        "p_kw": 0.15355287060411596
+      },
+      "strict": {
+        "F": 11.064289973872087,
+        "H": 18.9003060857101,
+        "n_groups": 3,
+        "n_obs": 179,
+        "p": 2.976923042681343e-05,
+        "p_kw": 7.867752331755385e-05
+      }
+    },
+    "anova_per_protocol_seed_avg": {
+      "episodic": {
+        "F": 3.6247202783194403,
+        "H": 5.626302249662899,
+        "n_groups": 3,
+        "n_obs": 60,
+        "p": 0.032972881256229596,
+        "p_kw": 0.06001557753752924
+      },
+      "reset_free": {
+        "F": 1.3113598410819358,
+        "H": 1.2918458590589807,
+        "n_groups": 3,
+        "n_obs": 60,
+        "p": 0.27745821462201964,
+        "p_kw": 0.5241785389382294
+      },
+      "strict": {
+        "F": 4.2955104964394755,
+        "H": 7.000290965864735,
+        "n_groups": 3,
+        "n_obs": 60,
+        "p": 0.01829650915840086,
+        "p_kw": 0.030192990537980986
+      }
+    },
+    "blocked_two_way_anova": {
+      "cluster_F": 8.41259304123498,
+      "cluster_p": 0.00025723648185972355,
+      "interaction_F": 12.471853641944499,
+      "interaction_df": [
+        4,
+        470
+      ],
+      "interaction_p": 1.1920759589762617e-09,
+      "interaction_partial_eta2": 0.09595811164086977,
+      "n_obs": 536,
+      "protocol_F": 347.4183442483165,
+      "protocol_p": 2.348075054911291e-93
+    },
+    "blocked_two_way_anova_per_seed": {
+      "cluster_F": 8.41259304123498,
+      "cluster_p": 0.00025723648185972355,
+      "interaction_F": 12.471853641944499,
+      "interaction_df": [
+        4,
+        470
+      ],
+      "interaction_p": 1.1920759589762617e-09,
+      "interaction_partial_eta2": 0.09595811164086977,
+      "n_obs": 536,
+      "protocol_F": 347.4183442483165,
+      "protocol_p": 2.348075054911291e-93
+    },
+    "blocked_two_way_anova_seed_avg": {
+      "cluster_F": 2.939167302237469,
+      "cluster_p": 0.056932017360113336,
+      "interaction_F": 4.368328459845814,
+      "interaction_df": [
+        4,
+        114
+      ],
+      "interaction_p": 0.002529841463389894,
+      "interaction_partial_eta2": 0.13290388238581896,
+      "n_obs": 180,
+      "protocol_F": 115.662741510026,
+      "protocol_p": 3.6689748358540345e-28
+    },
+    "cluster_centroid_features": {
+      "0": {
+        "initial_height": 1.1016666666666666,
+        "num_joints": 13.458333333333332,
+        "num_limbs": 7.0,
+        "torso_mode_vertical": 0.33333333333333337,
+        "tree_depth": 3.416666666666666
+      },
+      "1": {
+        "initial_height": 0.6821428571428572,
+        "num_joints": 9.5,
+        "num_limbs": 3.928571428571428,
+        "torso_mode_vertical": 0.0,
+        "tree_depth": 2.0714285714285716
+      },
+      "2": {
+        "initial_height": 0.7536363636363637,
+        "num_joints": 10.363636363636363,
+        "num_limbs": 4.863636363636363,
+        "torso_mode_vertical": 1.0,
+        "tree_depth": 2.181818181818182
+      }
+    },
+    "cluster_feature_keys": [
+      "num_limbs",
+      "torso_mode_vertical",
+      "initial_height",
+      "num_joints",
+      "tree_depth"
+    ],
+    "cluster_labels": {
+      "gen-0001": 2,
+      "gen-0002": 1,
+      "gen-0018": 1,
+      "gen-0028": 1,
+      "gen-0030": 2,
+      "gen-0031": 2,
+      "gen-0033": 1,
+      "gen-0035": 1,
+      "gen-0036": 2,
+      "gen-0041": 2,
+      "gen-0044": 2,
+      "gen-0046": 1,
+      "gen-0059": 1,
+      "gen-0060": 2,
+      "gen-0062": 2,
+      "gen-0065": 2,
+      "gen-0067": 1,
+      "gen-0079": 1,
+      "gen-0082": 0,
+      "gen-0093": 2,
+      "gen-0105": 1,
+      "gen-0109": 2,
+      "gen-0134": 0,
+      "gen-0145": 2,
+      "gen-0153": 2,
+      "gen-0157": 2,
+      "gen-0170": 2,
+      "gen-0178": 1,
+      "gen-0187": 0,
+      "gen-0192": 0,
+      "gen-0195": 2,
+      "gen-0196": 0,
+      "gen-0199": 1,
+      "gen-0205": 1,
+      "gen-0206": 1,
+      "gen-0215": 2,
+      "gen-0228": 2,
+      "gen-0239": 0,
+      "gen-0243": 0,
+      "gen-0258": 0,
+      "gen-0273": 2,
+      "gen-0275": 0,
+      "gen-0279": 0,
+      "gen-0280": 0,
+      "gen-0287": 2,
+      "gen-0291": 0,
+      "gen-0296": 0,
+      "gen-0303": 0,
+      "gen-0304": 0,
+      "gen-0315": 0,
+      "gen-0320": 0,
+      "gen-0325": 2,
+      "gen-0333": 0,
+      "gen-0345": 2,
+      "gen-0346": 0,
+      "gen-0378": 0,
+      "gen-0386": 0,
+      "gen-0388": 0,
+      "gen-0389": 0,
+      "gen-0399": 0
+    },
+    "cluster_sizes": {
+      "0": 24,
+      "1": 14,
+      "2": 22
+    },
+    "str_minus_rf_by_cluster": {
+      "0": {
+        "mean": 1.5828887350858933,
+        "n": 24,
+        "std": 0.9515697681580942
+      },
+      "1": {
+        "mean": 1.2077493196773121,
+        "n": 14,
+        "std": 0.5496133640908231
+      },
+      "2": {
+        "mean": 0.7511263410229223,
+        "n": 22,
+        "std": 0.9933086667911221
+      }
+    }
+  },
+  "primary": {
+    "corpus_initial_height_range": [
+      0.3,
+      1.04
+    ],
+    "corpus_loo_rho": {
+      "ols": 0.6526972697269727,
+      "rf": 0.7773657365736572,
+      "ridge": 0.6677707770777077
+    },
+    "metrics_all": {
+      "ols": {
+        "pearson_ci95": [
+          0.24000002860046474,
+          0.5608320548179907
+        ],
+        "pearson_p": 0.0009651043133040752,
+        "pearson_r": 0.4154010649754227,
+        "spearman_ci95": [
+          0.1799419081768387,
+          0.5966794561368066
+        ],
+        "spearman_p": 0.0010593772814965444,
+        "spearman_rho": 0.4123980605852361
+      },
+      "rf": {
+        "pearson_ci95": [
+          0.0783499227027125,
+          0.5014055572548619
+        ],
+        "pearson_p": 0.02121365171863261,
+        "pearson_r": 0.29696771928642984,
+        "spearman_ci95": [
+          0.16420181794154257,
+          0.6120726338424843
+        ],
+        "spearman_p": 0.0011770841125177832,
+        "spearman_rho": 0.4089696571837311
+      },
+      "ridge": {
+        "pearson_ci95": [
+          0.18555147481302792,
+          0.5297500512098096
+        ],
+        "pearson_p": 0.003192355449458611,
+        "pearson_r": 0.37457593470800593,
+        "spearman_ci95": [
+          0.11258336180224165,
+          0.5597286878649309
+        ],
+        "spearman_p": 0.005095615261036343,
+        "spearman_rho": 0.35710415541311513
+      }
+    },
+    "metrics_in_distribution": {
+      "ols": {
+        "pearson_ci95": [
+          -0.23446489828848566,
+          0.38137390458345427
+        ],
+        "pearson_p": 0.5580513449234279,
+        "pearson_r": 0.09184144155631013,
+        "spearman_ci95": [
+          -0.290928445483594,
+          0.38431631042551906
+        ],
+        "spearman_p": 0.7125655696277549,
+        "spearman_rho": 0.05783969498591198
+      },
+      "rf": {
+        "pearson_ci95": [
+          -0.226781573125682,
+          0.34407320056151897
+        ],
+        "pearson_p": 0.6910635884235112,
+        "pearson_r": 0.06238396021066623,
+        "spearman_ci95": [
+          -0.20255230741731348,
+          0.4419214839927928
+        ],
+        "spearman_p": 0.3742510674572177,
+        "spearman_rho": 0.13893608195049356
+      },
+      "ridge": {
+        "pearson_ci95": [
+          -0.27325108544625726,
+          0.34046546023696517
+        ],
+        "pearson_p": 0.7911789653266362,
+        "pearson_r": 0.041586539848571115,
+        "spearman_ci95": [
+          -0.3439320673339022,
+          0.321747841243655
+        ],
+        "spearman_p": 0.9494204577251083,
+        "spearman_rho": -0.009967153705144102
+      }
+    },
+    "n_bodies": 60,
+    "n_in_distribution": 43,
+    "per_body": [
+      {
+        "features": {
+          "initial_height": 0.87,
+          "num_bodies": 6,
+          "num_first_level_limbs": 1,
+          "num_joints": 11,
+          "tree_depth": 4
+        },
+        "in_distribution": true,
+        "name": "gen-0134",
+        "observed_str_minus_rf": 1.9741446411184822,
+        "predicted_ols": 1.2873017091392498,
+        "predicted_rf": 1.3252418095991774,
+        "predicted_ridge": 1.2510027352413173
+      },
+      {
+        "features": {
+          "initial_height": 0.74,
+          "num_bodies": 7,
+          "num_first_level_limbs": 2,
+          "num_joints": 10,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0273",
+        "observed_str_minus_rf": 0.8036147537734631,
+        "predicted_ols": -0.27450229551925265,
+        "predicted_rf": 0.9475882482511443,
+        "predicted_ridge": -0.4639514373741225
+      },
+      {
+        "features": {
+          "initial_height": 0.62,
+          "num_bodies": 5,
+          "num_first_level_limbs": 2,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0079",
+        "observed_str_minus_rf": 0.10920593517547295,
+        "predicted_ols": -0.5399065460386705,
+        "predicted_rf": 0.2033412303661914,
+        "predicted_ridge": -0.6383176664727304
+      },
+      {
+        "features": {
+          "initial_height": 0.65,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0033",
+        "observed_str_minus_rf": 1.1995230477887435,
+        "predicted_ols": -0.14980856766568085,
+        "predicted_rf": 0.5919099717387251,
+        "predicted_ridge": -0.1639888993799139
+      },
+      {
+        "features": {
+          "initial_height": 0.55,
+          "num_bodies": 5,
+          "num_first_level_limbs": 2,
+          "num_joints": 12,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0059",
+        "observed_str_minus_rf": 1.3848175979513948,
+        "predicted_ols": -0.28693763278147033,
+        "predicted_rf": -0.16122213530297436,
+        "predicted_ridge": -0.21602051633601738
+      },
+      {
+        "features": {
+          "initial_height": 0.77,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 10,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0030",
+        "observed_str_minus_rf": 0.4016939021300612,
+        "predicted_ols": 0.3093270317621415,
+        "predicted_rf": 0.7981639663175847,
+        "predicted_ridge": 0.2741692932600732
+      },
+      {
+        "features": {
+          "initial_height": 0.7,
+          "num_bodies": 6,
+          "num_first_level_limbs": 3,
+          "num_joints": 11,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0093",
+        "observed_str_minus_rf": 0.9232009422956728,
+        "predicted_ols": -0.3915306736308657,
+        "predicted_rf": -1.107107188022671,
+        "predicted_ridge": -0.5579296170572703
+      },
+      {
+        "features": {
+          "initial_height": 0.3,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 9,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0044",
+        "observed_str_minus_rf": -0.22383932230274295,
+        "predicted_ols": -0.8001566940658429,
+        "predicted_rf": -1.488246382542377,
+        "predicted_ridge": -0.5453868559913302
+      },
+      {
+        "features": {
+          "initial_height": 1.2,
+          "num_bodies": 7,
+          "num_first_level_limbs": 2,
+          "num_joints": 10,
+          "tree_depth": 2
+        },
+        "in_distribution": false,
+        "name": "gen-0228",
+        "observed_str_minus_rf": 0.9429912841986448,
+        "predicted_ols": 0.7127204508526339,
+        "predicted_rf": 0.9406237601146071,
+        "predicted_ridge": 0.20975452445136167
+      },
+      {
+        "features": {
+          "initial_height": 0.89,
+          "num_bodies": 7,
+          "num_first_level_limbs": 2,
+          "num_joints": 12,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0275",
+        "observed_str_minus_rf": 1.4938967806285541,
+        "predicted_ols": 0.6771637812459339,
+        "predicted_rf": 1.214514570586692,
+        "predicted_ridge": 0.49962569164599424
+      },
+      {
+        "features": {
+          "initial_height": 0.9,
+          "num_bodies": 4,
+          "num_first_level_limbs": 2,
+          "num_joints": 9,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0035",
+        "observed_str_minus_rf": 1.6930249698934507,
+        "predicted_ols": 0.2586769372638238,
+        "predicted_rf": 0.75895099798052,
+        "predicted_ridge": 0.03486461075188041
+      },
+      {
+        "features": {
+          "initial_height": 0.97,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 12,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0320",
+        "observed_str_minus_rf": 0.13425396439964654,
+        "predicted_ols": 0.6551233447500304,
+        "predicted_rf": -0.2659426881601688,
+        "predicted_ridge": 0.35299998233513374
+      },
+      {
+        "features": {
+          "initial_height": 0.87,
+          "num_bodies": 7,
+          "num_first_level_limbs": 3,
+          "num_joints": 14,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0215",
+        "observed_str_minus_rf": 2.0906721652146794,
+        "predicted_ols": 0.1788456870051034,
+        "predicted_rf": -0.6791005659288177,
+        "predicted_ridge": -0.04723409164679415
+      },
+      {
+        "features": {
+          "initial_height": 1.16,
+          "num_bodies": 9,
+          "num_first_level_limbs": 3,
+          "num_joints": 13,
+          "tree_depth": 3
+        },
+        "in_distribution": false,
+        "name": "gen-0315",
+        "observed_str_minus_rf": 1.0389313348428035,
+        "predicted_ols": 0.9348406653701589,
+        "predicted_rf": -0.5469288077469134,
+        "predicted_ridge": 0.4639788017940383
+      },
+      {
+        "features": {
+          "initial_height": 0.75,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0041",
+        "observed_str_minus_rf": 0.9884414605346635,
+        "predicted_ols": 0.06480507284994674,
+        "predicted_rf": 0.8623694239719432,
+        "predicted_ridge": -0.01753108159176575
+      },
+      {
+        "features": {
+          "initial_height": 1.0,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 9,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0018",
+        "observed_str_minus_rf": 1.8675752655618838,
+        "predicted_ols": 0.7021387895435502,
+        "predicted_rf": 0.9971423274685772,
+        "predicted_ridge": 0.47981786852571107
+      },
+      {
+        "features": {
+          "initial_height": 1.37,
+          "num_bodies": 8,
+          "num_first_level_limbs": 1,
+          "num_joints": 15,
+          "tree_depth": 3
+        },
+        "in_distribution": false,
+        "name": "gen-0239",
+        "observed_str_minus_rf": 1.481378706543762,
+        "predicted_ols": 2.1416906392444472,
+        "predicted_rf": 0.7245998774640852,
+        "predicted_ridge": 1.762835892185413
+      },
+      {
+        "features": {
+          "initial_height": 0.9,
+          "num_bodies": 5,
+          "num_first_level_limbs": 1,
+          "num_joints": 9,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0028",
+        "observed_str_minus_rf": 0.4951616648916074,
+        "predicted_ols": 0.3906594745737202,
+        "predicted_rf": 0.7902331639756751,
+        "predicted_ridge": 0.20146406896687274
+      },
+      {
+        "features": {
+          "initial_height": 0.6,
+          "num_bodies": 6,
+          "num_first_level_limbs": 1,
+          "num_joints": 11,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0199",
+        "observed_str_minus_rf": 1.0672898934594959,
+        "predicted_ols": -0.14844789061829555,
+        "predicted_rf": 0.07312763761058971,
+        "predicted_ridge": -0.10739655487405475
+      },
+      {
+        "features": {
+          "initial_height": 0.6,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 9,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0046",
+        "observed_str_minus_rf": 0.8782236117023406,
+        "predicted_ols": -0.15631577251896012,
+        "predicted_rf": 0.22263751341207383,
+        "predicted_ridge": -0.10601340262688419
+      },
+      {
+        "features": {
+          "initial_height": 1.18,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 18,
+          "tree_depth": 3
+        },
+        "in_distribution": false,
+        "name": "gen-0346",
+        "observed_str_minus_rf": 1.106700181167049,
+        "predicted_ols": 1.710609682260058,
+        "predicted_rf": 0.722265750292581,
+        "predicted_ridge": 1.447787833572872
+      },
+      {
+        "features": {
+          "initial_height": 0.6,
+          "num_bodies": 6,
+          "num_first_level_limbs": 2,
+          "num_joints": 10,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0195",
+        "observed_str_minus_rf": -1.5032380633616371,
+        "predicted_ols": -0.04994933260425327,
+        "predicted_rf": 0.626684663118522,
+        "predicted_ridge": -0.05561480946315589
+      },
+      {
+        "features": {
+          "initial_height": 1.15,
+          "num_bodies": 5,
+          "num_first_level_limbs": 3,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": false,
+        "name": "gen-0062",
+        "observed_str_minus_rf": 1.4699642973552358,
+        "predicted_ols": 0.36869753693005647,
+        "predicted_rf": -0.5430867205575626,
+        "predicted_ridge": -0.16058667218122435
+      },
+      {
+        "features": {
+          "initial_height": 1.2,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 14,
+          "tree_depth": 4
+        },
+        "in_distribution": false,
+        "name": "gen-0378",
+        "observed_str_minus_rf": 1.2271145391562666,
+        "predicted_ols": 1.7784803339277202,
+        "predicted_rf": 1.8940580223858945,
+        "predicted_ridge": 1.4337433655857694
+      },
+      {
+        "features": {
+          "initial_height": 1.2,
+          "num_bodies": 7,
+          "num_first_level_limbs": 1,
+          "num_joints": 12,
+          "tree_depth": 4
+        },
+        "in_distribution": false,
+        "name": "gen-0196",
+        "observed_str_minus_rf": 2.672168125126115,
+        "predicted_ols": 1.9994606637911536,
+        "predicted_rf": 1.4073701038533886,
+        "predicted_ridge": 1.7336219578186225
+      },
+      {
+        "features": {
+          "initial_height": 1.21,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 16,
+          "tree_depth": 4
+        },
+        "in_distribution": false,
+        "name": "gen-0389",
+        "observed_str_minus_rf": 1.9136058606512214,
+        "predicted_ols": 2.0015409287883523,
+        "predicted_rf": 1.8101312111244474,
+        "predicted_ridge": 1.710797958658794
+      },
+      {
+        "features": {
+          "initial_height": 0.5,
+          "num_bodies": 6,
+          "num_first_level_limbs": 3,
+          "num_joints": 11,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0206",
+        "observed_str_minus_rf": 1.2703365321134152,
+        "predicted_ols": -0.8207579546621204,
+        "predicted_rf": -1.4475781732891204,
+        "predicted_ridge": -0.8508452526335675
+      },
+      {
+        "features": {
+          "initial_height": 0.6,
+          "num_bodies": 8,
+          "num_first_level_limbs": 3,
+          "num_joints": 13,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0287",
+        "observed_str_minus_rf": 0.5276174756837673,
+        "predicted_ols": -0.5982764322458278,
+        "predicted_rf": -1.8806638537414495,
+        "predicted_ridge": -0.7057705870925899
+      },
+      {
+        "features": {
+          "initial_height": 0.94,
+          "num_bodies": 6,
+          "num_first_level_limbs": 1,
+          "num_joints": 10,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0153",
+        "observed_str_minus_rf": 0.37897271587119874,
+        "predicted_ols": 0.4804388717303034,
+        "predicted_rf": 0.03622020377611148,
+        "predicted_ridge": 0.25935561995854695
+      },
+      {
+        "features": {
+          "initial_height": 0.65,
+          "num_bodies": 6,
+          "num_first_level_limbs": 3,
+          "num_joints": 9,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0178",
+        "observed_str_minus_rf": 1.3340533337942635,
+        "predicted_ols": -0.7004367246977488,
+        "predicted_rf": -1.3755434558472017,
+        "predicted_ridge": -0.8935673372455533
+      },
+      {
+        "features": {
+          "initial_height": 1.05,
+          "num_bodies": 7,
+          "num_first_level_limbs": 2,
+          "num_joints": 12,
+          "tree_depth": 3
+        },
+        "in_distribution": false,
+        "name": "gen-0187",
+        "observed_str_minus_rf": 2.4123742914153645,
+        "predicted_ols": 1.0205456060709381,
+        "predicted_rf": 1.262621368392704,
+        "predicted_ridge": 0.7339582001070322
+      },
+      {
+        "features": {
+          "initial_height": 0.6,
+          "num_bodies": 5,
+          "num_first_level_limbs": 2,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0060",
+        "observed_str_minus_rf": 0.4592993033860986,
+        "predicted_ols": -0.5828292741417962,
+        "predicted_rf": 0.20675144392535888,
+        "predicted_ridge": -0.66760923003036
+      },
+      {
+        "features": {
+          "initial_height": 1.02,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 14,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0386",
+        "observed_str_minus_rf": 2.4932501470797783,
+        "predicted_ols": 0.9640293958169148,
+        "predicted_rf": 0.8312153573865484,
+        "predicted_ridge": 0.6886377025234172
+      },
+      {
+        "features": {
+          "initial_height": 0.55,
+          "num_bodies": 5,
+          "num_first_level_limbs": 2,
+          "num_joints": 10,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0105",
+        "observed_str_minus_rf": 0.8605307653409402,
+        "predicted_ols": -0.48853686359054027,
+        "predicted_rf": -0.17940039694414114,
+        "predicted_ridge": -0.47842932763022605
+      },
+      {
+        "features": {
+          "initial_height": 1.22,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 14,
+          "tree_depth": 4
+        },
+        "in_distribution": false,
+        "name": "gen-0303",
+        "observed_str_minus_rf": 3.6840917727316214,
+        "predicted_ols": 1.8214030620308455,
+        "predicted_rf": 1.8940580223858945,
+        "predicted_ridge": 1.463034929143399
+      },
+      {
+        "features": {
+          "initial_height": 1.07,
+          "num_bodies": 7,
+          "num_first_level_limbs": 2,
+          "num_joints": 12,
+          "tree_depth": 2
+        },
+        "in_distribution": false,
+        "name": "gen-0145",
+        "observed_str_minus_rf": 2.0144940248619974,
+        "predicted_ols": 0.6353219489913879,
+        "predicted_rf": 0.9697260157818175,
+        "predicted_ridge": 0.28176817262097664
+      },
+      {
+        "features": {
+          "initial_height": 0.7,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0001",
+        "observed_str_minus_rf": 1.106636681772709,
+        "predicted_ols": -0.042501747407867274,
+        "predicted_rf": 0.9823625168918226,
+        "predicted_ridge": -0.09075999048583983
+      },
+      {
+        "features": {
+          "initial_height": 0.65,
+          "num_bodies": 8,
+          "num_first_level_limbs": 1,
+          "num_joints": 15,
+          "tree_depth": 4
+        },
+        "in_distribution": true,
+        "name": "gen-0279",
+        "observed_str_minus_rf": 0.004280191375862552,
+        "predicted_ols": 1.0246188127146043,
+        "predicted_rf": 0.8382866241397942,
+        "predicted_ridge": 1.189821195154428
+      },
+      {
+        "features": {
+          "initial_height": 0.65,
+          "num_bodies": 9,
+          "num_first_level_limbs": 3,
+          "num_joints": 14,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0345",
+        "observed_str_minus_rf": 2.009022093722197,
+        "predicted_ols": -0.48703567103768197,
+        "predicted_rf": -1.5330280763888842,
+        "predicted_ridge": -0.6332332543221009
+      },
+      {
+        "features": {
+          "initial_height": 1.6,
+          "num_bodies": 8,
+          "num_first_level_limbs": 2,
+          "num_joints": 11,
+          "tree_depth": 3
+        },
+        "in_distribution": false,
+        "name": "gen-0333",
+        "observed_str_minus_rf": 1.505992453516018,
+        "predicted_ols": 2.0032553390481525,
+        "predicted_rf": 0.9137665021131656,
+        "predicted_ridge": 1.2763758105240566
+      },
+      {
+        "features": {
+          "initial_height": 1.47,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 16,
+          "tree_depth": 4
+        },
+        "in_distribution": false,
+        "name": "gen-0399",
+        "observed_str_minus_rf": 1.726107300487472,
+        "predicted_ols": 2.559536394128984,
+        "predicted_rf": 1.8101312111244474,
+        "predicted_ridge": 2.091588284907981
+      },
+      {
+        "features": {
+          "initial_height": 0.82,
+          "num_bodies": 7,
+          "num_first_level_limbs": 2,
+          "num_joints": 12,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0192",
+        "observed_str_minus_rf": 0.22345076292407795,
+        "predicted_ols": 0.5269342328849946,
+        "predicted_rf": 1.271272408660531,
+        "predicted_ridge": 0.3971052191942901
+      },
+      {
+        "features": {
+          "initial_height": 1.0,
+          "num_bodies": 7,
+          "num_first_level_limbs": 1,
+          "num_joints": 12,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0291",
+        "observed_str_minus_rf": 2.394829320208964,
+        "predicted_ols": 1.142086997577223,
+        "predicted_rf": 1.3134600323883074,
+        "predicted_ridge": 0.9592247311986402
+      },
+      {
+        "features": {
+          "initial_height": 1.3,
+          "num_bodies": 8,
+          "num_first_level_limbs": 1,
+          "num_joints": 17,
+          "tree_depth": 5
+        },
+        "in_distribution": false,
+        "name": "gen-0280",
+        "observed_str_minus_rf": 2.267716502480362,
+        "predicted_ols": 3.0493530920579284,
+        "predicted_rf": 1.3644836645567748,
+        "predicted_ridge": 2.885687413115289
+      },
+      {
+        "features": {
+          "initial_height": 1.04,
+          "num_bodies": 8,
+          "num_first_level_limbs": 3,
+          "num_joints": 14,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0304",
+        "observed_str_minus_rf": 1.0562362241227299,
+        "predicted_ols": 0.8749695866101437,
+        "predicted_rf": -0.5584469065873027,
+        "predicted_ridge": 0.5513298078660545
+      },
+      {
+        "features": {
+          "initial_height": 1.27,
+          "num_bodies": 9,
+          "num_first_level_limbs": 2,
+          "num_joints": 13,
+          "tree_depth": 3
+        },
+        "in_distribution": false,
+        "name": "gen-0388",
+        "observed_str_minus_rf": 2.9752726694628064,
+        "predicted_ols": 1.3997638817014484,
+        "predicted_rf": 0.8784074901510434,
+        "predicted_ridge": 0.9235778413466846
+      },
+      {
+        "features": {
+          "initial_height": 1.2,
+          "num_bodies": 8,
+          "num_first_level_limbs": 1,
+          "num_joints": 11,
+          "tree_depth": 3
+        },
+        "in_distribution": false,
+        "name": "gen-0296",
+        "observed_str_minus_rf": 1.348066016888584,
+        "predicted_ols": 1.373648988749741,
+        "predicted_rf": 0.9976979736654809,
+        "predicted_ridge": 0.9890399793571438
+      },
+      {
+        "features": {
+          "initial_height": 0.6,
+          "num_bodies": 4,
+          "num_first_level_limbs": 1,
+          "num_joints": 9,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0002",
+        "observed_str_minus_rf": 1.2637637586389696,
+        "predicted_ols": -0.15631577251896012,
+        "predicted_rf": 0.22263751341207383,
+        "predicted_ridge": -0.10601340262688419
+      },
+      {
+        "features": {
+          "initial_height": 0.81,
+          "num_bodies": 4,
+          "num_first_level_limbs": 2,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0031",
+        "observed_str_minus_rf": 1.6291362666882192,
+        "predicted_ols": -0.03527495460477548,
+        "predicted_rf": 0.8044228313890597,
+        "predicted_ridge": -0.22815183090455848
+      },
+      {
+        "features": {
+          "initial_height": 0.73,
+          "num_bodies": 5,
+          "num_first_level_limbs": 2,
+          "num_joints": 8,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0036",
+        "observed_str_minus_rf": 0.3859052705386784,
+        "predicted_ols": -0.3038315414714803,
+        "predicted_rf": 0.8310872579767878,
+        "predicted_ridge": -0.4772140669057665
+      },
+      {
+        "features": {
+          "initial_height": 0.5,
+          "num_bodies": 5,
+          "num_first_level_limbs": 1,
+          "num_joints": 9,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0109",
+        "observed_str_minus_rf": 1.831320037640141,
+        "predicted_ols": -0.03964870230611428,
+        "predicted_rf": 0.2663407335676765,
+        "predicted_ridge": 0.09711438885796264
+      },
+      {
+        "features": {
+          "initial_height": 0.7,
+          "num_bodies": 5,
+          "num_first_level_limbs": 2,
+          "num_joints": 10,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0067",
+        "observed_str_minus_rf": 2.3196951820152987,
+        "predicted_ols": -0.1666164028170991,
+        "predicted_rf": 0.8842837197265235,
+        "predicted_ridge": -0.2587426009480027
+      },
+      {
+        "features": {
+          "initial_height": 0.75,
+          "num_bodies": 8,
+          "num_first_level_limbs": 2,
+          "num_joints": 12,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0325",
+        "observed_str_minus_rf": -1.4600313588941973,
+        "predicted_ols": 0.2798390100698529,
+        "predicted_rf": 0.083817864927654,
+        "predicted_ridge": 0.16268876497189622
+      },
+      {
+        "features": {
+          "initial_height": 0.73,
+          "num_bodies": 5,
+          "num_first_level_limbs": 2,
+          "num_joints": 10,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0065",
+        "observed_str_minus_rf": 1.1385848475831066,
+        "predicted_ols": -0.10223231066241079,
+        "predicted_rf": 0.7668818003224294,
+        "predicted_ridge": -0.21480525561155783
+      },
+      {
+        "features": {
+          "initial_height": 0.73,
+          "num_bodies": 6,
+          "num_first_level_limbs": 1,
+          "num_joints": 9,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0205",
+        "observed_str_minus_rf": 1.165288917155095,
+        "predicted_ols": 0.3570969964256263,
+        "predicted_rf": 1.3064693403868384,
+        "predicted_ridge": 0.30207138800001543
+      },
+      {
+        "features": {
+          "initial_height": 0.94,
+          "num_bodies": 8,
+          "num_first_level_limbs": 1,
+          "num_joints": 11,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0258",
+        "observed_str_minus_rf": 0.5303642404114597,
+        "predicted_ols": 0.8156535234091091,
+        "predicted_rf": -0.2193893395783445,
+        "predicted_ridge": 0.6082496531079564
+      },
+      {
+        "features": {
+          "initial_height": 0.82,
+          "num_bodies": 6,
+          "num_first_level_limbs": 1,
+          "num_joints": 10,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0170",
+        "observed_str_minus_rf": -0.41659206271944627,
+        "predicted_ols": 0.651048888294226,
+        "predicted_rf": 1.2174975057802342,
+        "predicted_ridge": 0.5650878296564534
+      },
+      {
+        "features": {
+          "initial_height": 1.06,
+          "num_bodies": 6,
+          "num_first_level_limbs": 1,
+          "num_joints": 12,
+          "tree_depth": 4
+        },
+        "in_distribution": false,
+        "name": "gen-0082",
+        "observed_str_minus_rf": 2.0146598253442356,
+        "predicted_ols": 1.795867241523477,
+        "predicted_rf": 1.4073701038533886,
+        "predicted_ridge": 1.6604769946859044
+      },
+      {
+        "features": {
+          "initial_height": 0.6,
+          "num_bodies": 7,
+          "num_first_level_limbs": 2,
+          "num_joints": 16,
+          "tree_depth": 2
+        },
+        "in_distribution": true,
+        "name": "gen-0157",
+        "observed_str_minus_rf": 1.0269127865317835,
+        "predicted_ols": 0.029836300186077747,
+        "predicted_rf": 0.1843094649627701,
+        "predicted_ridge": 0.11823405160509504
+      },
+      {
+        "features": {
+          "initial_height": 0.75,
+          "num_bodies": 8,
+          "num_first_level_limbs": 1,
+          "num_joints": 16,
+          "tree_depth": 3
+        },
+        "in_distribution": true,
+        "name": "gen-0243",
+        "observed_str_minus_rf": 0.3104437899782059,
+        "predicted_ols": 0.9118856834520912,
+        "predicted_rf": 0.530294922566447,
+        "predicted_ridge": 0.9860018275459952
+      }
+    ],
+    "positive_transfer": true,
+    "primary_endpoint_ols": {
+      "pearson_ci95": [
+        0.24000002860046474,
+        0.5608320548179907
+      ],
+      "pearson_p": 0.0009651043133040752,
+      "pearson_r": 0.4154010649754227,
+      "spearman_ci95": [
+        0.1799419081768387,
+        0.5966794561368066
+      ],
+      "spearman_p": 0.0010593772814965444,
+      "spearman_rho": 0.4123980605852361
+    }
+  },
+  "transitions": {
+    "0": {
+      "epi_walks": 14,
+      "rf_walks": 2,
+      "str_walks": 13,
+      "total": 24,
+      "walks_epi_then_stop_rf": 10
+    },
+    "1": {
+      "epi_walks": 4,
+      "rf_walks": 1,
+      "str_walks": 6,
+      "total": 14,
+      "walks_epi_then_stop_rf": 2
+    },
+    "2": {
+      "epi_walks": 10,
+      "rf_walks": 3,
+      "str_walks": 7,
+      "total": 22,
+      "walks_epi_then_stop_rf": 6,
+      "walks_epi_then_stop_str": 3
+    }
+  }
+}

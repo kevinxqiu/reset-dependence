@@ -1,0 +1,3691 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "annotation": "cr:annotation",
+    "arrayShape": "cr:arrayShape",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "containedIn": "cr:containedIn",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "excludes": "cr:excludes",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isArray": "cr:isArray",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "prov": "http://www.w3.org/ns/prov#",
+    "readLines": "cr:readLines",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "sdVersion": "cr:sdVersion",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "unArchive": "cr:unArchive",
+    "value": "cr:value"
+  },
+  "@type": "sc:Dataset",
+  "name": "reset-dependence-runs",
+  "alternateName": "Reset Dependence Is Embodied: run summaries",
+  "description": "Run summaries behind the NeurIPS 2026 Evaluations and Datasets paper 'Reset Dependence Is Embodied: Training Protocol Changes Which Morphologies Appear Optimal'. The 100 training bodies of MetaMorph's UNIMAL-100 benchmark, which MetaMorph chose from the UNIMAL bodies that DERL evolved, were trained with PPO for 5M environment steps under fall rules that end a training episode when the torso drops below a fraction tau of its reset height (Reset-free tau = 0, Standard tau = 0.20, Strict tau = 0.50, plus 0.10 and 0.35), with seeds 42, 43 and 44, and each controller was scored over 20 episodes by three evaluators. The dataset holds one JSON summary per run for the 900-run corpus and the other UNIMAL panels (3,306 runs in all, including SAC, retraining, time-limit, contact-termination, non-evolved-body, longer-budget and existing-robot panels), a flat CSV of all runs, structural features of the bodies, the zero-action and probe simulation records, joint-angle traces of nine illustrative controllers, and training logs where they were kept. No policy checkpoints are included. The UNIMAL body files are not included; the code repository downloads them from the upstream release and checks their hashes. With the CPU scripts in the code repository these files recompute the statistics and figures that the paper reports for the UNIMAL panels. The numbers script recomputes 2,401 values, and the end of its report (records/camera_ready_numbers.md) lists the printed numbers it does not recompute with their sources: mostly settings, dates, decision rules and quoted values, plus results kept outside the run summaries such as the cross-validated structure fits. panels.zip holds the five control panels trained during the review discussion outside the UNIMAL corpus (5,860 cells): Humanoid fall rules, Humanoid time-limit handling, Ant reset initialization, Ant protocol breadth (reset initialization, time-limit handling, observation noise) and Evolution Gym time-limit handling. It holds one CSV row per morphology, protocol, seed and hardware class with the score each frozen report ranks, the Humanoid evaluation curves, and the frozen reports, panel specifications, contracts and inventories; scripts/review_panels.py in the code repository recomputes every statistic and cell count in those reports from the tables.",
+  "conformsTo": [
+    "http://mlcommons.org/croissant/1.1",
+    "http://mlcommons.org/croissant/RAI/1.0"
+  ],
+  "citeAs": "@inproceedings{qiu2026reset,\n  title     = {Reset Dependence Is Embodied: Training Protocol Changes Which Morphologies Appear Optimal},\n  author    = {Qiu, Kevin and Yang, Zhao and Cygan, Marek},\n  booktitle = {Advances in Neural Information Processing Systems (Evaluations and Datasets Track)},\n  year      = {2026}\n}",
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Kevin Qiu",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "University of Warsaw"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Zhao Yang",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "Vrije Universiteit Amsterdam"
+      }
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Marek Cygan",
+      "affiliation": {
+        "@type": "sc:Organization",
+        "name": "University of Warsaw"
+      }
+    }
+  ],
+  "datePublished": "2026-11-06",
+  "dateCreated": "2026-04-05",
+  "dateModified": "2026-10-13",
+  "version": "1.1.2",
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "sdLicense": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://github.com/kevinxqiu/reset-dependence/releases/tag/v1.1.2",
+  "sameAs": "https://github.com/kevinxqiu/reset-dependence",
+  "keywords": [
+    "robot co-design",
+    "morphology",
+    "reinforcement learning",
+    "evaluation protocol",
+    "termination",
+    "UNIMAL",
+    "MuJoCo",
+    "benchmark audit"
+  ],
+  "isLiveDataset": false,
+  "rai:dataCollection": "All records were produced by the authors in simulation. The run summaries in runs.zip come from GPU PPO and SAC training in MuJoCo MJX in April 2026, and the zero-action and probe records were produced on CPU on 2026-10-05. The review-period panels in panels.zip were trained between 25 July and 1 August 2026 (Brax PPO in MuJoCo MJX for Humanoid and Ant, Stable-Baselines3 PPO in Evolution Gym). No human subjects or personal data are involved.",
+  "rai:dataCollectionType": "Simulation",
+  "rai:dataPreprocessingProtocol": "Run summaries are the JSON files written by the training scripts, unchanged except that GPU host names are replaced by stable pseudonyms (gpu-node-NN) and home directories in recorded paths are masked. Job ids and code commits are kept. The CSV tables are flattened copies of the JSON summaries and morphology features. The review-period panel tables (panels.zip) copy a fixed list of fields from each run's raw records, with no host names or paths; every score equals the one the panel's frozen report used. The frozen reports are copied unchanged except for one masked design-note path in the Evolution Gym report, and the panel specifications are shipped without their root binding tokens and storage locations, as in the reports.",
+  "rai:dataLimitations": "Two defects in the fall thresholds (described in the paper): the Standard cutoff lies below the torso radius for 28 bodies, and the Strict cutoff ends episodes during the reset drop for ten VT bodies (an eleventh body, from the Floor family, is cut off without an identified mechanism). The corpus, intermediate-tau and SAC records do not store the code version, full settings or GPU. No policy checkpoints were saved. Results hold for one task (forward locomotion), one PPO preset and three seeds. The review-period panels are small (20 to 30 bodies per pool, four or five seeds), use other trainers, budgets and evaluators than the UNIMAL panels, and the two arms of the Humanoid time-limit panel were trained with different code revisions.",
+  "rai:dataBiases": "The 100 bodies are MetaMorph's selection from the bodies that DERL evolved and are not a random sample of designs. Family sizes are unequal (41 Floor, 37 VT, 22 MVT).",
+  "rai:dataUseCases": "Recomputing the paper's statistics; studying how training-protocol choices change morphology rankings; benchmarking reporting practices in co-design. Not suitable for training or deploying controllers on hardware.",
+  "rai:dataSocialImpact": "Low. The data describe simulated locomotion and contain no personal information.",
+  "rai:personalSensitiveInformation": "None.",
+  "rai:hasSyntheticData": true,
+  "rai:dataCollectionMissingData": "No policy checkpoints were saved. No training logs exist for the corpus and SAC runs. The corpus, intermediate-tau and SAC summaries do not record the code commit, full settings or GPU. For the review-period panels, the raw run records, policy checkpoints and generated body files are not included (the tables keep the SHA-256 of each raw result and configuration file and of each body); the Ant breadth panel's report.json was not kept, so its frozen summary table is shipped instead, and its table lacks the evaluation details, body hashes, wall times and job ids. The A2C panel records are not included.",
+  "rai:dataReleaseMaintenancePlan": "Versioned GitHub releases of the code repository; corrections are published as new releases with a changelog in the data card.",
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://github.com/agrimgupta92/metamorph",
+      "@type": "prov:Entity",
+      "name": "UNIMAL-100 benchmark of MetaMorph (training set chosen from the bodies evolved by DERL)",
+      "description": "The 100 UNIMAL training bodies of the UNIMAL-100 benchmark (unimals_100/train/xml) that every UNIMAL panel trains on (Gupta, Fan, Ganguli and Fei-Fei, ICLR 2022). MetaMorph chose them from the bodies that DERL evolved (Gupta, Savarese, Ganguli and Fei-Fei, Nature Communications 12, 5721, 2021). The upstream repository declares no license, so the files are not included. The code repository downloads them and checks their SHA-256.",
+      "url": "https://github.com/agrimgupta92/metamorph"
+    },
+    {
+      "@id": "https://github.com/agrimgupta92/derl",
+      "@type": "prov:Entity",
+      "name": "DERL code base (UNIMAL generator)",
+      "description": "Generator used to sample the 60 non-evolved bodies (gen-*) of the non_evolved panel. The repository declares no license; the generated XMLs are not included, only their features and run summaries.",
+      "url": "https://github.com/agrimgupta92/derl"
+    },
+    {
+      "@id": "https://github.com/google-deepmind/mujoco_menagerie",
+      "@type": "prov:Entity",
+      "name": "MuJoCo Menagerie robot models",
+      "description": "MJX models of Unitree Go2, ANYbotics ANYmal C, ToddlerBot 2XC and Unitree G1 used by the existing_robots panel. Not included; each model keeps its own license in the Menagerie repository.",
+      "url": "https://github.com/google-deepmind/mujoco_menagerie"
+    },
+    {
+      "@id": "https://github.com/Farama-Foundation/Gymnasium",
+      "@type": "prov:Entity",
+      "name": "Gymnasium MuJoCo Ant and Humanoid models",
+      "description": "The parametric Ant and Humanoid bodies of the review-period panels were generated by scaling the limbs of Gymnasium's Ant and Humanoid MuJoCo models. The generated body files are not included; the tables record the SHA-256 of each.",
+      "url": "https://github.com/Farama-Foundation/Gymnasium"
+    },
+    {
+      "@id": "https://github.com/EvolutionGym/evogym",
+      "@type": "prov:Entity",
+      "name": "Evolution Gym",
+      "description": "Walker-v0 and BridgeWalker-v0 tasks and the voxel bodies of the Evolution Gym panel (Bhatia et al., NeurIPS 2021). The body definitions are not included; the tables record the SHA-256 of each.",
+      "url": "https://github.com/EvolutionGym/evogym"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "name": "Controller training and evaluation",
+      "description": "PPO (and, for one panel, SAC) training of one controller per body, rule and seed in MuJoCo MJX on GPUs of a SLURM cluster, followed by CPU MuJoCo evaluation over 20 episodes with three evaluators (PPO actions sampled, SAC actions deterministic). Each run wrote one JSON summary. The 900-run corpus was trained in several launches from 5 to 8 April 2026, and the other panels of runs.zip later in April 2026. Trainers: corpus_revision/ and scripts/ in the code repository.",
+      "prov:startedAtTime": "2026-04-05",
+      "prov:used": [
+        {
+          "@id": "https://github.com/agrimgupta92/metamorph"
+        },
+        {
+          "@id": "https://github.com/agrimgupta92/derl"
+        },
+        {
+          "@id": "https://github.com/google-deepmind/mujoco_menagerie"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@type": "prov:Agent",
+          "name": "Kevin Qiu"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Zhao Yang"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Marek Cygan"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "name": "Review-period control panels",
+      "description": "Training of the Humanoid, Ant and Evolution Gym panels during the review discussion, between 25 July and 1 August 2026: Brax PPO in MuJoCo MJX on GH200 and H100 GPUs for Humanoid and Ant, Stable-Baselines3 PPO on CPU for Evolution Gym. Each panel's cells, comparisons and analysis settings were fixed in a specification and contract before its analysis was run, and a frozen analysis wrote one report per panel (the Humanoid time-limit report is a composite of two panels). Scores and file hashes of the Ant breadth panel were recovered from its raw records on 2026-09-24.",
+      "prov:startedAtTime": "2026-07-25",
+      "prov:endedAtTime": "2026-08-01",
+      "prov:used": [
+        {
+          "@id": "https://github.com/Farama-Foundation/Gymnasium"
+        },
+        {
+          "@id": "https://github.com/EvolutionGym/evogym"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@type": "prov:Agent",
+          "name": "Kevin Qiu"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Zhao Yang"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Marek Cygan"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "name": "Simulation probe records",
+      "description": "CPU MuJoCo zero-action rollouts, settle heights, random-action searches and training-like torso probes of the UNIMAL bodies (sim-records/), made with records/sim-record-scripts/ in the code repository.",
+      "prov:startedAtTime": "2026-10-05",
+      "prov:endedAtTime": "2026-10-05",
+      "prov:used": [
+        {
+          "@id": "https://github.com/agrimgupta92/metamorph"
+        }
+      ],
+      "prov:wasAssociatedWith": [
+        {
+          "@type": "prov:Agent",
+          "name": "Kevin Qiu"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Zhao Yang"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Marek Cygan"
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "name": "Packaging and masking",
+      "description": "GPU host names replaced by stable pseudonyms (gpu-node-NN), home directories and the UNIMAL XML directory masked in recorded paths and logs, empty lock files dropped, the JSON summaries and morphology features flattened into tables/runs.csv and tables/morph_features.csv, and the archives written with fixed timestamps so that the build is byte-reproducible. Apart from this masking, the run summaries are unchanged. For panels.zip, a fixed list of fields was copied from each run's raw records into the CSV tables (no host names or paths), every score was checked against the frozen report that used it, root binding tokens and storage locations were removed from the panel specifications as the frozen reports do, and one internal design-note path was masked in two specifications, the composite specification and the Evolution Gym report.",
+      "prov:wasAssociatedWith": [
+        {
+          "@type": "prov:Agent",
+          "name": "Kevin Qiu"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Zhao Yang"
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Marek Cygan"
+        }
+      ]
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "runs.zip",
+      "name": "runs.zip",
+      "description": "JSON run summaries (results/), flat CSV tables (tables/), simulation probe records (sim-records/) and gait traces (gait-traces/).",
+      "contentUrl": "https://github.com/kevinxqiu/reset-dependence/releases/download/v1.1.2/runs.zip",
+      "encodingFormat": "application/zip",
+      "contentSize": "2355131 B",
+      "sha256": "9be0864359e9d1039c0f73370200a132bd242d6bd1bc5a718619fd2a25ee811e"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "logs.zip",
+      "name": "logs.zip",
+      "description": "Training logs where they were kept (results/<panel>/logs/ and per-run logs/), host names and home paths masked.",
+      "contentUrl": "https://github.com/kevinxqiu/reset-dependence/releases/download/v1.1.2/logs.zip",
+      "encodingFormat": "application/zip",
+      "contentSize": "9668915 B",
+      "sha256": "d04400751efe95ce7f26da36f59836813c3312d811648b53717daa33e1cb106f"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "run-summaries",
+      "name": "run-summaries",
+      "description": "One JSON file per training job: a dict from body name to the run summary (settings, three evaluator summaries, wall time and, for later panels, provenance).",
+      "containedIn": {
+        "@id": "runs.zip"
+      },
+      "encodingFormat": "application/json",
+      "includes": "results/**/results.json"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "analysis-outputs",
+      "name": "analysis-outputs",
+      "description": "Small JSON outputs of analyses: morphology features, reviewed-version family statistics, early exploratory analyses (results/pivot/) and the retraining test analysis.",
+      "containedIn": {
+        "@id": "runs.zip"
+      },
+      "encodingFormat": "application/json",
+      "includes": "results/*.json"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "sim-records",
+      "name": "sim-records",
+      "description": "CPU MuJoCo records of 2026-10-05: zero-action rollouts, settle heights, random-action searches and training-like torso probes.",
+      "containedIn": {
+        "@id": "runs.zip"
+      },
+      "encodingFormat": "application/json",
+      "includes": "sim-records/**/*.json"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "gait-traces",
+      "name": "gait-traces",
+      "description": "Joint-angle (qpos) and action traces of nine illustrative controllers (three bodies, three rules, one seed, later code revision) behind the gait figure.",
+      "containedIn": {
+        "@id": "runs.zip"
+      },
+      "encodingFormat": "application/x-npz",
+      "includes": "gait-traces/*.traces.npz"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "runs-table",
+      "name": "runs-table",
+      "description": "tables/runs.csv: one row per run of every panel.",
+      "containedIn": {
+        "@id": "runs.zip"
+      },
+      "contentUrl": "tables/runs.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "1ae178363916e50f85b1a6fd16ba38af82d9cb33993ddc5dd7e28f5160d02dd0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "features-table",
+      "name": "features-table",
+      "description": "tables/morph_features.csv: structural features of the 100 UNIMAL and 60 non-evolved bodies.",
+      "containedIn": {
+        "@id": "runs.zip"
+      },
+      "contentUrl": "tables/morph_features.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b0535c3bdfc1fdcfa132910d18b04813778cee5a671ae55fe5f87d7fc9c609df"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "training-logs",
+      "name": "training-logs",
+      "description": "Plain-text training logs.",
+      "containedIn": {
+        "@id": "logs.zip"
+      },
+      "encodingFormat": "text/plain",
+      "includes": "**/*.log"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "panels.zip",
+      "name": "panels.zip",
+      "description": "Review-period panels (review-panels/): per-cell CSV tables, Humanoid evaluation curves, and the frozen reports, panel specifications, contracts and inventories of the Humanoid, Ant and Evolution Gym panels.",
+      "contentUrl": "https://github.com/kevinxqiu/reset-dependence/releases/download/v1.1.2/panels.zip",
+      "encodingFormat": "application/zip",
+      "contentSize": "1124322 B",
+      "sha256": "658c343b7b0e2a73e36cdc31bf0347dc1317521fd660e93ed49a459de6efa9e4"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "humanoid_fall_rule-cells-table",
+      "name": "humanoid_fall_rule-cells-table",
+      "description": "review-panels/humanoid-fall-rule/cells.csv: Humanoid fall rules (panel humanoid-primary-gh200-20260725): 3 pools of 30 parametric Humanoid bodies, training without a fall rule, with the native height range, or with cutoffs at 0.2 and 0.5 of the nominal root height, 5 seeds, Brax PPO in MJX on GH200 GPUs (1,800 cells).",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "contentUrl": "review-panels/humanoid-fall-rule/cells.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "59e081eb5839a78591419c0cb1cca380bed1cb34374730828441c5a188775374"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "humanoid_time_limit-cells-table",
+      "name": "humanoid_time_limit-cells-table",
+      "description": "review-panels/humanoid-time-limit/cells.csv: Terminal arm of the Humanoid time-limit panel (panel humanoid-timeout-factorial-gh200-20260727): the same 90 bodies and 5 seeds with the time limit treated as terminal, under the native fall rule and without a fall rule (900 cells). Its bootstrapped arm is the native and none cells of humanoid_fall_rule_cells.",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "contentUrl": "review-panels/humanoid-time-limit/cells.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "e85105099a1e826a3f1bdd0f63d578835b2c08a9334cdf2a886dcd6bcc32432b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ant_reset_init-cells-table",
+      "name": "ant_reset_init-cells-table",
+      "description": "review-panels/ant-reset-init/cells.csv: Ant reset initialization (panel ant-reset-init-h100-20260725): 20 parametric Ant bodies, initial states sampled with reset noise (native) against one nominal initial state (reset-deterministic), 4 seeds, Brax PPO in MJX on H100 GPUs (160 cells).",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "contentUrl": "review-panels/ant-reset-init/cells.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "5fc113f33a2e9c703ba242638df72942dd6d83e80796680332e47760cc4e4d24"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "ant_breadth-cells-table",
+      "name": "ant_breadth-cells-table",
+      "description": "review-panels/ant-breadth/cells.csv: Ant protocol breadth (panel ant-protocol-breadth-gh200-20260725): 3 pools of 30 parametric Ant bodies, the native protocol against deterministic resets, terminal time limits or observation noise, 5 seeds, GH200 GPUs (1,800 cells). Scores and file hashes were recovered from the raw records on 2026-09-24; the evaluation detail columns are empty.",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "contentUrl": "review-panels/ant-breadth/cells.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "91d76aaec4c6cb4119012b232ef78664665380ab79392b649a7b84cde2bfa0e6"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "evogym_time_limit-cells-table",
+      "name": "evogym_time_limit-cells-table",
+      "description": "review-panels/evogym-time-limit/cells.csv: Evolution Gym time-limit handling (panel evogym-wave1-cpu-20260724): 3 pools of 20 voxel bodies on Walker-v0 and BridgeWalker-v0, the 500-step time limit bootstrapped against terminal, 5 seeds, Stable-Baselines3 PPO on CPU (1,200 cells).",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "contentUrl": "review-panels/evogym-time-limit/cells.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "356f46ce307f0974657000bd29c040ef286ab5ea1539936019389f50238ee607"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "humanoid_fall_rule-progress-table",
+      "name": "humanoid_fall_rule-progress-table",
+      "description": "review-panels/humanoid-fall-rule/progress.csv: mean evaluation return of every cell at its six evaluation points.",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "contentUrl": "review-panels/humanoid-fall-rule/progress.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b03e10a63d0b8d7644c6bf68abfc63a977f324b13a3787dd2b65f4122e8d30e0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "humanoid_time_limit-progress-table",
+      "name": "humanoid_time_limit-progress-table",
+      "description": "review-panels/humanoid-time-limit/progress.csv: mean evaluation return of every cell at its six evaluation points.",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "contentUrl": "review-panels/humanoid-time-limit/progress.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "df63be0bbf834be8efb1b9d89db1e75601a836596641a2897b8539fe9a8a867a"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "panel-records",
+      "name": "panel-records",
+      "description": "Frozen reports (report.json), analysis manifests, the composite analysis specification, panel specifications (root tokens and storage locations withheld) and contracts of the review-period panels.",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "encodingFormat": "application/json",
+      "includes": "review-panels/**/*.json"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "panel-inventories",
+      "name": "panel-inventories",
+      "description": "Frozen inventories: one JSON line per cell with its protocol settings.",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "encodingFormat": "application/jsonlines",
+      "includes": "review-panels/**/*.jsonl"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "panel-report-text",
+      "name": "panel-report-text",
+      "description": "Markdown views of the frozen reports, and the frozen summary of the Ant breadth panel.",
+      "containedIn": {
+        "@id": "panels.zip"
+      },
+      "encodingFormat": "text/markdown",
+      "includes": "review-panels/**/*.md"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "runs",
+      "name": "runs",
+      "description": "One record per trained controller (3,306 runs over 11 panels).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "runs/panel",
+          "name": "panel",
+          "description": "Panel id: corpus, intermediate_tau, sac, retraining, no_time_limit, time_limit_duration, rule_by_time_limit, contact_termination, non_evolved, longer_budget_5m or existing_robots (see the data card)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "panel"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/results_file",
+          "name": "results_file",
+          "description": "Path inside runs.zip of the JSON run summary this row comes from",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "results_file"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/body",
+          "name": "body",
+          "description": "Body name: a UNIMAL body (floor-*, vt-*, mvt-*), a non-evolved body (gen-*) or an existing robot",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "body"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/family",
+          "name": "family",
+          "description": "floor, vt or mvt (environment DERL evolved the body in), non_evolved, or robot",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "family"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/algorithm",
+          "name": "algorithm",
+          "description": "PPO or SAC",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "algorithm"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/backend",
+          "name": "backend",
+          "description": "Trainer implementation label written by the training script",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "backend"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/tau",
+          "name": "tau",
+          "description": "Training fall threshold as a fraction of the reset height (0 means no fall clause)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "tau"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/timesteps",
+          "name": "timesteps",
+          "description": "Training budget in environment steps",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "timesteps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/termination_mode",
+          "name": "termination_mode",
+          "description": "height or contact-duration; empty where the run record does not store it (height-based rule)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "termination_mode"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/contact_termination_steps",
+          "name": "contact_termination_steps",
+          "description": "For contact termination: consecutive torso-ground contact steps that end an episode; empty otherwise",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "contact_termination_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/max_steps",
+          "name": "max_steps",
+          "description": "Training time limit in steps when it differs from 1,000 (5000001 means no time limit within the budget); empty means 1,000",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "max_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_per_step_reward",
+          "name": "common_per_step_reward",
+          "description": "Mean over 20 episodes of the episode return divided by the episode length (PSR), the paper's main score; common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.per_step_reward in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_per_step_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_per_step_reward_std",
+          "name": "common_per_step_reward_std",
+          "description": "Standard deviation of PSR over the 20 episodes; common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.per_step_reward_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_per_step_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_fitness",
+          "name": "common_fitness",
+          "description": "Mean episode return over the 20 episodes (reward v_x - 0.001 |a|^2 per control step); common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.fitness in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_fitness"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_fitness_std",
+          "name": "common_fitness_std",
+          "description": "Standard deviation of the episode return; common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.fitness_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_fitness_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_distance",
+          "name": "common_distance",
+          "description": "Mean final x position of the torso in meters (the reset x position is 0); common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.distance in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_distance"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_distance_std",
+          "name": "common_distance_std",
+          "description": "Standard deviation of the final x position; common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.distance_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_distance_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_mean_ep_len",
+          "name": "common_mean_ep_len",
+          "description": "Mean episode length in control steps (at most 1,000); common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.mean_ep_len in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_mean_ep_len"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_ep_len_std",
+          "name": "common_ep_len_std",
+          "description": "Standard deviation of the episode length; common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.ep_len_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_ep_len_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/common_fall_rate",
+          "name": "common_fall_rate",
+          "description": "Fraction of the 20 episodes that ended before 1,000 steps (fall clause or upper bound); common evaluator (an episode also ends when the torso falls below 0.20 of its reset height); from eval_tau020.fall_rate in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "common_fall_rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_per_step_reward",
+          "name": "neutral_per_step_reward",
+          "description": "Mean over 20 episodes of the episode return divided by the episode length (PSR), the paper's main score; neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.per_step_reward in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_per_step_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_per_step_reward_std",
+          "name": "neutral_per_step_reward_std",
+          "description": "Standard deviation of PSR over the 20 episodes; neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.per_step_reward_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_per_step_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_fitness",
+          "name": "neutral_fitness",
+          "description": "Mean episode return over the 20 episodes (reward v_x - 0.001 |a|^2 per control step); neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.fitness in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_fitness"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_fitness_std",
+          "name": "neutral_fitness_std",
+          "description": "Standard deviation of the episode return; neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.fitness_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_fitness_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_distance",
+          "name": "neutral_distance",
+          "description": "Mean final x position of the torso in meters (the reset x position is 0); neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.distance in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_distance"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_distance_std",
+          "name": "neutral_distance_std",
+          "description": "Standard deviation of the final x position; neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.distance_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_distance_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_mean_ep_len",
+          "name": "neutral_mean_ep_len",
+          "description": "Mean episode length in control steps (at most 1,000); neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.mean_ep_len in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_mean_ep_len"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_ep_len_std",
+          "name": "neutral_ep_len_std",
+          "description": "Standard deviation of the episode length; neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.ep_len_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_ep_len_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/neutral_fall_rate",
+          "name": "neutral_fall_rate",
+          "description": "Fraction of the 20 episodes that ended before 1,000 steps (fall clause or upper bound); neutral evaluator (no fall clause; episodes run 1,000 steps unless the torso leaves the upper bound); from eval_neutral.fall_rate in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "neutral_fall_rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_per_step_reward",
+          "name": "strict_per_step_reward",
+          "description": "Mean over 20 episodes of the episode return divided by the episode length (PSR), the paper's main score; Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.per_step_reward in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_per_step_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_per_step_reward_std",
+          "name": "strict_per_step_reward_std",
+          "description": "Standard deviation of PSR over the 20 episodes; Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.per_step_reward_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_per_step_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_fitness",
+          "name": "strict_fitness",
+          "description": "Mean episode return over the 20 episodes (reward v_x - 0.001 |a|^2 per control step); Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.fitness in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_fitness"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_fitness_std",
+          "name": "strict_fitness_std",
+          "description": "Standard deviation of the episode return; Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.fitness_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_fitness_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_distance",
+          "name": "strict_distance",
+          "description": "Mean final x position of the torso in meters (the reset x position is 0); Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.distance in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_distance"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_distance_std",
+          "name": "strict_distance_std",
+          "description": "Standard deviation of the final x position; Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.distance_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_distance_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_mean_ep_len",
+          "name": "strict_mean_ep_len",
+          "description": "Mean episode length in control steps (at most 1,000); Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.mean_ep_len in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_mean_ep_len"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_ep_len_std",
+          "name": "strict_ep_len_std",
+          "description": "Standard deviation of the episode length; Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.ep_len_std in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_ep_len_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/strict_fall_rate",
+          "name": "strict_fall_rate",
+          "description": "Fraction of the 20 episodes that ended before 1,000 steps (fall clause or upper bound); Strict evaluator (an episode also ends when the torso falls below 0.50 of its reset height); from eval_tau050.fall_rate in the JSON summary",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "strict_fall_rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/train_time_s",
+          "name": "train_time_s",
+          "description": "Recorded wall time of training plus evaluation in seconds",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "train_time_s"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/git_commit",
+          "name": "git_commit",
+          "description": "Code commit recorded by the run (later panels only; empty for the corpus, intermediate-tau and SAC runs)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "git_commit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/slurm_job_id",
+          "name": "slurm_job_id",
+          "description": "SLURM job id recorded by the run (later panels only)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "slurm_job_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/host",
+          "name": "host",
+          "description": "Pseudonymous GPU node id (gpu-node-NN; later panels only)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "host"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "runs/device_kind",
+          "name": "device_kind",
+          "description": "GPU model recorded by the run (later panels only)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "runs-table"
+            },
+            "extract": {
+              "column": "device_kind"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "morphology_features",
+      "name": "morphology_features",
+      "description": "Structural features of each body, computed from its XML at the reset pose.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/body",
+          "name": "body",
+          "description": "Body name",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "body"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/body_set",
+          "name": "body_set",
+          "description": "unimal_100 (the evolved corpus) or non_evolved_60",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "body_set"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/family",
+          "name": "family",
+          "description": "floor, vt, mvt or non_evolved",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "family"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/n_bodies",
+          "name": "n_bodies",
+          "description": "Number of rigid bodies, torso included",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "n_bodies"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/n_joints",
+          "name": "n_joints",
+          "description": "Number of joints",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "n_joints"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/n_motors",
+          "name": "n_motors",
+          "description": "Number of actuators",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "n_motors"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/n_geoms",
+          "name": "n_geoms",
+          "description": "Number of collision geoms",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "n_geoms"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/init_height",
+          "name": "init_height",
+          "description": "Reset height z0 of the torso in meters",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "init_height"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/tree_depth",
+          "name": "tree_depth",
+          "description": "Depth of the kinematic tree: links on the longest chain below the torso",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "tree_depth"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/total_volume",
+          "name": "total_volume",
+          "description": "Summed volume of the sphere and capsule geoms in cubic meters (a mass proxy)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "total_volume"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "morphology_features/n_first_level_limbs",
+          "name": "n_first_level_limbs",
+          "description": "Number of limbs attached directly to the torso",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "features-table"
+            },
+            "extract": {
+              "column": "n_first_level_limbs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "humanoid_fall_rule_cells",
+      "name": "humanoid_fall_rule_cells",
+      "description": "One record per cell (morphology, protocol, seed, hardware class). Humanoid fall rules (panel humanoid-primary-gh200-20260725): 3 pools of 30 parametric Humanoid bodies, training without a fall rule, with the native height range, or with cutoffs at 0.2 and 0.5 of the nominal root height, 5 seeds, Brax PPO in MJX on GH200 GPUs (1,800 cells).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/panel_id",
+          "name": "panel_id",
+          "description": "Frozen panel id (humanoid-primary-gh200-20260725, humanoid-timeout-factorial-gh200-20260727, ant-reset-init-h100-20260725, ant-protocol-breadth-gh200-20260725 or evogym-wave1-cpu-20260724)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "panel_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/space",
+          "name": "space",
+          "description": "Design space: humanoid, ant or evogym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "space"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/pool_id",
+          "name": "pool_id",
+          "description": "Independently generated pool of 100 bodies (0, 1 or 2); rankings are compared within a pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "pool_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/task",
+          "name": "task",
+          "description": "Evolution Gym task (Walker-v0 or BridgeWalker-v0); empty for Humanoid and Ant",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "task"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/morphology_index",
+          "name": "morphology_index",
+          "description": "Index of the body in its pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "morphology_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/morphology_id",
+          "name": "morphology_id",
+          "description": "Body name recorded by the run (for example humanoid-p0-003); empty for Evolution Gym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "morphology_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/body_sha256",
+          "name": "body_sha256",
+          "description": "SHA-256 of the body definition recorded by the run (generated MuJoCo XML or Evolution Gym voxel body); empty for the Ant breadth panel",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "body_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/protocol",
+          "name": "protocol",
+          "description": "Training protocol of the cell, as named in the panel specification and report",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/hardware",
+          "name": "hardware",
+          "description": "Hardware class of the run: gh200 or h100 (GPU), or cpu",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "hardware"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/score",
+          "name": "score",
+          "description": "The score the panel's frozen report ranks. Humanoid and Ant: mean return of the final evaluation over 128 episodes of up to 1,000 steps with the common evaluator (no fall termination, no healthy reward), Brax eval/episode_reward. Evolution Gym: mean return over 20 evaluation episodes of up to 500 steps (aggregate_mean_return)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "score"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/termination",
+          "name": "termination",
+          "description": "Fall rule during training: none, native (root height below the lower bound of the Gymnasium healthy range, 0.2 m for Ant and 1.0 m for Humanoid), relative-0.2 or relative-0.5 (root height below that fraction of the body's nominal root height); empty for Evolution Gym, which has no fall rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "termination"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/terminal_timeout",
+          "name": "terminal_timeout",
+          "description": "True if reaching the training time limit ended the episode as terminal (no bootstrapping); false if the value was bootstrapped",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "terminal_timeout"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/deterministic_reset",
+          "name": "deterministic_reset",
+          "description": "True if every training episode started from the nominal initial state; false if noise was added to the initial positions and velocities; empty for Evolution Gym",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "deterministic_reset"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/observation_noise_std",
+          "name": "observation_noise_std",
+          "description": "Standard deviation of Gaussian noise added to normalized observations during training; empty for Evolution Gym",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "observation_noise_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/episode_length",
+          "name": "episode_length",
+          "description": "Training time limit in steps (1,000 for Humanoid and Ant, 500 for Evolution Gym)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/requested_steps",
+          "name": "requested_steps",
+          "description": "Requested training budget in environment steps",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "requested_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/actual_steps",
+          "name": "actual_steps",
+          "description": "Environment steps actually trained (the trainer rounds the budget up to whole iterations)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "actual_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/eval_reward_std",
+          "name": "eval_reward_std",
+          "description": "Standard deviation of the evaluation return (Brax eval/episode_reward_std; for Evolution Gym over the 20 episodes); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "eval_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/eval_episode_length",
+          "name": "eval_episode_length",
+          "description": "Mean evaluation episode length in steps; empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "eval_episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/eval_forward_reward",
+          "name": "eval_forward_reward",
+          "description": "Forward-progress part of the evaluation return (Brax eval/episode_forward_reward); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "eval_forward_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/eval_control_cost",
+          "name": "eval_control_cost",
+          "description": "Control-cost part of the evaluation return (Brax eval/episode_control_cost; score = forward reward minus control cost); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "eval_control_cost"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/train_seconds",
+          "name": "train_seconds",
+          "description": "Training wall time in seconds (Brax training/walltime; Evolution Gym training_elapsed_seconds); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "train_seconds"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/git_revision",
+          "name": "git_revision",
+          "description": "Code revision recorded by the run (a commit of the authors' development repository)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "git_revision"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/slurm_job_id",
+          "name": "slurm_job_id",
+          "description": "SLURM job id recorded by the run; empty for the Ant breadth panel",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "slurm_job_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/result_sha256",
+          "name": "result_sha256",
+          "description": "SHA-256 of the run's raw result file (result.json; evaluation.json for Evolution Gym), which is not distributed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "result_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_cells/config_sha256",
+          "name": "config_sha256",
+          "description": "SHA-256 of the run's raw config.json, which is not distributed because it holds storage paths and a root binding token",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-cells-table"
+            },
+            "extract": {
+              "column": "config_sha256"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "humanoid_time_limit_cells",
+      "name": "humanoid_time_limit_cells",
+      "description": "One record per cell (morphology, protocol, seed, hardware class). Terminal arm of the Humanoid time-limit panel (panel humanoid-timeout-factorial-gh200-20260727): the same 90 bodies and 5 seeds with the time limit treated as terminal, under the native fall rule and without a fall rule (900 cells). Its bootstrapped arm is the native and none cells of humanoid_fall_rule_cells.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/panel_id",
+          "name": "panel_id",
+          "description": "Frozen panel id (humanoid-primary-gh200-20260725, humanoid-timeout-factorial-gh200-20260727, ant-reset-init-h100-20260725, ant-protocol-breadth-gh200-20260725 or evogym-wave1-cpu-20260724)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "panel_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/space",
+          "name": "space",
+          "description": "Design space: humanoid, ant or evogym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "space"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/pool_id",
+          "name": "pool_id",
+          "description": "Independently generated pool of 100 bodies (0, 1 or 2); rankings are compared within a pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "pool_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/task",
+          "name": "task",
+          "description": "Evolution Gym task (Walker-v0 or BridgeWalker-v0); empty for Humanoid and Ant",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "task"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/morphology_index",
+          "name": "morphology_index",
+          "description": "Index of the body in its pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "morphology_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/morphology_id",
+          "name": "morphology_id",
+          "description": "Body name recorded by the run (for example humanoid-p0-003); empty for Evolution Gym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "morphology_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/body_sha256",
+          "name": "body_sha256",
+          "description": "SHA-256 of the body definition recorded by the run (generated MuJoCo XML or Evolution Gym voxel body); empty for the Ant breadth panel",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "body_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/protocol",
+          "name": "protocol",
+          "description": "Training protocol of the cell, as named in the panel specification and report",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/hardware",
+          "name": "hardware",
+          "description": "Hardware class of the run: gh200 or h100 (GPU), or cpu",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "hardware"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/score",
+          "name": "score",
+          "description": "The score the panel's frozen report ranks. Humanoid and Ant: mean return of the final evaluation over 128 episodes of up to 1,000 steps with the common evaluator (no fall termination, no healthy reward), Brax eval/episode_reward. Evolution Gym: mean return over 20 evaluation episodes of up to 500 steps (aggregate_mean_return)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "score"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/termination",
+          "name": "termination",
+          "description": "Fall rule during training: none, native (root height below the lower bound of the Gymnasium healthy range, 0.2 m for Ant and 1.0 m for Humanoid), relative-0.2 or relative-0.5 (root height below that fraction of the body's nominal root height); empty for Evolution Gym, which has no fall rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "termination"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/terminal_timeout",
+          "name": "terminal_timeout",
+          "description": "True if reaching the training time limit ended the episode as terminal (no bootstrapping); false if the value was bootstrapped",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "terminal_timeout"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/deterministic_reset",
+          "name": "deterministic_reset",
+          "description": "True if every training episode started from the nominal initial state; false if noise was added to the initial positions and velocities; empty for Evolution Gym",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "deterministic_reset"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/observation_noise_std",
+          "name": "observation_noise_std",
+          "description": "Standard deviation of Gaussian noise added to normalized observations during training; empty for Evolution Gym",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "observation_noise_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/episode_length",
+          "name": "episode_length",
+          "description": "Training time limit in steps (1,000 for Humanoid and Ant, 500 for Evolution Gym)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/requested_steps",
+          "name": "requested_steps",
+          "description": "Requested training budget in environment steps",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "requested_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/actual_steps",
+          "name": "actual_steps",
+          "description": "Environment steps actually trained (the trainer rounds the budget up to whole iterations)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "actual_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/eval_reward_std",
+          "name": "eval_reward_std",
+          "description": "Standard deviation of the evaluation return (Brax eval/episode_reward_std; for Evolution Gym over the 20 episodes); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/eval_episode_length",
+          "name": "eval_episode_length",
+          "description": "Mean evaluation episode length in steps; empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/eval_forward_reward",
+          "name": "eval_forward_reward",
+          "description": "Forward-progress part of the evaluation return (Brax eval/episode_forward_reward); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_forward_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/eval_control_cost",
+          "name": "eval_control_cost",
+          "description": "Control-cost part of the evaluation return (Brax eval/episode_control_cost; score = forward reward minus control cost); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_control_cost"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/train_seconds",
+          "name": "train_seconds",
+          "description": "Training wall time in seconds (Brax training/walltime; Evolution Gym training_elapsed_seconds); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "train_seconds"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/git_revision",
+          "name": "git_revision",
+          "description": "Code revision recorded by the run (a commit of the authors' development repository)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "git_revision"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/slurm_job_id",
+          "name": "slurm_job_id",
+          "description": "SLURM job id recorded by the run; empty for the Ant breadth panel",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "slurm_job_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/result_sha256",
+          "name": "result_sha256",
+          "description": "SHA-256 of the run's raw result file (result.json; evaluation.json for Evolution Gym), which is not distributed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "result_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_cells/config_sha256",
+          "name": "config_sha256",
+          "description": "SHA-256 of the run's raw config.json, which is not distributed because it holds storage paths and a root binding token",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "config_sha256"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "ant_reset_init_cells",
+      "name": "ant_reset_init_cells",
+      "description": "One record per cell (morphology, protocol, seed, hardware class). Ant reset initialization (panel ant-reset-init-h100-20260725): 20 parametric Ant bodies, initial states sampled with reset noise (native) against one nominal initial state (reset-deterministic), 4 seeds, Brax PPO in MJX on H100 GPUs (160 cells).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/panel_id",
+          "name": "panel_id",
+          "description": "Frozen panel id (humanoid-primary-gh200-20260725, humanoid-timeout-factorial-gh200-20260727, ant-reset-init-h100-20260725, ant-protocol-breadth-gh200-20260725 or evogym-wave1-cpu-20260724)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "panel_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/space",
+          "name": "space",
+          "description": "Design space: humanoid, ant or evogym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "space"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/pool_id",
+          "name": "pool_id",
+          "description": "Independently generated pool of 100 bodies (0, 1 or 2); rankings are compared within a pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "pool_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/task",
+          "name": "task",
+          "description": "Evolution Gym task (Walker-v0 or BridgeWalker-v0); empty for Humanoid and Ant",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "task"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/morphology_index",
+          "name": "morphology_index",
+          "description": "Index of the body in its pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "morphology_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/morphology_id",
+          "name": "morphology_id",
+          "description": "Body name recorded by the run (for example humanoid-p0-003); empty for Evolution Gym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "morphology_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/body_sha256",
+          "name": "body_sha256",
+          "description": "SHA-256 of the body definition recorded by the run (generated MuJoCo XML or Evolution Gym voxel body); empty for the Ant breadth panel",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "body_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/protocol",
+          "name": "protocol",
+          "description": "Training protocol of the cell, as named in the panel specification and report",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/hardware",
+          "name": "hardware",
+          "description": "Hardware class of the run: gh200 or h100 (GPU), or cpu",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "hardware"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/score",
+          "name": "score",
+          "description": "The score the panel's frozen report ranks. Humanoid and Ant: mean return of the final evaluation over 128 episodes of up to 1,000 steps with the common evaluator (no fall termination, no healthy reward), Brax eval/episode_reward. Evolution Gym: mean return over 20 evaluation episodes of up to 500 steps (aggregate_mean_return)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "score"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/termination",
+          "name": "termination",
+          "description": "Fall rule during training: none, native (root height below the lower bound of the Gymnasium healthy range, 0.2 m for Ant and 1.0 m for Humanoid), relative-0.2 or relative-0.5 (root height below that fraction of the body's nominal root height); empty for Evolution Gym, which has no fall rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "termination"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/terminal_timeout",
+          "name": "terminal_timeout",
+          "description": "True if reaching the training time limit ended the episode as terminal (no bootstrapping); false if the value was bootstrapped",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "terminal_timeout"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/deterministic_reset",
+          "name": "deterministic_reset",
+          "description": "True if every training episode started from the nominal initial state; false if noise was added to the initial positions and velocities; empty for Evolution Gym",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "deterministic_reset"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/observation_noise_std",
+          "name": "observation_noise_std",
+          "description": "Standard deviation of Gaussian noise added to normalized observations during training; empty for Evolution Gym",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "observation_noise_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/episode_length",
+          "name": "episode_length",
+          "description": "Training time limit in steps (1,000 for Humanoid and Ant, 500 for Evolution Gym)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/requested_steps",
+          "name": "requested_steps",
+          "description": "Requested training budget in environment steps",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "requested_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/actual_steps",
+          "name": "actual_steps",
+          "description": "Environment steps actually trained (the trainer rounds the budget up to whole iterations)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "actual_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/eval_reward_std",
+          "name": "eval_reward_std",
+          "description": "Standard deviation of the evaluation return (Brax eval/episode_reward_std; for Evolution Gym over the 20 episodes); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "eval_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/eval_episode_length",
+          "name": "eval_episode_length",
+          "description": "Mean evaluation episode length in steps; empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "eval_episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/eval_forward_reward",
+          "name": "eval_forward_reward",
+          "description": "Forward-progress part of the evaluation return (Brax eval/episode_forward_reward); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "eval_forward_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/eval_control_cost",
+          "name": "eval_control_cost",
+          "description": "Control-cost part of the evaluation return (Brax eval/episode_control_cost; score = forward reward minus control cost); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "eval_control_cost"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/train_seconds",
+          "name": "train_seconds",
+          "description": "Training wall time in seconds (Brax training/walltime; Evolution Gym training_elapsed_seconds); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "train_seconds"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/git_revision",
+          "name": "git_revision",
+          "description": "Code revision recorded by the run (a commit of the authors' development repository)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "git_revision"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/slurm_job_id",
+          "name": "slurm_job_id",
+          "description": "SLURM job id recorded by the run; empty for the Ant breadth panel",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "slurm_job_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/result_sha256",
+          "name": "result_sha256",
+          "description": "SHA-256 of the run's raw result file (result.json; evaluation.json for Evolution Gym), which is not distributed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "result_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_reset_init_cells/config_sha256",
+          "name": "config_sha256",
+          "description": "SHA-256 of the run's raw config.json, which is not distributed because it holds storage paths and a root binding token",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_reset_init-cells-table"
+            },
+            "extract": {
+              "column": "config_sha256"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "ant_breadth_cells",
+      "name": "ant_breadth_cells",
+      "description": "One record per cell (morphology, protocol, seed, hardware class). Ant protocol breadth (panel ant-protocol-breadth-gh200-20260725): 3 pools of 30 parametric Ant bodies, the native protocol against deterministic resets, terminal time limits or observation noise, 5 seeds, GH200 GPUs (1,800 cells). Scores and file hashes were recovered from the raw records on 2026-09-24; the evaluation detail columns are empty.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/panel_id",
+          "name": "panel_id",
+          "description": "Frozen panel id (humanoid-primary-gh200-20260725, humanoid-timeout-factorial-gh200-20260727, ant-reset-init-h100-20260725, ant-protocol-breadth-gh200-20260725 or evogym-wave1-cpu-20260724)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "panel_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/space",
+          "name": "space",
+          "description": "Design space: humanoid, ant or evogym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "space"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/pool_id",
+          "name": "pool_id",
+          "description": "Independently generated pool of 100 bodies (0, 1 or 2); rankings are compared within a pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "pool_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/task",
+          "name": "task",
+          "description": "Evolution Gym task (Walker-v0 or BridgeWalker-v0); empty for Humanoid and Ant",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "task"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/morphology_index",
+          "name": "morphology_index",
+          "description": "Index of the body in its pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "morphology_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/morphology_id",
+          "name": "morphology_id",
+          "description": "Body name recorded by the run (for example humanoid-p0-003); empty for Evolution Gym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "morphology_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/body_sha256",
+          "name": "body_sha256",
+          "description": "SHA-256 of the body definition recorded by the run (generated MuJoCo XML or Evolution Gym voxel body); empty for the Ant breadth panel",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "body_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/protocol",
+          "name": "protocol",
+          "description": "Training protocol of the cell, as named in the panel specification and report",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/hardware",
+          "name": "hardware",
+          "description": "Hardware class of the run: gh200 or h100 (GPU), or cpu",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "hardware"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/score",
+          "name": "score",
+          "description": "The score the panel's frozen report ranks. Humanoid and Ant: mean return of the final evaluation over 128 episodes of up to 1,000 steps with the common evaluator (no fall termination, no healthy reward), Brax eval/episode_reward. Evolution Gym: mean return over 20 evaluation episodes of up to 500 steps (aggregate_mean_return)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "score"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/termination",
+          "name": "termination",
+          "description": "Fall rule during training: none, native (root height below the lower bound of the Gymnasium healthy range, 0.2 m for Ant and 1.0 m for Humanoid), relative-0.2 or relative-0.5 (root height below that fraction of the body's nominal root height); empty for Evolution Gym, which has no fall rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "termination"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/terminal_timeout",
+          "name": "terminal_timeout",
+          "description": "True if reaching the training time limit ended the episode as terminal (no bootstrapping); false if the value was bootstrapped",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "terminal_timeout"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/deterministic_reset",
+          "name": "deterministic_reset",
+          "description": "True if every training episode started from the nominal initial state; false if noise was added to the initial positions and velocities; empty for Evolution Gym",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "deterministic_reset"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/observation_noise_std",
+          "name": "observation_noise_std",
+          "description": "Standard deviation of Gaussian noise added to normalized observations during training; empty for Evolution Gym",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "observation_noise_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/episode_length",
+          "name": "episode_length",
+          "description": "Training time limit in steps (1,000 for Humanoid and Ant, 500 for Evolution Gym)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/requested_steps",
+          "name": "requested_steps",
+          "description": "Requested training budget in environment steps",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "requested_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/actual_steps",
+          "name": "actual_steps",
+          "description": "Environment steps actually trained (the trainer rounds the budget up to whole iterations)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "actual_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/eval_reward_std",
+          "name": "eval_reward_std",
+          "description": "Standard deviation of the evaluation return (Brax eval/episode_reward_std; for Evolution Gym over the 20 episodes); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "eval_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/eval_episode_length",
+          "name": "eval_episode_length",
+          "description": "Mean evaluation episode length in steps; empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "eval_episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/eval_forward_reward",
+          "name": "eval_forward_reward",
+          "description": "Forward-progress part of the evaluation return (Brax eval/episode_forward_reward); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "eval_forward_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/eval_control_cost",
+          "name": "eval_control_cost",
+          "description": "Control-cost part of the evaluation return (Brax eval/episode_control_cost; score = forward reward minus control cost); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "eval_control_cost"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/train_seconds",
+          "name": "train_seconds",
+          "description": "Training wall time in seconds (Brax training/walltime; Evolution Gym training_elapsed_seconds); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "train_seconds"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/git_revision",
+          "name": "git_revision",
+          "description": "Code revision recorded by the run (a commit of the authors' development repository)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "git_revision"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/slurm_job_id",
+          "name": "slurm_job_id",
+          "description": "SLURM job id recorded by the run; empty for the Ant breadth panel",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "slurm_job_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/result_sha256",
+          "name": "result_sha256",
+          "description": "SHA-256 of the run's raw result file (result.json; evaluation.json for Evolution Gym), which is not distributed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "result_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "ant_breadth_cells/config_sha256",
+          "name": "config_sha256",
+          "description": "SHA-256 of the run's raw config.json, which is not distributed because it holds storage paths and a root binding token",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "ant_breadth-cells-table"
+            },
+            "extract": {
+              "column": "config_sha256"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "evogym_time_limit_cells",
+      "name": "evogym_time_limit_cells",
+      "description": "One record per cell (morphology, protocol, seed, hardware class). Evolution Gym time-limit handling (panel evogym-wave1-cpu-20260724): 3 pools of 20 voxel bodies on Walker-v0 and BridgeWalker-v0, the 500-step time limit bootstrapped against terminal, 5 seeds, Stable-Baselines3 PPO on CPU (1,200 cells).",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/panel_id",
+          "name": "panel_id",
+          "description": "Frozen panel id (humanoid-primary-gh200-20260725, humanoid-timeout-factorial-gh200-20260727, ant-reset-init-h100-20260725, ant-protocol-breadth-gh200-20260725 or evogym-wave1-cpu-20260724)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "panel_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/space",
+          "name": "space",
+          "description": "Design space: humanoid, ant or evogym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "space"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/pool_id",
+          "name": "pool_id",
+          "description": "Independently generated pool of 100 bodies (0, 1 or 2); rankings are compared within a pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "pool_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/task",
+          "name": "task",
+          "description": "Evolution Gym task (Walker-v0 or BridgeWalker-v0); empty for Humanoid and Ant",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "task"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/morphology_index",
+          "name": "morphology_index",
+          "description": "Index of the body in its pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "morphology_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/morphology_id",
+          "name": "morphology_id",
+          "description": "Body name recorded by the run (for example humanoid-p0-003); empty for Evolution Gym",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "morphology_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/body_sha256",
+          "name": "body_sha256",
+          "description": "SHA-256 of the body definition recorded by the run (generated MuJoCo XML or Evolution Gym voxel body); empty for the Ant breadth panel",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "body_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/protocol",
+          "name": "protocol",
+          "description": "Training protocol of the cell, as named in the panel specification and report",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/hardware",
+          "name": "hardware",
+          "description": "Hardware class of the run: gh200 or h100 (GPU), or cpu",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "hardware"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/score",
+          "name": "score",
+          "description": "The score the panel's frozen report ranks. Humanoid and Ant: mean return of the final evaluation over 128 episodes of up to 1,000 steps with the common evaluator (no fall termination, no healthy reward), Brax eval/episode_reward. Evolution Gym: mean return over 20 evaluation episodes of up to 500 steps (aggregate_mean_return)",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "score"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/termination",
+          "name": "termination",
+          "description": "Fall rule during training: none, native (root height below the lower bound of the Gymnasium healthy range, 0.2 m for Ant and 1.0 m for Humanoid), relative-0.2 or relative-0.5 (root height below that fraction of the body's nominal root height); empty for Evolution Gym, which has no fall rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "termination"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/terminal_timeout",
+          "name": "terminal_timeout",
+          "description": "True if reaching the training time limit ended the episode as terminal (no bootstrapping); false if the value was bootstrapped",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "terminal_timeout"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/deterministic_reset",
+          "name": "deterministic_reset",
+          "description": "True if every training episode started from the nominal initial state; false if noise was added to the initial positions and velocities; empty for Evolution Gym",
+          "dataType": "sc:Boolean",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "deterministic_reset"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/observation_noise_std",
+          "name": "observation_noise_std",
+          "description": "Standard deviation of Gaussian noise added to normalized observations during training; empty for Evolution Gym",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "observation_noise_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/episode_length",
+          "name": "episode_length",
+          "description": "Training time limit in steps (1,000 for Humanoid and Ant, 500 for Evolution Gym)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/requested_steps",
+          "name": "requested_steps",
+          "description": "Requested training budget in environment steps",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "requested_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/actual_steps",
+          "name": "actual_steps",
+          "description": "Environment steps actually trained (the trainer rounds the budget up to whole iterations)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "actual_steps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/eval_reward_std",
+          "name": "eval_reward_std",
+          "description": "Standard deviation of the evaluation return (Brax eval/episode_reward_std; for Evolution Gym over the 20 episodes); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_reward_std"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/eval_episode_length",
+          "name": "eval_episode_length",
+          "description": "Mean evaluation episode length in steps; empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_episode_length"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/eval_forward_reward",
+          "name": "eval_forward_reward",
+          "description": "Forward-progress part of the evaluation return (Brax eval/episode_forward_reward); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_forward_reward"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/eval_control_cost",
+          "name": "eval_control_cost",
+          "description": "Control-cost part of the evaluation return (Brax eval/episode_control_cost; score = forward reward minus control cost); Humanoid and Ant only, empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "eval_control_cost"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/train_seconds",
+          "name": "train_seconds",
+          "description": "Training wall time in seconds (Brax training/walltime; Evolution Gym training_elapsed_seconds); empty for the Ant breadth panel",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "train_seconds"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/git_revision",
+          "name": "git_revision",
+          "description": "Code revision recorded by the run (a commit of the authors' development repository)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "git_revision"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/slurm_job_id",
+          "name": "slurm_job_id",
+          "description": "SLURM job id recorded by the run; empty for the Ant breadth panel",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "slurm_job_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/result_sha256",
+          "name": "result_sha256",
+          "description": "SHA-256 of the run's raw result file (result.json; evaluation.json for Evolution Gym), which is not distributed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "result_sha256"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "evogym_time_limit_cells/config_sha256",
+          "name": "config_sha256",
+          "description": "SHA-256 of the run's raw config.json, which is not distributed because it holds storage paths and a root binding token",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "evogym_time_limit-cells-table"
+            },
+            "extract": {
+              "column": "config_sha256"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "humanoid_fall_rule_progress",
+      "name": "humanoid_fall_rule_progress",
+      "description": "One record per cell and evaluation point of humanoid_fall_rule_cells.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/panel_id",
+          "name": "panel_id",
+          "description": "Frozen panel id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "panel_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/pool_id",
+          "name": "pool_id",
+          "description": "Pool of the body",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "pool_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/morphology_index",
+          "name": "morphology_index",
+          "description": "Index of the body in its pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "morphology_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/protocol",
+          "name": "protocol",
+          "description": "Training protocol of the cell",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/hardware",
+          "name": "hardware",
+          "description": "Hardware class of the run",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "hardware"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/eval_index",
+          "name": "eval_index",
+          "description": "Evaluation point, 0 to 5 (0 is before training)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "eval_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/step",
+          "name": "step",
+          "description": "Environment steps trained at this evaluation point",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "step"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_fall_rule_progress/eval_episode_reward",
+          "name": "eval_episode_reward",
+          "description": "Mean evaluation return at this point, with the same evaluator as the score; the last point equals the cell's score",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_fall_rule-progress-table"
+            },
+            "extract": {
+              "column": "eval_episode_reward"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "humanoid_time_limit_progress",
+      "name": "humanoid_time_limit_progress",
+      "description": "One record per cell and evaluation point of humanoid_time_limit_cells.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/panel_id",
+          "name": "panel_id",
+          "description": "Frozen panel id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "panel_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/pool_id",
+          "name": "pool_id",
+          "description": "Pool of the body",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "pool_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/morphology_index",
+          "name": "morphology_index",
+          "description": "Index of the body in its pool",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "morphology_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/protocol",
+          "name": "protocol",
+          "description": "Training protocol of the cell",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "protocol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/seed",
+          "name": "seed",
+          "description": "Training seed",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/hardware",
+          "name": "hardware",
+          "description": "Hardware class of the run",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "hardware"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/eval_index",
+          "name": "eval_index",
+          "description": "Evaluation point, 0 to 5 (0 is before training)",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "eval_index"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/step",
+          "name": "step",
+          "description": "Environment steps trained at this evaluation point",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "step"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "humanoid_time_limit_progress/eval_episode_reward",
+          "name": "eval_episode_reward",
+          "description": "Mean evaluation return at this point, with the same evaluator as the score; the last point equals the cell's score",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "humanoid_time_limit-progress-table"
+            },
+            "extract": {
+              "column": "eval_episode_reward"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "common_eval_tau": 0.5,
+  "eval_key": "eval_tau050",
+  "bootstrap_B": 10000,
+  "bootstrap_seed": 42,
+  "n_bodies": 100,
+  "table": {
+    "5": {
+      "epi_selected_strict_oracle": {
+        "point": 0.895546415671735,
+        "ci_lo": 0.7827804916307564,
+        "ci_hi": 0.9899124045698735
+      },
+      "epi_selected_rf_oracle": {
+        "point": 0.9998175762223501,
+        "ci_lo": 0.5622397173169175,
+        "ci_hi": 1.0000000000000002
+      }
+    },
+    "10": {
+      "epi_selected_strict_oracle": {
+        "point": 0.9394701238375562,
+        "ci_lo": 0.8575833942735608,
+        "ci_hi": 0.9856707584232475
+      },
+      "epi_selected_rf_oracle": {
+        "point": 0.758063830660303,
+        "ci_lo": 0.511080113591803,
+        "ci_hi": 0.9999040935197326
+      }
+    },
+    "20": {
+      "epi_selected_strict_oracle": {
+        "point": 0.9070737032872298,
+        "ci_lo": 0.8409673157797757,
+        "ci_hi": 0.9612908753891483
+      },
+      "epi_selected_rf_oracle": {
+        "point": 0.7326141477610697,
+        "ci_lo": 0.627240305902857,
+        "ci_hi": 0.898299996958873
+      }
+    }
+  }
+}

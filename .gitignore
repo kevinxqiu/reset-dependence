@@ -1,0 +1,34 @@
+# Run records (download from the GitHub release and unzip here)
+/results/
+/sim-records/
+/gait-traces/
+/tables/
+/review-panels/
+/runs.zip
+/logs.zip
+/panels.zip
+/SHA256SUMS
+
+# UNIMAL body files (fetched by scripts/fetch_unimal_assets.py, not redistributed)
+/assets/unimals_100/xml/
+/assets/generated_morphologies/
+
+# Generated outputs
+/numbers.json
+/numbers.md
+/figures/
+/retrain/
+/videos/
+/build/
+
+__pycache__/
+*.pyc
+.venv/
+.venv-*/
+.DS_Store
+.ruff_cache/
+.pytest_cache/
+*.lock
+*.npz
+*.mp4
+*.gif

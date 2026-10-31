@@ -1,0 +1,42 @@
+{
+  "mode": "abort_only_5m",
+  "valid_5m": 162,
+  "total_5m": 162,
+  "anova_5m": {
+    "per_seed_f": 2.8294199628435406,
+    "per_seed_p": 0.0270685211898283,
+    "per_seed_df_num": 4.0,
+    "per_seed_df_denom": 138.0,
+    "cluster_robust_f": 13.70556679855923,
+    "cluster_robust_p": 0.008296551294817666,
+    "seed_avg_f": 1.0645545092441968,
+    "seed_avg_p": 0.39119284409890986,
+    "seed_avg_df_denom": 30.0
+  },
+  "ratios_5m": {
+    "floor": {
+      "n": 7,
+      "rf_over_epi": 0.5186978867917952,
+      "str_over_epi": 0.6976142431071087
+    },
+    "vt": {
+      "n": 6,
+      "rf_over_epi": 0.7797532824135994,
+      "str_over_epi": 0.5973434133484782
+    },
+    "mvt": {
+      "n": 5,
+      "rf_over_epi": 0.8187716163082144,
+      "str_over_epi": 0.9383033829093265
+    }
+  },
+  "abort_gate_5m": {
+    "passed": true,
+    "p": 0.0270685211898283,
+    "anchor": true
+  },
+  "decision": {
+    "decision": "launch_50m",
+    "reason": "5M abort gate passed; launch 50M"
+  }
+}

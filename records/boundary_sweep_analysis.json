@@ -1,0 +1,126 @@
+{
+  "per_cell_valid": {
+    "B1000": 90,
+    "B10001": 90,
+    "B3001": 90,
+    "B5M": 90
+  },
+  "panel_qc_per_new_B": {
+    "B3001": {
+      "cell": "B3001",
+      "total_cells": 90,
+      "valid_cells": 90,
+      "cell_threshold": 80,
+      "per_family_body_counts": {
+        "floor": 10,
+        "vt": 10,
+        "mvt": 10
+      },
+      "families_ok": true,
+      "passes": true
+    },
+    "B10001": {
+      "cell": "B10001",
+      "total_cells": 90,
+      "valid_cells": 90,
+      "cell_threshold": 80,
+      "per_family_body_counts": {
+        "floor": 10,
+        "vt": 10,
+        "mvt": 10
+      },
+      "families_ok": true,
+      "passes": true
+    },
+    "B5M": {
+      "cell": "B5M",
+      "total_cells": 90,
+      "valid_cells": 90,
+      "cell_threshold": 80,
+      "per_family_body_counts": {
+        "floor": 10,
+        "vt": 10,
+        "mvt": 10
+      },
+      "families_ok": true,
+      "passes": true
+    }
+  },
+  "reliability": {
+    "B3001": {
+      "n_bodies": 30,
+      "median_ratio": 0.8923575581951494,
+      "threshold": 2.0,
+      "passes": true
+    },
+    "B10001": {
+      "n_bodies": 30,
+      "median_ratio": 1.0621492876068033,
+      "threshold": 2.0,
+      "passes": true
+    },
+    "B5M": {
+      "n_bodies": 30,
+      "median_ratio": 1.036346330371401,
+      "threshold": 2.0,
+      "passes": true
+    }
+  },
+  "valid_Bs": [
+    "B3001",
+    "B10001",
+    "B5M"
+  ],
+  "pairwise_rho": {
+    "B3001": {
+      "rho": 0.9163515016685205,
+      "ci_lo": 0.7838430509950872,
+      "ci_hi": 0.9709693447093332,
+      "n": 30
+    },
+    "B10001": {
+      "rho": 0.8522803114571746,
+      "ci_lo": 0.6799244575826225,
+      "ci_hi": 0.9446431659865463,
+      "n": 30
+    },
+    "B5M": {
+      "rho": 0.8496106785317018,
+      "ci_lo": 0.6717266171009725,
+      "ci_hi": 0.9335129369204799,
+      "n": 30
+    }
+  },
+  "monotonicity": {
+    "points": [
+      0.9163515016685205,
+      0.8522803114571746,
+      0.8496106785317018
+    ],
+    "point_estimates_monotonic": true,
+    "strict_3001_to_10001": false,
+    "strict_10001_to_5M": false,
+    "any_strict": false,
+    "pass_gate": false
+  },
+  "dose_response": {
+    "n_rows": 90,
+    "n_bodies": 30,
+    "slope": 0.09899164709126876,
+    "slope_se": 0.021818640783716554,
+    "slope_ci_lo": 0.052818688431820436,
+    "slope_ci_hi": 0.1497755320570645,
+    "slope_ci_excludes_zero": true
+  },
+  "decision": {
+    "decision": "appendix_only",
+    "reason": "2/3 rho CIs below 0.95, 0 B(s) dropped ([]); main-text requires all 3 non-corpus valid",
+    "dropped_Bs": [],
+    "valid_Bs": [
+      "B3001",
+      "B10001",
+      "B5M"
+    ]
+  },
+  "metadata_violations": {}
+}

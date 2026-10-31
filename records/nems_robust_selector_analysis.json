@@ -1,0 +1,85 @@
+{
+  "spec": "records/nems_robust_selector_spec.md",
+  "spec_frozen": "2026-04-23",
+  "primary_k": 10,
+  "n_corpus": 100,
+  "n_nems": 60,
+  "predictor_worst_case": {
+    "alpha": 10.0,
+    "cv_r2": 0.059593818194579914,
+    "in_sample_r2": 0.24302899442290082
+  },
+  "predictor_epi": {
+    "alpha": 10.0,
+    "cv_r2": -0.043968027781277993,
+    "in_sample_r2": 0.10978149629979639
+  },
+  "point_estimates_k10": {
+    "retention_wc": 0.4981968421025597,
+    "retention_epi": 0.4053495641633998,
+    "delta_wc_vs_oracle": -1.276127583352235,
+    "delta_epi_vs_oracle": -1.512246010573352
+  },
+  "bootstrap_k10": {
+    "retention_wc_ci": [
+      NaN,
+      NaN,
+      NaN
+    ],
+    "retention_epi_ci": [
+      0.4046820500121022,
+      0.26328866377161847,
+      0.5514010309089211
+    ],
+    "delta_wc_vs_epi_ci": [
+      NaN,
+      NaN,
+      NaN
+    ]
+  },
+  "secondary_k_aux": {
+    "k5": {
+      "retention_wc_ci": [
+        0.5102301166936529,
+        0.3178816942914122,
+        0.7019152296042317
+      ],
+      "retention_epi_ci": [
+        0.3705340355472067,
+        0.1489765484432223,
+        0.6164686443435338
+      ],
+      "delta_wc_vs_epi_ci": [
+        0.3809077244535044,
+        -0.39876221361572584,
+        1.1243515584698238
+      ]
+    },
+    "k20": {
+      "retention_wc_ci": [
+        NaN,
+        NaN,
+        NaN
+      ],
+      "retention_epi_ci": [
+        0.43262635416682843,
+        0.31691422277277553,
+        0.5564132250296396
+      ],
+      "delta_wc_vs_epi_ci": [
+        NaN,
+        NaN,
+        NaN
+      ]
+    }
+  },
+  "qc": {
+    "no_id_overlap": true,
+    "cv_r2_pass": false,
+    "cv_r2_threshold": 0.2,
+    "n_corpus_expected": 100,
+    "n_nems_expected": 60
+  },
+  "gate_verdict": "DROP",
+  "verdict_reason": "QC FAIL: CV R^2 = 0.060 < 0.20 threshold"
+}

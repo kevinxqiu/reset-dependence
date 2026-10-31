@@ -1,0 +1,151 @@
+{
+  "per_cell_valid": {
+    "tau0": 90,
+    "tau020": 90,
+    "tau020_5M": 90,
+    "tau050": 90,
+    "tau050_5M": 90,
+    "tau0_5M": 90
+  },
+  "panel_qc": {
+    "arm_A": {
+      "cell": "tau020_5M",
+      "total_cells": 90,
+      "valid_cells": 90,
+      "cell_threshold": 80,
+      "per_family_body_counts": {
+        "floor": 10,
+        "vt": 10,
+        "mvt": 10
+      },
+      "families_ok": true,
+      "passes": true
+    },
+    "arm_H": {
+      "cell": "tau050_5M",
+      "total_cells": 90,
+      "valid_cells": 90,
+      "cell_threshold": 80,
+      "per_family_body_counts": {
+        "floor": 10,
+        "vt": 10,
+        "mvt": 10
+      },
+      "families_ok": true,
+      "passes": true
+    }
+  },
+  "reliability": {
+    "arm_A": {
+      "n_bodies": 30,
+      "median_ratio": 1.4564229943392686,
+      "threshold": 2.0,
+      "passes": true
+    },
+    "arm_H": {
+      "n_bodies": 30,
+      "median_ratio": 1.1679914808435345,
+      "threshold": 2.0,
+      "passes": true
+    }
+  },
+  "anova": {
+    "interaction_f": 3.7247872823394874,
+    "interaction_p": 0.02478340097811757,
+    "df_num": 2.0,
+    "df_denom": 505.0,
+    "partial_eta2": 0.01453718557773673,
+    "anova_table": [
+      {
+        "source": "C(tau_str)",
+        "sum_sq": 73.15579832286204,
+        "df": 2.0,
+        "F": 39.11484050334213,
+        "PR(>F)": 1.6090501059147888e-16
+      },
+      {
+        "source": "C(boundary)",
+        "sum_sq": 5.859289376184014,
+        "df": 1.0,
+        "F": 6.265673389302394,
+        "PR(>F)": 0.01262462206858476
+      },
+      {
+        "source": "C(morph)",
+        "sum_sq": 246.9491996099531,
+        "df": 29.0,
+        "F": 9.106100316856125,
+        "PR(>F)": 7.674876808933838e-31
+      },
+      {
+        "source": "C(family)",
+        "sum_sq": 17.81794929531918,
+        "df": 2.0,
+        "F": 9.526876348299561,
+        "PR(>F)": 8.683095331786316e-05
+      },
+      {
+        "source": "C(tau_str):C(boundary)",
+        "sum_sq": 6.96640415034049,
+        "df": 2.0,
+        "F": 3.7247872823394874,
+        "PR(>F)": 0.02478340097811757
+      },
+      {
+        "source": "Residual",
+        "sum_sq": 472.24630955466523,
+        "df": 505.0,
+        "F": NaN,
+        "PR(>F)": NaN
+      }
+    ]
+  },
+  "per_tau_delta": {
+    "0.0": {
+      "n": 30,
+      "median_delta": -0.3829387635633834,
+      "ci_lo": -0.6664940039330729,
+      "ci_hi": -0.17504638819332174,
+      "excludes_zero": true
+    },
+    "0.2": {
+      "n": 30,
+      "median_delta": -0.01980482269668382,
+      "ci_lo": -0.17221692315095116,
+      "ci_hi": 0.15998430081674597,
+      "excludes_zero": false
+    },
+    "0.5": {
+      "n": 30,
+      "median_delta": 0.049645014533538576,
+      "ci_lo": -0.1300450707401231,
+      "ci_hi": 0.13385262607418313,
+      "excludes_zero": false
+    }
+  },
+  "per_tau_rank_corr": {
+    "0.0": {
+      "rho": 0.8496106785317018,
+      "ci_lo": 0.6717266171009725,
+      "ci_hi": 0.9335129369204799,
+      "n": 30
+    },
+    "0.2": {
+      "rho": 0.7067853170189099,
+      "ci_lo": 0.3476409248076088,
+      "ci_hi": 0.9237318978116041,
+      "n": 30
+    },
+    "0.5": {
+      "rho": 0.9426028921023359,
+      "ci_lo": 0.8560853611288166,
+      "ci_hi": 0.9726890635728375,
+      "n": 30
+    }
+  },
+  "decision": {
+    "decision": "appendix_only",
+    "reason": "interaction p=0.0248, 1/3 tau CIs excluding 0"
+  },
+  "metadata_violations": {}
+}

@@ -1,0 +1,214 @@
+{
+  "categories": {
+    "file_integrity": {
+      "expected_files": 9,
+      "failures": []
+    },
+    "numerical_sanity": {
+      "values_checked": 24300,
+      "failures": []
+    },
+    "seed_independence": {
+      "pairs": [
+        {
+          "tau": "0p00",
+          "seeds": [
+            42,
+            43
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.8559811727831573
+        },
+        {
+          "tau": "0p00",
+          "seeds": [
+            42,
+            44
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.7723491966342159
+        },
+        {
+          "tau": "0p00",
+          "seeds": [
+            43,
+            44
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.8524023044666863
+        },
+        {
+          "tau": "0p20",
+          "seeds": [
+            42,
+            43
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.6902433868859439
+        },
+        {
+          "tau": "0p20",
+          "seeds": [
+            42,
+            44
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.7667012071104873
+        },
+        {
+          "tau": "0p20",
+          "seeds": [
+            43,
+            44
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.7258481131094782
+        },
+        {
+          "tau": "0p50",
+          "seeds": [
+            42,
+            43
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.5573362438507561
+        },
+        {
+          "tau": "0p50",
+          "seeds": [
+            42,
+            44
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.6997965419397961
+        },
+        {
+          "tau": "0p50",
+          "seeds": [
+            43,
+            44
+          ],
+          "identical_psr": 0,
+          "pearson_r_psr": 0.713325378859578
+        }
+      ],
+      "failures": []
+    },
+    "reset_free_semantics": {
+      "neutral_ep_len_summary": {
+        "min": 1000.0,
+        "max": 1000.0
+      },
+      "neutral_fall_rate_summary": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "failures": []
+    },
+    "family_labeling": {
+      "expected": {
+        "floor": 41,
+        "vt": 37,
+        "mvt": 22
+      },
+      "failures": []
+    },
+    "provenance": {
+      "failures": []
+    },
+    "paper_crossreferences": {
+      "family_means": {
+        "episodic": {
+          "floor": 2.4282760389032942,
+          "vt": 2.3041079127702893,
+          "mvt": 2.6511094914747866
+        },
+        "strict": {
+          "floor": 1.837190722211485,
+          "vt": 1.4674684242429663,
+          "mvt": 2.316913590382437
+        },
+        "reset_free": {
+          "floor": 1.4534488430369814,
+          "vt": 1.999491846038355,
+          "mvt": 2.0883080634450284
+        }
+      },
+      "ratios": {
+        "rf_epi": {
+          "floor": 0.5453438797957033,
+          "vt": 0.8432855906036817,
+          "mvt": 0.7215837487706563
+        },
+        "str_epi": {
+          "floor": 0.7764790840620207,
+          "vt": 0.6583772624951434,
+          "mvt": 0.9119052331983437
+        }
+      },
+      "paper_family_means": {
+        "episodic": {
+          "floor": 2.428,
+          "vt": 2.304,
+          "mvt": 2.651
+        },
+        "strict": {
+          "floor": 1.837,
+          "vt": 1.467,
+          "mvt": 2.317
+        },
+        "reset_free": {
+          "floor": 1.453,
+          "vt": 1.999,
+          "mvt": 2.088
+        }
+      },
+      "paper_rf_epi_ratios": {
+        "floor": 0.55,
+        "vt": 0.84,
+        "mvt": 0.72
+      },
+      "paper_str_epi_ratios": {
+        "floor": 0.78,
+        "vt": 0.66,
+        "mvt": 0.91
+      },
+      "failures": []
+    },
+    "stale_directories": {
+      "non_canonical_dirs": [
+        "mjx_ppo_0p10_seed42",
+        "mjx_ppo_0p10_seed43",
+        "mjx_ppo_0p10_seed44",
+        "mjx_ppo_0p35_seed42",
+        "mjx_ppo_0p35_seed43",
+        "mjx_ppo_0p35_seed44"
+      ],
+      "failures": []
+    }
+  },
+  "summary": {
+    "total_failures": 0,
+    "failures_by_category": {
+      "file_integrity": 0,
+      "numerical_sanity": 0,
+      "seed_independence": 0,
+      "reset_free_semantics": 0,
+      "family_labeling": 0,
+      "provenance": 0,
+      "paper_crossreferences": 0,
+      "stale_directories": 0
+    },
+    "status": "PASS"
+  },
+  "all_failures": {
+    "file_integrity": [],
+    "numerical_sanity": [],
+    "seed_independence": [],
+    "reset_free_semantics": [],
+    "family_labeling": [],
+    "provenance": [],
+    "paper_crossreferences": [],
+    "stale_directories": []
+  }
+}

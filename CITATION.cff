@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code or the run summaries, please cite the paper below."
+title: "Reset Dependence Is Embodied: Training Protocol Changes Which Morphologies Appear Optimal (code)"
+type: software
+license: MIT
+repository-code: "https://github.com/kevinxqiu/reset-dependence"
+authors:
+  - family-names: Qiu
+    given-names: Kevin
+  - family-names: Yang
+    given-names: Zhao
+  - family-names: Cygan
+    given-names: Marek
+keywords:
+  - robot co-design
+  - reinforcement learning
+  - benchmark evaluation
+  - morphology
+preferred-citation:
+  type: conference-paper
+  title: "Reset Dependence Is Embodied: Training Protocol Changes Which Morphologies Appear Optimal"
+  authors:
+    - family-names: Qiu
+      given-names: Kevin
+    - family-names: Yang
+      given-names: Zhao
+    - family-names: Cygan
+      given-names: Marek
+  collection-title: "Advances in Neural Information Processing Systems (Evaluations and Datasets Track)"
+  conference:
+    name: "NeurIPS 2026"
+  year: 2026

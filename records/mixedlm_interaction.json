@@ -1,0 +1,86 @@
+{
+  "n_rows": 900,
+  "n_bodies": 100,
+  "reference_protocol": "episodic",
+  "reference_family": "floor",
+  "all_terms": [
+    {
+      "term": "Intercept",
+      "coef": 2.4282760389032796,
+      "ci_lo": 2.176750312948393,
+      "ci_hi": 2.679801764858166
+    },
+    {
+      "term": "C(protocol, Treatment(reference='episodic'))[T.reset_free]",
+      "coef": -0.9748271958663133,
+      "ci_lo": -1.1684492321510254,
+      "ci_hi": -0.7812051595816011
+    },
+    {
+      "term": "C(protocol, Treatment(reference='episodic'))[T.strict]",
+      "coef": -0.5910853166918079,
+      "ci_lo": -0.7847073529765201,
+      "ci_hi": -0.39746328040709566
+    },
+    {
+      "term": "C(family, Treatment(reference='floor'))[T.mvt]",
+      "coef": 0.22283345257150713,
+      "ci_lo": -0.2028054800654582,
+      "ci_hi": 0.6484723852084725
+    },
+    {
+      "term": "C(family, Treatment(reference='floor'))[T.vt]",
+      "coef": -0.12416812613298972,
+      "ci_lo": -0.48936651293474487,
+      "ci_hi": 0.24103026066876543
+    },
+    {
+      "term": "C(protocol, Treatment(reference='episodic'))[T.reset_free]:C(family, Treatment(reference='floor'))[T.mvt]",
+      "coef": 0.4120257678365549,
+      "ci_lo": 0.08437309315944475,
+      "ci_hi": 0.7396784425136651
+    },
+    {
+      "term": "C(protocol, Treatment(reference='episodic'))[T.strict]:C(family, Treatment(reference='floor'))[T.mvt]",
+      "coef": 0.2568894155994589,
+      "ci_lo": -0.0707632590776513,
+      "ci_hi": 0.584542090276569
+    },
+    {
+      "term": "C(protocol, Treatment(reference='episodic'))[T.reset_free]:C(family, Treatment(reference='floor'))[T.vt]",
+      "coef": 0.6702111291343781,
+      "ci_lo": 0.3890849936983146,
+      "ci_hi": 0.9513372645704415
+    },
+    {
+      "term": "C(protocol, Treatment(reference='episodic'))[T.strict]:C(family, Treatment(reference='floor'))[T.vt]",
+      "coef": -0.2455541718355158,
+      "ci_lo": -0.5266803072715793,
+      "ci_hi": 0.03557196360054765
+    },
+    {
+      "term": "Group Var",
+      "coef": 0.791696390359452,
+      "ci_lo": 0.5225423297049238,
+      "ci_hi": 1.0608504510139802
+    }
+  ],
+  "vt_by_reset_free_interaction": {
+    "term": "C(protocol, Treatment(reference='episodic'))[T.reset_free]:C(family, Treatment(reference='floor'))[T.vt]",
+    "coef": 0.6702111291343781,
+    "ci_lo": 0.3890849936983146,
+    "ci_hi": 0.9513372645704415
+  },
+  "vt_by_strict_interaction": {
+    "term": "C(protocol, Treatment(reference='episodic'))[T.strict]:C(family, Treatment(reference='floor'))[T.vt]",
+    "coef": -0.2455541718355158,
+    "ci_lo": -0.5266803072715793,
+    "ci_hi": 0.03557196360054765
+  },
+  "reset_free_main": {
+    "term": "C(protocol, Treatment(reference='episodic'))[T.reset_free]",
+    "coef": -0.9748271958663133,
+    "ci_lo": -1.1684492321510254,
+    "ci_hi": -0.7812051595816011
+  }
+}

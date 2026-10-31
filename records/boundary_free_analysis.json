@@ -1,0 +1,120 @@
+{
+  "qc": {
+    "total_cells": 90,
+    "valid_cells": 90,
+    "invalid_cells": 0,
+    "cell_threshold": 80,
+    "family_body_counts": {
+      "floor": 10,
+      "vt": 10,
+      "mvt": 10
+    },
+    "families_ok": true,
+    "qc_pass": true
+  },
+  "reliability": {
+    "n_bodies": 30,
+    "median_ratio": 1.036346330371401,
+    "threshold": 2.0,
+    "passes": true
+  },
+  "reframe": {
+    "total_runs": 90,
+    "bad_runs": 0,
+    "threshold": 46,
+    "reframe_fires": false
+  },
+  "metadata_violations": [],
+  "decision": {
+    "decision": "main_text",
+    "reason": "rank CI upper=0.934 < 0.95, 2/3 families with Delta_F CI excluding 0, reliability passes",
+    "spearman_rho": 0.8496106785317018,
+    "spearman_ci_lo": 0.6717266171009725,
+    "spearman_ci_hi": 0.9335129369204799,
+    "families_excluding_zero": [
+      "floor",
+      "mvt"
+    ],
+    "reliability_passes": true,
+    "rank_correlation": {
+      "rho": 0.8496106785317018,
+      "ci_lo": 0.6717266171009725,
+      "ci_hi": 0.9335129369204799,
+      "n": 30
+    },
+    "family_deltas": {
+      "floor": {
+        "family": "floor",
+        "n_bodies": 10,
+        "median_delta": -0.5362481095196574,
+        "ci_lo": -0.8212121047346872,
+        "ci_hi": -0.1561617480269084,
+        "excludes_zero": true
+      },
+      "vt": {
+        "family": "vt",
+        "n_bodies": 10,
+        "median_delta": -0.23289495818414016,
+        "ci_lo": -1.0220553290225518,
+        "ci_hi": 0.07340516523502738,
+        "excludes_zero": false
+      },
+      "mvt": {
+        "family": "mvt",
+        "n_bodies": 10,
+        "median_delta": -0.3829387635633834,
+        "ci_lo": -0.7288497924046433,
+        "ci_hi": -0.19393102835973508,
+        "excludes_zero": true
+      }
+    },
+    "anova": {
+      "interaction_f": 2.3960455931220808,
+      "interaction_p": 0.027996584867632818,
+      "df_num": 6.0,
+      "df_denom": 321.0,
+      "anova_table": [
+        {
+          "source": "C(protocol)",
+          "sum_sq": 64.46467248217766,
+          "df": 3.0,
+          "F": 27.162140944948515,
+          "PR(>F)": 1.1118854730279292e-15
+        },
+        {
+          "source": "C(family)",
+          "sum_sq": 15.865287922241995,
+          "df": 2.0,
+          "F": 10.02724058193111,
+          "PR(>F)": 5.968211359506001e-05
+        },
+        {
+          "source": "C(morph)",
+          "sum_sq": 219.55548374006608,
+          "df": 29.0,
+          "F": 9.569952088044698,
+          "PR(>F)": 5.992545574413302e-29
+        },
+        {
+          "source": "C(protocol):C(family)",
+          "sum_sq": 11.373204691488494,
+          "df": 6.0,
+          "F": 2.3960455931220808,
+          "PR(>F)": 0.027996584867632818
+        },
+        {
+          "source": "Residual",
+          "sum_sq": 253.94610717811682,
+          "df": 321.0,
+          "F": NaN,
+          "PR(>F)": NaN
+        }
+      ]
+    },
+    "corpus_completeness": {
+      "total": 90,
+      "valid": 90,
+      "shared_bodies_with_trf": 30
+    }
+  }
+}

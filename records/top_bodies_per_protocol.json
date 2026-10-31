@@ -1,0 +1,230 @@
+{
+  "k": 5,
+  "tau_eval": 0.2,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "top_by_protocol": {
+    "reset_free": [
+      {
+        "rank": 1,
+        "morph": "mvt-5506-11-13-17-10-06-36",
+        "family": "mvt",
+        "psr_reset_free": 3.9140243222588738,
+        "psr_episodic": 4.12776083344542,
+        "psr_strict": 1.159183149977042
+      },
+      {
+        "rank": 2,
+        "morph": "floor-5506-10-6-01-15-48-35",
+        "family": "floor",
+        "psr_reset_free": 3.907942800344627,
+        "psr_episodic": 3.8129994822780637,
+        "psr_strict": 1.3241248426672
+      },
+      {
+        "rank": 3,
+        "morph": "mvt-5506-13-10-17-12-25-45",
+        "family": "mvt",
+        "psr_reset_free": 3.8552294548660946,
+        "psr_episodic": 3.3451172429931435,
+        "psr_strict": 3.429633111907757
+      },
+      {
+        "rank": 4,
+        "morph": "floor-1409-0-7-01-15-15-26",
+        "family": "floor",
+        "psr_reset_free": 3.689850322750212,
+        "psr_episodic": 3.6384124866967036,
+        "psr_strict": 4.126804636682141
+      },
+      {
+        "rank": 5,
+        "morph": "vt-1409-5-10-02-21-38-25",
+        "family": "vt",
+        "psr_reset_free": 3.6289153633429847,
+        "psr_episodic": 3.326194434117044,
+        "psr_strict": 1.6594029844313765
+      }
+    ],
+    "episodic": [
+      {
+        "rank": 1,
+        "morph": "mvt-5506-11-13-17-10-06-36",
+        "family": "mvt",
+        "psr_reset_free": 3.9140243222588738,
+        "psr_episodic": 4.12776083344542,
+        "psr_strict": 1.159183149977042
+      },
+      {
+        "rank": 2,
+        "morph": "mvt-5506-14-4-17-08-14-37",
+        "family": "mvt",
+        "psr_reset_free": 3.4165612479317473,
+        "psr_episodic": 3.8468173964315455,
+        "psr_strict": 2.8192952293540503
+      },
+      {
+        "rank": 3,
+        "morph": "floor-5506-10-6-01-15-48-35",
+        "family": "floor",
+        "psr_reset_free": 3.907942800344627,
+        "psr_episodic": 3.8129994822780637,
+        "psr_strict": 1.3241248426672
+      },
+      {
+        "rank": 4,
+        "morph": "vt-1409-12-10-02-21-04-52",
+        "family": "vt",
+        "psr_reset_free": 3.2265341448440945,
+        "psr_episodic": 3.652973092731315,
+        "psr_strict": 0.032900737892474184
+      },
+      {
+        "rank": 5,
+        "morph": "mvt-5506-1-12-17-11-10-12",
+        "family": "mvt",
+        "psr_reset_free": 3.6025731368339815,
+        "psr_episodic": 3.6499434164542595,
+        "psr_strict": 3.121424081375283
+      }
+    ],
+    "strict": [
+      {
+        "rank": 1,
+        "morph": "floor-1409-0-7-01-15-15-26",
+        "family": "floor",
+        "psr_reset_free": 3.689850322750212,
+        "psr_episodic": 3.6384124866967036,
+        "psr_strict": 4.126804636682141
+      },
+      {
+        "rank": 2,
+        "morph": "mvt-5506-13-10-17-12-25-45",
+        "family": "mvt",
+        "psr_reset_free": 3.8552294548660946,
+        "psr_episodic": 3.3451172429931435,
+        "psr_strict": 3.429633111907757
+      },
+      {
+        "rank": 3,
+        "morph": "mvt-5506-15-6-17-03-13-08",
+        "family": "mvt",
+        "psr_reset_free": 3.4801735017111053,
+        "psr_episodic": 3.4727605728640936,
+        "psr_strict": 3.342676903370618
+      },
+      {
+        "rank": 4,
+        "morph": "floor-1409-3-5-01-12-07-43",
+        "family": "floor",
+        "psr_reset_free": 3.103375799383811,
+        "psr_episodic": 3.29078037747414,
+        "psr_strict": 3.2537167357863406
+      },
+      {
+        "rank": 5,
+        "morph": "mvt-5506-1-12-17-11-10-12",
+        "family": "mvt",
+        "psr_reset_free": 3.6025731368339815,
+        "psr_episodic": 3.6499434164542595,
+        "psr_strict": 3.121424081375283
+      }
+    ]
+  },
+  "overlaps": {
+    "floor-1409-0-7-01-15-15-26": {
+      "protocols": [
+        "reset_free",
+        "strict"
+      ],
+      "count": 2,
+      "family": "floor"
+    },
+    "floor-1409-3-5-01-12-07-43": {
+      "protocols": [
+        "strict"
+      ],
+      "count": 1,
+      "family": "floor"
+    },
+    "floor-5506-10-6-01-15-48-35": {
+      "protocols": [
+        "reset_free",
+        "episodic"
+      ],
+      "count": 2,
+      "family": "floor"
+    },
+    "mvt-5506-1-12-17-11-10-12": {
+      "protocols": [
+        "episodic",
+        "strict"
+      ],
+      "count": 2,
+      "family": "mvt"
+    },
+    "mvt-5506-11-13-17-10-06-36": {
+      "protocols": [
+        "reset_free",
+        "episodic"
+      ],
+      "count": 2,
+      "family": "mvt"
+    },
+    "mvt-5506-13-10-17-12-25-45": {
+      "protocols": [
+        "reset_free",
+        "strict"
+      ],
+      "count": 2,
+      "family": "mvt"
+    },
+    "mvt-5506-14-4-17-08-14-37": {
+      "protocols": [
+        "episodic"
+      ],
+      "count": 1,
+      "family": "mvt"
+    },
+    "mvt-5506-15-6-17-03-13-08": {
+      "protocols": [
+        "strict"
+      ],
+      "count": 1,
+      "family": "mvt"
+    },
+    "vt-1409-12-10-02-21-04-52": {
+      "protocols": [
+        "episodic"
+      ],
+      "count": 1,
+      "family": "vt"
+    },
+    "vt-1409-5-10-02-21-38-25": {
+      "protocols": [
+        "reset_free"
+      ],
+      "count": 1,
+      "family": "vt"
+    }
+  },
+  "family_counts": {
+    "reset_free": {
+      "mvt": 2,
+      "floor": 2,
+      "vt": 1
+    },
+    "episodic": {
+      "mvt": 3,
+      "floor": 1,
+      "vt": 1
+    },
+    "strict": {
+      "floor": 2,
+      "mvt": 3
+    }
+  }
+}
