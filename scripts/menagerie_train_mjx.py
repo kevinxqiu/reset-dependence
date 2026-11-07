@@ -91,7 +91,7 @@ DEFAULT_MINIBATCH_SIZE = 256
 DEFAULT_TIMESTEPS = 5_000_000
 
 
-MENAGERIE_ROOT = Path(os.path.expanduser("~/mujoco_menagerie"))
+MENAGERIE_ROOT = Path(os.environ.get("MUJOCO_MENAGERIE_DIR", "~/mujoco_menagerie")).expanduser()
 
 # Frozen task spec, mirrored from records/menagerie_task_spec.md.
 # Changing this dict must be accompanied by an amendment entry in the spec

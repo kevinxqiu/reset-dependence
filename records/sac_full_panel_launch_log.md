@@ -9,7 +9,7 @@
   (2026-04-09 12:49), before pilot results created at 2026-04-09 18:35.
   Code stable since pilot.
 - Smoke command: `sbatch --array=0-0 --export=THRESHOLD=0.20,SEED=42 slurm/train_sac_mjx.sh`
-  on the cluster login node, cwd ~/reset-free-codesign.
+  on the cluster login node, cwd at the repository root.
 - SLURM job ID: 158579.
 - Expected: 8 bodies x tau=0.20 x seed 42 at 5M steps each, ~2 hr wall-clock
   at 4-way packing, ~2 GPU-hr total.

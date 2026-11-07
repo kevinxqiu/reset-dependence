@@ -34,7 +34,7 @@ runs.
 | `nems_panel.sh` | Non-evolved bodies (`nems_panel/`); needs the generated bodies under `assets/generated_morphologies/`, which are not distributed |
 | `asymptotic_5m.sh` | Longer budget, 5M-step arm (`asymptotic_5m/`) |
 | `asymptotic_50m_v2.sh`, `asymptotic_panel_50m.sh`, `asymptotic_panel_50m_canary.sh` | Longer budget, 50M-step phase (not completed, no released results) |
-| `menagerie_panel.sh` | Existing robots (`menagerie_panel/`); needs a MuJoCo Menagerie checkout in `~/mujoco_menagerie` |
+| `menagerie_panel.sh` | Existing robots (`menagerie_panel/`); needs a MuJoCo Menagerie checkout in `~/mujoco_menagerie` or `$MUJOCO_MENAGERIE_DIR` |
 | `temporal_gait_retrain.sh`, `traces_only_rollouts.sh`, `render_temporal_rollouts.sh` | Nine illustrative controllers and their gait traces (`gait-traces/`) |
 | `render_video.sh` | Rollout videos of one Floor body from a checkpoint of the longer-budget panel (not used in the paper) |
 

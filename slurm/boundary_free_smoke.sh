@@ -8,7 +8,7 @@
 #SBATCH --mem=32G
 
 # IMPORTANT: Before sbatch, ensure the SBATCH --output directory exists:
-#   mkdir -p ~/reset-free-codesign/logs
+#   mkdir -p logs
 # SLURM opens the output file before the script body runs, so the mkdir
 # inside this script is too late for --output.
 
