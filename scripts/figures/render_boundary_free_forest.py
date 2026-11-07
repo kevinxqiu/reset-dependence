@@ -48,16 +48,16 @@ def main() -> int:
     ax_rho.errorbar(
         rho["rho"], 0,
         xerr=[[rho["rho"] - lo], [hi - rho["rho"]]],
-        fmt="o", color=TEXT, markersize=5.5, capsize=3, lw=1.3,
+        fmt="o", color=TEXT, markersize=5.5, capsize=3, lw=1.3, mec="#262626", mew=0.6,
     )
     ax_rho.axvline(0.95, ls=(0, (4, 3)), color=GATE_RED, lw=0.85)
     ax_rho.text(
-        0.78, 0.61,
+        0.78, 0.64,
         rf"$\rho={rho['rho']:.2f}$" + "\n" + rf"[{lo:.2f}, {hi:.2f}]",
         transform=ax_rho.transAxes,
         ha="right",
         va="center",
-        fontsize=7.0,
+        fontsize=9.0,
         color=TEXT,
     )
     ax_rho.text(
@@ -65,7 +65,7 @@ def main() -> int:
         transform=ax_rho.get_xaxis_transform(),
         ha="right",
         va="top",
-        fontsize=7.3,
+        fontsize=9.0,
         color=GATE_RED,
     )
     ax_rho.set_xlim(0.3, 1.0)
@@ -87,7 +87,7 @@ def main() -> int:
         ax_deltas.errorbar(
             med, y[i],
             xerr=[[med - lo], [hi - med]],
-            fmt="o", color=c, markersize=5.5, capsize=3, lw=1.35,
+            fmt="o", color=c, markersize=5.5, capsize=3, lw=1.35, mec="#262626", mew=0.6,
             label=fam.upper() if fam != "floor" else "Floor",
         )
     ax_deltas.axvline(0, ls="-", color=DEEMPH, lw=0.8)

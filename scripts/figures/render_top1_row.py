@@ -28,7 +28,7 @@ import mujoco
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _paper_style import FAMILY_COLOR, TEXT, apply_style, column_header  # noqa: E402
+from _render_style import FAMILY_COLOR, TEXT, apply_style, column_header  # noqa: E402
 
 apply_style()
 

@@ -7,7 +7,7 @@ and ``init_height``. Because ``PSR_RF`` appears on both sides of the
 regression (it is contained in ``Delta_reset``), this control is mechanically
 circular and inflates R^2 to 0.68. The paper does NOT cite these numbers.
 
-The paper (Section 4.7 and Appendix J) controls for starting height and limb
+The paper (Section 4.7 and Appendix I) controls for starting height and limb
 count with structural features instead; ``scripts/camera_ready_numbers.py``
 recomputes the paper's values.
 

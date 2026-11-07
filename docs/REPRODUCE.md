@@ -114,7 +114,7 @@ python scripts/structural_feature_regression.py
 
 ### Review-period panels
 
-The control panels in other design spaces (paper, Section 4.8 and Appendix Q.1)
+The control panels in other design spaces (paper, Section 4.8 and Appendix P.1)
 ship in `panels.zip`, one row per cell with the score each frozen report
 ranks, together with the reports, specifications and inventories. Each panel
 compares the rankings under two settings with the rankings from two disjoint
@@ -131,7 +131,7 @@ python scripts/review_panels.py     # 4 to 6 minutes, reads review-panels/ from 
 The recorded check compares 19,619 values, all identical. The reports also
 contain permutation p-values. The paper does not use them, because they
 respond to differences in reward level between two settings rather than to
-rank agreement (Appendix Q.1). The excess disagreement D that the paper reports
+rank agreement (Appendix P.1). The excess disagreement D that the paper reports
 for these panels, and its 33-comparison adjustment, are not recomputed by the
 released scripts.
 
@@ -142,42 +142,39 @@ specification, report and analysis output.
 ## 4. Figures
 
 `scripts/figures/make_figures.py` draws every figure of the paper from the
-run summaries, the probe records and the joint traces, and writes them to
-`figures/` as `.pdf` (and `.png` where the script writes one). The code in
-`scripts/figures/` draws every figure of the paper except Figure 6, which comes
-from `scripts/plot_cr_fig2_cutoffs.py`.
+run summaries, the joint traces and the UNIMAL body files, and writes them to
+`figures/` as `.pdf` (and `.png` where the script writes one). All of the
+plotting code is in `scripts/figures/`.
 
-The figures use the Lato font, bundled in `fonts/` (SIL Open Font License,
-`fonts/OFL.txt`), so their text matches the printed figures.
+The plots set their text in STIX, a Times design that ships with matplotlib.
+The four renders label their panels in Lato, bundled in `fonts/` (SIL Open
+Font License, `fonts/OFL.txt`). Both match the printed figures.
 
 ```bash
-python scripts/figures/make_figures.py            # Figures 2 to 10 and 13, about 1 minute
-python scripts/figures/make_figures.py --render   # also Figures 1, 11, 12 and 14
+python scripts/figures/make_figures.py            # Figures 2 to 9 and 12, about 1 minute
+python scripts/figures/make_figures.py --render   # also Figures 1, 10, 11 and 13
 ```
 
-| Figure | Script (in `scripts/figures/` unless noted) |
+| Figure | Script (in `scripts/figures/`) |
 | --- | --- |
 | 1. Floor A under the three training rules (one illustrative retrain) | `render_chronophoto_3d.py` (render) |
 | 2. Rule schematic | `plot_termination_mechanism.py` |
 | 3. Family results | `analyze_final.py` |
 | 4. Reset-free against Strict, per body | `plot_rf_vs_strict_scatter.py` |
 | 5. Torso trajectories of the illustrative retrains | `render_temporal_gait.py` |
-| 6. Cutoff geometry | `scripts/plot_cr_fig2_cutoffs.py` |
-| 7. Evaluator robustness | `plot_robustness_eval.py` |
-| 8, 9, 10. Threshold curves, ratio distributions, per-seed panels | `analyze_final.py` |
-| 11. Morphology gallery | `render_morphology.py` (render) |
-| 12. Most rule-specialized VT bodies | `render_top1_row.py` (render) |
-| 13. Training without a time limit | `render_boundary_free_forest.py` |
-| 14. MVT A and Floor B under the three training rules (illustrative retrains) | `render_chronophoto_3d.py` (render) |
+| 6. Evaluator robustness | `plot_robustness_eval.py` |
+| 7, 8, 9. Threshold curves, ratio distributions, per-seed panels | `analyze_final.py` |
+| 10. Morphology gallery | `render_morphology.py` (render) |
+| 11. Most rule-specialized VT bodies | `render_top1_row.py` (render) |
+| 12. Training without a time limit | `render_boundary_free_forest.py` |
+| 13. MVT A and Floor B under the three training rules (illustrative retrains) | `render_chronophoto_3d.py` (render) |
 
-Figure 6 includes two small MuJoCo renders, and the four `--render` figures
-draw full MuJoCo scenes, all offscreen. `make_figures.py` uses EGL (a GPU or
+The four `--render` figures draw full MuJoCo scenes offscreen. `make_figures.py` uses EGL (a GPU or
 Mesa) unless `MUJOCO_GL` is set; use `MUJOCO_GL=osmesa` on a machine without
-EGL. We checked the output
-against the printed figures on a laptop with Mesa EGL: Figures 2, 3 and 6 are
-identical, the other matplotlib figures match in data, labels and layout
-with differences of a pixel or two from text rendering, and the renders
-differ only in shading. Figures 1, 5 and 14 read
+EGL. The printed plots (Figures 2 to 9 and 12) were drawn with these scripts
+on a laptop with Mesa EGL. On that laptop the renders match the printed ones
+in bodies, poses, camera and labels, and differ in shading and in the grid
+lines of the floor. Figures 1, 5 and 13 read
 the joint traces in `gait-traces/` from the dataset. Their nine controllers
 were retrained once for illustration with later code (seed 42, deterministic
 action), their checkpoints are not released, and the recorded corpus runs of

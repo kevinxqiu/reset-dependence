@@ -73,4 +73,5 @@ logistics, including wording about how the paper would present an outcome,
 were removed or reworded. No gate, date or outcome was changed; where a
 specification's interpretation of an outcome claimed more than its design
 tests, the wording was corrected. Notes added for the release say where the paper reports each planned
-test.
+test. Commit hashes in the records refer to the working repository, which is
+not public.

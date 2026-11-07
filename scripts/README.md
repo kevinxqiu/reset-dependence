@@ -77,24 +77,25 @@ These need a CUDA GPU and `requirements-training.txt`.
 
 `figures/` holds the code that draws every figure of the paper, and
 `figures/make_figures.py` runs it (docs/REPRODUCE.md, section 4). It is the
-plotting code of the reviewed version, with two camera-ready changes listed in
-`figures/make_figures.py`, and it has its own `figures/_paper_style.py`.
+plotting code of the reviewed version, updated for the camera-ready. The plots
+take their style from `figures/_paper_style.py`, and the four renders from
+`figures/_render_style.py`.
 
 | Script | What it does |
 | --- | --- |
-| `figures/make_figures.py` | Runs every script below and writes `figures/` (add `--render` for the MuJoCo renders) |
-| `figures/render_chronophoto_3d.py` | Figures 1 and 14: chronophotographs of the illustrative retrains (Floor A; MVT A and Floor B) |
+| `figures/make_figures.py` | Runs the scripts below that draw the paper's figures and writes `figures/` (add `--render` for the MuJoCo renders) |
+| `figures/render_chronophoto_3d.py` | Figures 1 and 13: chronophotographs of the illustrative retrains (Floor A; MVT A and Floor B) |
 | `figures/plot_seed_vs_rule_ranks.py` | Project-page figure: ranks after two seeds of one rule against ranks after two rules with the same seed, from the run summaries |
-| `figures/render_rollout_videos.py` | Project-page videos: the same rollouts as Figures 1 and 14 in real time, one row per training rule (render; needs ffmpeg) |
+| `figures/render_rollout_videos.py` | Project-page videos: the same rollouts as Figures 1 and 13 in real time, one row per training rule (render; needs ffmpeg) |
 | `figures/plot_termination_mechanism.py` | Figure 2: schematic of the three fall rules (not measured) |
-| `figures/analyze_final.py` | Figures 3, 8, 9 and 10: family results, threshold curves, ratio distributions and per-seed panels, with their statistics |
+| `figures/analyze_final.py` | Figures 3, 7, 8 and 9: family results, threshold curves, ratio distributions and per-seed panels, with their statistics |
 | `figures/render_temporal_gait.py` | Figure 5: torso trajectories of the illustrative retrains, from the joint traces |
-| `plot_cr_fig2_cutoffs.py` | Figure 6: where the fall cutoffs sit relative to each body's torso |
-| `figures/plot_robustness_eval.py` | Figure 7: family retention under the common and the neutral evaluator |
-| `figures/render_morphology.py` | Figure 11: the nine gallery bodies |
+| `plot_cr_fig2_cutoffs.py` | Zero-action probes: where the fall cutoffs sit relative to each body's torso (Appendix C.1 reports the result; not in the paper) |
+| `figures/plot_robustness_eval.py` | Figure 6: family retention under the common and the neutral evaluator |
+| `figures/render_morphology.py` | Figure 10: the nine gallery bodies |
 | `figures/plot_rf_vs_strict_scatter.py` | Figure 4: per-body Reset-free against Strict reward, as values and as ranks |
-| `figures/render_top1_row.py` | Figure 12: the most rule-specialized VT body for each training rule |
-| `figures/render_boundary_free_forest.py` | Figure 13: training without a time limit at τ = 0: rank agreement and family shift |
+| `figures/render_top1_row.py` | Figure 11: the most rule-specialized VT body for each training rule |
+| `figures/render_boundary_free_forest.py` | Figure 12: training without a time limit at τ = 0: rank agreement and family shift |
 | `render_pareto.py` | Reward against fall rate and against control effort, with the Pareto front (not in the paper) |
 | `_paper_style.py` | Figure style of `plot_cr_fig2_cutoffs.py` and the analysis scripts' plots |
 

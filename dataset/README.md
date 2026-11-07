@@ -13,7 +13,7 @@ rules, facts about public code and values quoted from the reviewed version.
 The rest are results kept outside the run summaries, such as the
 cross-validated structure fits, the outcomes of the other planned tests
 (from their recorded analyses), the SAC scale check, the A2C panel and, for
-the review-period panels, the excess disagreement D and its multiplicity
+the panels in other design spaces, the excess disagreement D and its multiplicity
 adjustment. `panels.zip` holds the control panels that we trained during the
 review discussion in Humanoid, Ant and Evolution Gym bodies, with per-cell
 tables from which `scripts/review_panels.py` recomputes every statistic of
@@ -90,7 +90,8 @@ zero-action rollouts of all 100 bodies, 3 s settle heights, random-action
 searches on the ten VT bodies that the Strict cutoff ends during the reset
 drop, and training-like torso probes that define the 60 probe-safe bodies of
 the same-rule repeat. The scripts that made them are in the code repository
-under `records/sim-record-scripts/`.
+under `records/sim-record-scripts/`, except the script of the 300-sequence
+probe (`sim-records/sk_shoot.json`), which is not released.
 
 ## Panels
 
@@ -171,7 +172,7 @@ each pool of bodies. Its reference for seed variation is the agreement
 between rankings from two disjoint halves of one setting's seeds. A
 specification and contract fixed each panel's cells, comparisons and
 analysis settings, and a frozen analysis wrote its report. The paper reports
-these panels in Section 4.8 and Appendix Q.1.
+these panels in Section 4.8 and Appendix P.1.
 
 | Folder in `review-panels/` | What changes | Bodies, settings, seeds | Cells | Spearman rho (top-10 overlap) | Seed halves |
 | --- | --- | --- | --- | --- | --- |
@@ -202,7 +203,7 @@ fall-rule panel, two halves of one rule's seeds agree at only 0.26 to 0.69,
 and rankings under a fall rule agree with rankings without one at 0.58 to
 0.73 in pools 0 and 1 and at 0.11 to 0.19 in pool 2. After adjustment for
 multiple comparisons, no excess disagreement D in this panel stays above
-zero (paper, Appendix Q.1), so the panel is too noisy to resolve a fall-rule
+zero (paper, Appendix P.1), so the panel is too noisy to resolve a fall-rule
 effect.
 
 Each folder holds:
@@ -285,7 +286,7 @@ flattened from the JSON files by the build script. The package is built by
 ## Known issues and limitations
 
 These are described in full in the paper (Sections 3.2 and 5 and
-Appendices B.1, C.1 and D).
+Appendices B.1, C.1 and J).
 
 - The Standard cutoff (0.20 z0) lies below the 0.1 m torso radius for the 28
   bodies with z0 at most 0.45 m, so Standard training was in effect
@@ -307,9 +308,9 @@ Appendices B.1, C.1 and D).
 - Not included: the UNIMAL body files (their upstream repositories declare
   no license; the code repository downloads and hash-checks them), the
   non-evolved body files, the raw records, checkpoints and body files of the
-  review-period panels (`panels.zip` holds their per-cell summaries), and
+  panels in other design spaces (`panels.zip` holds their per-cell summaries), and
   the A2C panel records.
-- The review-period panels are small (20 to 30 bodies per pool, four or
+- The panels in other design spaces are small (20 to 30 bodies per pool, four or
   five seeds) and use other trainers, budgets and evaluators than the UNIMAL
   panels. The two arms of the Humanoid time-limit panel were trained with
   different code revisions (recorded in `git_revision`), and the Ant breadth
@@ -340,4 +341,4 @@ controllers with transformers", ICLR 2022.
 
 ## Changelog
 
-- 1.1.2 (2026-11-06): first public release.
+- 1.1.2: first public release.

@@ -245,11 +245,11 @@ def draw_cell(
     ax.text(
         anno_x,
         anno_y,
-        rf"$\Delta x$={cell['distance']:.1f} m" + "\n" + rf"$T$={cell['ep_steps']}",
+        rf"$\Delta x$ = {cell['distance']:.1f} m".replace("-", "\u2212") + "\n" + rf"$T$ = {cell['ep_steps']}",
         transform=ax.transAxes,
         ha=anno_ha,
         va=anno_va,
-        fontsize=7.2,
+        fontsize=9.0,
         color=TEXT,
         bbox=dict(facecolor="white", edgecolor="none", alpha=0.84, pad=1.2),
         zorder=6,
@@ -273,7 +273,7 @@ def draw_morph_cell(ax, body: str, morph_png: Path) -> None:
 
 def main() -> int:
     # Lean 3x3 trajectory figure. Morphology is shown in the
-    # chronophotographs (Figures 1 and 14), so a morph column is redundant here.
+    # chronophotographs (Figures 1 and 13), so a morph column is redundant here.
     fig, axes = plt.subplots(
         3, 3, figsize=(7.4, 5.35),
         gridspec_kw={"wspace": 0.21, "hspace": 0.20},
@@ -304,11 +304,11 @@ def main() -> int:
                 column_header(ax, PROTOCOL_TITLES[proto], dy=1.06)
         axes[row, 0].set_ylabel(
             f"{BODY_LABELS[body]}\nlateral $y$ [m]",
-            fontsize=9.0, labelpad=5,
+            fontsize=9.5, labelpad=5,
         )
 
     for col in range(3):
-        axes[2, col].set_xlabel("forward $x$ [m]", fontsize=9.0)
+        axes[2, col].set_xlabel("forward $x$ [m]", fontsize=9.5)
 
     cax = fig.add_axes([0.915, 0.39, 0.012, 0.24])
     mpl.colorbar.ColorbarBase(
@@ -316,8 +316,8 @@ def main() -> int:
         norm=mpl.colors.Normalize(vmin=0, vmax=1),
         orientation="vertical",
     )
-    cax.set_ylabel("Rollout time (0 start, 1 end)", fontsize=8.0, rotation=270, labelpad=12, color=TEXT)
-    cax.tick_params(labelsize=7.5)
+    cax.set_ylabel("Rollout time (0 start, 1 end)", fontsize=8.5, rotation=270, labelpad=12, color=TEXT)
+    cax.tick_params(labelsize=8.0)
     legend_handles = [
         Line2D([0], [0], marker="o", linestyle="none", markerfacecolor=START_COLOR,
                markeredgecolor="white", markeredgewidth=0.7, markersize=5.2, label="start"),
@@ -334,7 +334,7 @@ def main() -> int:
         borderaxespad=0.0,
         handletextpad=0.30,
         labelspacing=0.22,
-        fontsize=6.8,
+        fontsize=8.0,
     )
 
     fig.subplots_adjust(left=0.085, right=0.895, top=0.94, bottom=0.08)

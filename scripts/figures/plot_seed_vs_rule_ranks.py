@@ -72,10 +72,10 @@ def main() -> int:
 
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.7), constrained_layout=True)
     panel(axes[0], ranks(rf_a, bodies), ranks(rf_b, bodies),
-          "Same rule, two seeds",
+          f"Reset-free, seeds {args.seed_a} and {args.seed_b}",
           f"Rank, Reset-free (seed {args.seed_a})", f"Rank, Reset-free (seed {args.seed_b})")
     panel(axes[1], ranks(rf_a, bodies), ranks(strict_a, bodies),
-          "Same seed, two rules",
+          f"Seed {args.seed_a}, Reset-free and Strict",
           f"Rank, Reset-free (seed {args.seed_a})", f"Rank, Strict (seed {args.seed_a})")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(args.out, dpi=220)

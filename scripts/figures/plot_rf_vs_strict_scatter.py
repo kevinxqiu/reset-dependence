@@ -100,16 +100,16 @@ def main() -> int:
             c=FAMILY_COLOR[fam],
             marker=FAMILY_MARKER[fam],
             s=25,
-            alpha=0.72,
+            alpha=0.85,
             label=f"{FAMILY_LABEL[fam]} (n={int(mask.sum())})",
-            edgecolors="white",
-            linewidths=0.35,
+            edgecolors="#262626",
+            linewidths=0.4,
         )
     lo = min(rf.min(), strict.min()) - 0.1
     hi = max(rf.max(), strict.max()) + 0.1
     ax.plot([lo, hi], [lo, hi], color=DEEMPH, linestyle=(0, (4, 3)), lw=0.8, zorder=1)
-    ax.set_xlabel(r"reset-free training PSR ($\tau_{\mathrm{eval}} = 0.20$)")
-    ax.set_ylabel(r"strict training PSR ($\tau_{\mathrm{eval}} = 0.20$)")
+    ax.set_xlabel(r"Reset-free training PSR ($\tau_{\mathrm{eval}} = 0.20$)")
+    ax.set_ylabel(r"Strict training PSR ($\tau_{\mathrm{eval}} = 0.20$)")
     column_header(ax, "Per-body PSR")
     light_grid(ax, axis="both")
     tufte_axes(ax)
@@ -138,10 +138,10 @@ def main() -> int:
             c=FAMILY_COLOR[fam],
             marker=FAMILY_MARKER[fam],
             s=25,
-            alpha=0.72,
+            alpha=0.85,
             label=FAMILY_LABEL[fam],
-            edgecolors="white",
-            linewidths=0.35,
+            edgecolors="#262626",
+            linewidths=0.4,
         )
     N = len(names)
     ax.plot([1, N], [1, N], color=DEEMPH, linestyle=(0, (4, 3)), lw=0.8, zorder=1)
@@ -153,25 +153,17 @@ def main() -> int:
         f"{overlap10}/10\nshared",
         ha="center",
         va="center",
-        fontsize=6.8,
+        fontsize=7.5,
         color=TEXT,
         zorder=5,
         linespacing=0.95,
         bbox=dict(facecolor="white", edgecolor="none", alpha=0.72, pad=0.8),
     )
-    ax.set_xlabel("rank under reset-free training (1 = best)")
-    ax.set_ylabel("rank under strict training (1 = best)")
-    column_header(ax, "Per-body rank")
-    ax.text(
-        0.97, 0.04,
-        f"Spearman $\\rho = {rho:.2f}$\ntop-10 overlap={overlap10}/10",
-        transform=ax.transAxes,
-        ha="right",
-        va="bottom",
-        fontsize=8.0,
-        color=TEXT,
-        bbox=dict(facecolor="white", edgecolor="none", alpha=0.84, pad=1.6),
-    )
+    ax.set_xlabel("Rank under Reset-free training (1 = best)")
+    ax.set_ylabel("Rank under Strict training (1 = best)")
+    # The statistics go in the panel title, so no box covers points; the top-10 overlap is
+    # the label of the shaded square.
+    column_header(ax, f"Per-body rank (Spearman $\\rho = {rho:.2f}$)")
     light_grid(ax, axis="both")
     tufte_axes(ax)
     ax.set_xlim(0, N + 1)
@@ -180,13 +172,13 @@ def main() -> int:
 
     legend_handles = [
         plt.Line2D([0], [0], marker=FAMILY_MARKER[f], linestyle="none",
-                   markerfacecolor=FAMILY_COLOR[f], markeredgecolor="white",
-                   markeredgewidth=0.35, markersize=5.5,
+                   markerfacecolor=FAMILY_COLOR[f], markeredgecolor="#262626",
+                   markeredgewidth=0.4, markersize=5.5,
                    label=f"{FAMILY_LABEL[f]} (n={fams.count(f)})")
         for f in FAMILIES
     ]
     fig.legend(handles=legend_handles, loc="upper center", ncol=3, frameon=False,
-               bbox_to_anchor=(0.52, 0.985), fontsize=8.0,
+               bbox_to_anchor=(0.52, 0.985), fontsize=9.0,
                handletextpad=0.35, columnspacing=1.1)
 
     OUT_PDF.parent.mkdir(parents=True, exist_ok=True)

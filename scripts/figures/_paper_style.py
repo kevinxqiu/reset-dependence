@@ -1,45 +1,32 @@
-"""Unified figure style for the paper (Berkeley/RAIL convention).
+"""Shared figure style for the paper.
 
-Single source of truth for matplotlib rcParams, the protocol/family
-palettes, and the higher-level visual primitives (pastel-fill bars,
-open-circle scatter, column-header subtitles, Tufte spines).
-Import and call ``apply_style()`` at the top of every plotting script.
-
-Conventions:
-  - Protocol = colour. Reset-free = navy hero (#3B6FB6, the paper's
-    contribution); Strict = warm orange (#E1812B); Standard = muted teal
-    (#4D9DA5, the baseline). Bars/lines carry these at full saturation;
-    pastel fills use alpha 0.55, outlined at 1.1 pt full saturation.
-  - Family = marker shape in main plots (Floor circle, VT square, MVT
-    triangle). Appendix diagnostics may use the colour-blind family palette.
-  - No decorative full grids. Use faint one-axis grids only where they improve
-    quantitative reading; semantic references (zero, chance, parity) remain
-    explicit dashed lines.
-  - Top + right spines hidden; bottom/left spines offset outward 4 pt.
-  - Subplot titles replaced by 9 pt sans semibold column headers placed
-    above-left of each panel.
-  - Body 9.5 pt, ticks 8 pt, headers 9 pt, annotations 8.5 pt; Lato
-    sans (fallback Helvetica/Arial/DejaVu); TrueType (type 42) embedded.
-  - Boxed legends removed; use frameless legends above the plot or compact
-    inline keys. Avoid duplicate legends across small multiples.
+Every plotting script calls ``apply_style()`` first. Text is set in STIX, a
+Times design that ships with matplotlib, so the figures match the paper's
+body font on any machine. Labels and axes are black, grid lines light grey,
+legends framed and panel titles centred. Colours come from seaborn's
+colorblind palette: one colour per training protocol (Standard green,
+Strict orange, Reset-free blue) and, where a figure colours bodies by
+family, Floor vermillion, VT blue and MVT green. Markers are filled with a
+dark edge, and bars are solid with black error bars.
 """
 
 from __future__ import annotations
 
 import matplotlib.pyplot as plt
+from matplotlib.ticker import AutoLocator, MaxNLocator
 
 # ---------------------------------------------------------------------------
-# Colour palette (Berkeley/RAIL convention: cool hero + warm accent + cool
-# tertiary; greys reserved for de-emphasised data and text only).
+# Colours (seaborn "colorblind" palette).
 # ---------------------------------------------------------------------------
 
-NAVY = "#3B6FB6"
-ORANGE = "#E1812B"
-TEAL = "#4D9DA5"
-TEXT = "#2B2B2B"
-DEEMPH = "#9C9C9C"
-FAINT = "#E5E5E5"
-GATE_RED = "#B33A3A"
+NAVY = "#0173B2"      # Reset-free
+ORANGE = "#DE8F05"    # Strict
+TEAL = "#029E73"      # Standard
+TEXT = "#000000"
+DEEMPH = "#7F7F7F"
+FAINT = "#DCDCDC"
+GATE_RED = "#C0392B"
+EDGE = "#262626"      # marker edges
 
 PROTOCOL_COLOR = {
     "reset_free": NAVY,
@@ -53,14 +40,11 @@ PROTOCOL_LABEL = {
     "episodic": "Standard",
 }
 
-# Family is a secondary visual channel, encoded by marker shape. The
-# colours below are a fallback for figures that genuinely need
-# colour-coded families (a few appendix figures); body figures should
-# use FAMILY_MARKER instead and reserve colour for the protocol axis.
+# Figures that colour bodies by family use these; the others use marker shape.
 FAMILY_COLOR = {
-    "floor": "#D55E00",  # Okabe-Ito vermillion
-    "vt": "#0072B2",     # Okabe-Ito blue
-    "mvt": "#009E73",    # Okabe-Ito green
+    "floor": "#D55E00",
+    "vt": "#0173B2",
+    "mvt": "#029E73",
 }
 
 FAMILY_MARKER = {
@@ -74,8 +58,8 @@ FAMILY_LABEL = {"floor": "Floor", "vt": "VT", "mvt": "MVT"}
 TAU_TO_PROTOCOL = {"0p00": "reset_free", "0p20": "episodic", "0p50": "strict"}
 
 # ---------------------------------------------------------------------------
-# Canvas widths (inches). NeurIPS textwidth ~5.5"; \textwidth in two-column
-# papers fits a 7.0" panoramic figure when used with full-page floats.
+# Canvas widths (inches). The NeurIPS text width is 5.5 in; wider canvases
+# are scaled down to it in the paper.
 # ---------------------------------------------------------------------------
 
 COL_WIDTH = 3.5
@@ -83,25 +67,25 @@ TEXT_WIDTH = 5.5
 FULL_WIDTH = 7.0
 
 # ---------------------------------------------------------------------------
-# rcParams. Build once, apply at the top of every plotting script.
+# rcParams.
 # ---------------------------------------------------------------------------
 
 PARAMS = {
-    "font.family": "sans-serif",
-    "font.sans-serif": ["Lato", "Helvetica", "Arial", "DejaVu Sans"],
-    "mathtext.fontset": "stixsans",
+    "font.family": "serif",
+    "font.serif": ["STIXGeneral", "Nimbus Roman", "Times New Roman", "DejaVu Serif"],
+    "mathtext.fontset": "stix",
     "text.usetex": False,
     "pdf.fonttype": 42,
     "ps.fonttype": 42,
-    "font.size": 9.5,
-    "axes.titlesize": 9.0,
-    "axes.titleweight": "semibold",
-    "axes.titlelocation": "left",
-    "axes.titlepad": 6.0,
-    "axes.labelsize": 9.0,
+    "font.size": 10.0,
+    "axes.titlesize": 10.5,
+    "axes.titleweight": "normal",
+    "axes.titlelocation": "center",
+    "axes.titlepad": 5.0,
+    "axes.labelsize": 10.0,
     "axes.labelpad": 3.0,
-    "axes.labelweight": "regular",
-    "axes.linewidth": 0.85,
+    "axes.labelweight": "normal",
+    "axes.linewidth": 0.8,
     "axes.edgecolor": TEXT,
     "axes.labelcolor": TEXT,
     "axes.spines.top": False,
@@ -109,29 +93,33 @@ PARAMS = {
     "axes.axisbelow": True,
     "xtick.color": TEXT,
     "ytick.color": TEXT,
-    "xtick.labelsize": 8.0,
-    "ytick.labelsize": 8.0,
+    "xtick.labelsize": 9.0,
+    "ytick.labelsize": 9.0,
     "xtick.direction": "out",
     "ytick.direction": "out",
-    "xtick.major.size": 3.2,
-    "ytick.major.size": 3.2,
-    "xtick.major.width": 0.85,
-    "ytick.major.width": 0.85,
-    "xtick.major.pad": 3.0,
-    "ytick.major.pad": 3.0,
+    "xtick.major.size": 3.0,
+    "ytick.major.size": 3.0,
+    "xtick.major.width": 0.8,
+    "ytick.major.width": 0.8,
+    "xtick.major.pad": 2.5,
+    "ytick.major.pad": 2.5,
     "axes.grid": False,
     "grid.color": FAINT,
-    "grid.linewidth": 0.45,
-    "grid.alpha": 0.7,
-    "lines.linewidth": 1.55,
-    "lines.markersize": 4.6,
-    "lines.markeredgewidth": 1.1,
-    "patch.linewidth": 1.1,
-    "patch.edgecolor": TEXT,
-    "legend.fontsize": 8.0,
-    "legend.frameon": False,
+    "grid.linewidth": 0.6,
+    "grid.alpha": 1.0,
+    "lines.linewidth": 1.8,
+    "lines.markersize": 5.0,
+    "lines.markeredgewidth": 0.6,
+    "patch.linewidth": 0.6,
+    "patch.edgecolor": EDGE,
+    "legend.fontsize": 9.0,
+    "legend.frameon": True,
+    "legend.framealpha": 1.0,
+    "legend.edgecolor": "#BDBDBD",
+    "legend.fancybox": True,
+    "legend.borderpad": 0.4,
     "legend.handlelength": 1.6,
-    "legend.handletextpad": 0.6,
+    "legend.handletextpad": 0.5,
     "legend.columnspacing": 1.2,
     "legend.borderaxespad": 0.4,
     "figure.dpi": 300,
@@ -148,57 +136,68 @@ def apply_style() -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Visual primitives. Keep them small and explicit so each call site shows
-# what it's doing without hiding the figure logic.
+# Helpers used by the plotting scripts.
 # ---------------------------------------------------------------------------
 
-def tufte_axes(ax, *, offset_pt: float = 4.0) -> None:
-    """Hide top/right spines; push bottom spine outward by ``offset_pt``."""
+def min_ticks(ax, n: int = 4) -> None:
+    """Keep at least ``n`` ticks on axes that use matplotlib's automatic locator."""
+    for axis in (ax.xaxis, ax.yaxis):
+        if type(axis.get_major_locator()) is AutoLocator:
+            axis.set_major_locator(MaxNLocator(nbins="auto", steps=[1, 2, 2.5, 5, 10],
+                                               min_n_ticks=n))
+
+
+def tufte_axes(ax, *, offset_pt: float = 0.0) -> None:
+    """Hide the top and right spines (the left and bottom ones stay attached)."""
+    min_ticks(ax)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    if "bottom" in ax.spines and ax.spines["bottom"].get_visible():
-        ax.spines["bottom"].set_position(("outward", offset_pt))
-    if "left" in ax.spines and ax.spines["left"].get_visible():
-        ax.spines["left"].set_position(("outward", offset_pt))
+    if offset_pt:
+        for side in ("bottom", "left"):
+            if side in ax.spines and ax.spines[side].get_visible():
+                ax.spines[side].set_position(("outward", offset_pt))
     ax.tick_params(top=False, right=False)
 
 
 def light_grid(ax, *, axis: str = "y") -> None:
-    """Apply a faint quantitative grid behind data marks."""
-    ax.grid(True, axis=axis, color=FAINT, linewidth=0.45, alpha=0.7, zorder=0)
+    """Light grey grid lines behind the data."""
+    min_ticks(ax)
+    ax.grid(True, axis=axis, color=FAINT, linewidth=0.6, zorder=0)
     ax.set_axisbelow(True)
 
 
 def style_legend(legend) -> None:
-    """Normalize legend typography and remove frames when a legend exists."""
+    """Give a legend the shared frame and text style."""
     if legend is None:
         return
-    legend.set_frame_on(False)
+    legend.set_frame_on(True)
+    frame = legend.get_frame()
+    frame.set_edgecolor("#BDBDBD")
+    frame.set_alpha(1.0)
     for text in legend.get_texts():
         text.set_color(TEXT)
-        text.set_fontsize(8.0)
+        text.set_fontsize(9.0)
 
 
-def column_header(ax, text: str, *, dy: float = 1.06, x: float = 0.0,
-                  weight: str = "semibold", size: float = 9.0) -> None:
-    """Place a small left-aligned semibold header above the panel."""
-    ax.text(x, dy, text, transform=ax.transAxes, ha="left", va="bottom",
-            fontsize=size, fontweight=weight, color=TEXT)
+def column_header(ax, text: str, *, dy: float = 1.04, x: float = 0.5,
+                  weight: str = "normal", size: float = 9.5) -> None:
+    """Centred panel title just above the axes."""
+    ax.text(x, dy, text, transform=ax.transAxes, ha="center", va="bottom",
+            fontsize=size + 1.0, fontweight="normal", color=TEXT)
 
 
 def pastel_bar(ax, x, h, *, color: str, width: float = 0.7,
-               yerr=None, capsize: float = 3.0, label: str | None = None,
-               alpha: float = 0.55, lw: float = 1.2):
-    """Draw a Berkeley-style pastel-fill / dark-outline bar."""
+               yerr=None, capsize: float = 2.5, label: str | None = None,
+               alpha: float = 1.0, lw: float = 0.0):
+    """Solid bar with black error bars."""
     return ax.bar(x, h, width=width, yerr=yerr, capsize=capsize,
-                  facecolor=color, alpha=alpha, edgecolor=color,
-                  linewidth=lw, error_kw={"ecolor": color, "elinewidth": 1.0,
-                                          "capthick": 1.0},
+                  facecolor=color, edgecolor=color, linewidth=lw,
+                  error_kw={"ecolor": TEXT, "elinewidth": 0.9, "capthick": 0.9},
                   label=label, zorder=2)
 
 
 def value_labels(ax, xs, hs, *, fmt: str = "{:.2f}", dy: float = 0.02,
-                 size: float = 8.0, color: str | None = None) -> None:
+                 size: float = 8.5, color: str | None = None) -> None:
     """Write numeric values just above each bar top."""
     color = color or TEXT
     for x, h in zip(xs, hs):
@@ -207,8 +206,8 @@ def value_labels(ax, xs, hs, *, fmt: str = "{:.2f}", dy: float = 0.02,
 
 
 def open_circle(ax, x, y, *, color: str, marker: str = "o",
-                size: float = 28, lw: float = 1.2, label: str | None = None):
-    """Open-circle scatter point with thick coloured edge (RAIL style)."""
-    return ax.scatter(x, y, marker=marker, s=size, facecolors="white",
-                      edgecolors=color, linewidths=lw, label=label,
+                size: float = 28, lw: float = 0.6, label: str | None = None):
+    """Filled marker with a dark edge."""
+    return ax.scatter(x, y, marker=marker, s=size, facecolors=color,
+                      edgecolors=EDGE, linewidths=lw, label=label,
                       zorder=3)

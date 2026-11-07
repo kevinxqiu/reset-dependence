@@ -72,7 +72,9 @@ dataset, and `scripts/review_panels.py` needs only numpy and scipy.
 
 ## Fonts
 
-The figures use the Lato typeface by Łukasz Dziedzic (tyPoland), released
+The labels of the four render figures (Figures 1, 10, 11 and 13) and of the
+rollout videos use the Lato typeface by Łukasz Dziedzic (tyPoland), released
 under the SIL Open Font License 1.1 with Reserved Font Name "Lato". The four
-weights the figures use (normal, italic, bold and semibold) are bundled
-unmodified in `fonts/`, with the license in `fonts/OFL.txt`.
+weights they use (normal, italic, bold and semibold) are bundled unmodified in
+`fonts/`, with the license in `fonts/OFL.txt`. The other figures use the STIX
+fonts that ship with matplotlib.

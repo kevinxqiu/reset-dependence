@@ -2,26 +2,26 @@
 """Regenerate the figures of the paper from the released run summaries and traces.
 
 Run from the repository root after unzipping the dataset archives and fetching the
-UNIMAL body files (docs/REPRODUCE.md, sections 1 and 4), with the Lato fonts in fonts/:
+UNIMAL body files (docs/REPRODUCE.md, sections 1 and 4); the renders label their panels with
+the Lato fonts in fonts/:
 
-    MUJOCO_GL=egl python scripts/figures/make_figures.py           # Figures 2 to 10 and 13
-    MUJOCO_GL=egl python scripts/figures/make_figures.py --render  # also Figures 1, 11, 12 and 14
+    MUJOCO_GL=egl python scripts/figures/make_figures.py           # Figures 2 to 9 and 12
+    MUJOCO_GL=egl python scripts/figures/make_figures.py --render  # also Figures 1, 10, 11 and 13
 
-Figure 6 includes two small MuJoCo renders, and --render adds the four full-scene
-renders, so every run needs an offscreen OpenGL backend: EGL by default (set here when
-MUJOCO_GL is unset), or MUJOCO_GL=osmesa on a machine without EGL. The scripts run in
+--render adds the four full-scene MuJoCo renders, which need an offscreen OpenGL
+backend: EGL by default (set here when MUJOCO_GL is unset), or MUJOCO_GL=osmesa on a
+machine without EGL. The scripts run in
 one process, so they all use the same backend.
 
 Figures are written to figures/. The scripts in this folder are the paper's plotting
-code, so their output matches the printed figures up to renderer shading. Figure 6 is
-drawn by scripts/plot_cr_fig2_cutoffs.py, which this runner calls in a separate process.
+code, so their output matches the printed figures; the renders can differ in shading
+and in the grid lines of the floor between machines and MuJoCo builds.
 """
 from __future__ import annotations
 
 import argparse
 import os
 import runpy
-import subprocess
 import sys
 from pathlib import Path
 
@@ -33,16 +33,16 @@ ROOT = HERE.parents[1]
 # (paper figures, script in this folder, its arguments)
 PLOTS = [
     ("Figure 2", "plot_termination_mechanism.py", ["figures/fig_protocol_timeline.pdf"]),
-    ("Figures 3, 8, 9 and 10", "analyze_final.py", ["--out_dir", "figures", "--stats_out", "figures/final_stats.json"]),
+    ("Figures 3, 7, 8 and 9", "analyze_final.py", ["--out_dir", "figures", "--stats_out", "figures/final_stats.json"]),
     ("Figure 5", "render_temporal_gait.py", []),
-    ("Figure 7", "plot_robustness_eval.py", []),
+    ("Figure 6", "plot_robustness_eval.py", []),
     ("Figure 4", "plot_rf_vs_strict_scatter.py", []),
-    ("Figure 13", "render_boundary_free_forest.py", []),
+    ("Figure 12", "render_boundary_free_forest.py", []),
 ]
 RENDERS = [
-    ("Figures 1 and 14", "render_chronophoto_3d.py", []),
-    ("Figure 11", "render_morphology.py", []),
-    ("Figure 12", "render_top1_row.py", []),
+    ("Figures 1 and 13", "render_chronophoto_3d.py", []),
+    ("Figure 10", "render_morphology.py", []),
+    ("Figure 11", "render_top1_row.py", []),
 ]
 
 
@@ -75,11 +75,8 @@ def main() -> int:
                 failed.append(f"{label} ({script}, exit {e.code})")
         except Exception as e:  # report every failure at the end, then exit non-zero
             failed.append(f"{label} ({script}: {type(e).__name__}: {e})")
-    print("== Figure 6: scripts/plot_cr_fig2_cutoffs.py", flush=True)
-    if subprocess.run([sys.executable, str(ROOT / "scripts" / "plot_cr_fig2_cutoffs.py")], cwd=ROOT).returncode != 0:
-        failed.append("Figure 6 (plot_cr_fig2_cutoffs.py)")
     if not args.render:
-        print("Skipped Figures 1, 11, 12 and 14 (MuJoCo renders); rerun with --render.")
+        print("Skipped Figures 1, 10, 11 and 13 (MuJoCo renders); rerun with --render.")
     if failed:
         print("Failed: " + "; ".join(failed))
         return 1

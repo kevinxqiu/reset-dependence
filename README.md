@@ -1,42 +1,47 @@
-# Reset Dependence Is Embodied
+# Reset Dependence Is Embodied: Training Protocol Changes Which Morphologies Appear Optimal
 
-This repository contains the code and run records for the paper
+[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b.svg)](https://reset-dependence.github.io/paper.pdf)
+[![OpenReview](https://img.shields.io/badge/OpenReview-w3aoxSAAcH-8c1b13.svg)](https://openreview.net/forum?id=w3aoxSAAcH)
+[![Project Page](https://img.shields.io/badge/Project-Page-0f9d58.svg)](https://reset-dependence.github.io/)
+[![Run records](https://img.shields.io/badge/Run%20records-v1.1.2-6f42c1.svg)](https://github.com/kevinxqiu/reset-dependence/releases/tag/v1.1.2)
+[![Code: MIT](https://img.shields.io/badge/Code-MIT-green.svg)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey.svg)](dataset/README.md)
+[![Python 3.10 to 3.14](https://img.shields.io/badge/Python-3.10%20to%203.14-blue.svg)](requirements-analysis.txt)
+[![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-orange.svg)](https://openreview.net/forum?id=w3aoxSAAcH)
 
-**Reset Dependence Is Embodied: Training Protocol Changes Which Morphologies Appear Optimal**<br>
 Kevin Qiu<sup>1</sup>, Zhao Yang<sup>2</sup>, Marek Cygan<sup>1</sup><br>
 <sup>1</sup>University of Warsaw, <sup>2</sup>Vrije Universiteit Amsterdam<br>
 NeurIPS 2026, Evaluations & Datasets Track
 
-[Paper](https://openreview.net/forum?id=w3aoxSAAcH) |
-[Project page](https://reset-dependence.github.io) |
-[Run records (v1.1.2)](https://github.com/kevinxqiu/reset-dependence/releases/tag/v1.1.2)
-
-[![CI](https://github.com/kevinxqiu/reset-dependence/actions/workflows/ci.yml/badge.svg)](https://github.com/kevinxqiu/reset-dependence/actions/workflows/ci.yml)
-[![Code: MIT](https://img.shields.io/badge/code-MIT-blue)](LICENSE)
-[![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey)](dataset/README.md)
-[![Python 3.10 to 3.14](https://img.shields.io/badge/python-3.10%20to%203.14-blue)](requirements-analysis.txt)
+**Reset Dependence Is Embodied** shows that the reset rule used to train
+controllers, the height at which a falling robot's episode ends, can change
+which bodies a robot co-design benchmark ranks best. We train PPO controllers
+for the 100 UNIMAL bodies of MetaMorph's benchmark under three rules
+(Reset-free, τ = 0; Standard, τ = 0.20; Strict, τ = 0.50), three seeds each,
+and score all 900 controllers with the same evaluator.
 
 <p align="center">
-  <img src="docs/images/rules_schematic.png" width="90%"
-       alt="Three panels sketch the states visited during training under Strict (τ = 0.50), Standard (τ = 0.20) and Reset-free (τ = 0) training, each as an oval of torso height against pose. Under Strict, moderate drops cross the cutoff and trigger a reset; under Standard, the body walks and occasionally falls and resets; under Reset-free there is no fall cutoff, and the 1,000-step limit remains.">
+  <img src="docs/images/rollouts_floor_a.gif" width="85%"
+       alt="The Floor A body in three rows, one per reset rule. Under Reset-free it barely moves forward, under Standard it walks 30 m, and under Strict its episode ends at step 9.">
 </p>
+<p align="center"><i>The same body after training under each reset rule (illustrative retrains): it barely moves forward under Reset-free, walks under Standard, and its Strict episode ends at step 9.</i></p>
 
-Robot co-design benchmarks rank bodies after training a controller for each
-one under a fixed episode protocol. We study one part of that protocol, the
-reset rule, which ends a training episode when the torso falls below a
-fraction τ of its starting height. For the 100 UNIMAL bodies of MetaMorph's
-benchmark, we train PPO controllers under three rules (Reset-free, τ = 0;
-Standard, τ = 0.20; Strict, τ = 0.50) with three seeds each and score all 900
-controllers with the same evaluator. Rankings after Strict and Reset-free
-training correlate at Spearman ρ = 0.21, against about 0.89 if seed noise
-were the only difference, and bodies evolved on flat ground lose 45% of their
-per-step reward relative to Standard training, against 16% for bodies evolved
-on variable terrain.
+## Highlights
+
+- **The reset rule reorders the bodies.** After Strict and Reset-free
+  training, the rankings of all 100 bodies correlate at Spearman ρ = 0.21,
+  against about 0.89 if seed noise were the only difference.
+- **Reset dependence is embodied.** Without fall resets, bodies evolved on
+  flat ground lose 45% of their per-step reward relative to Standard
+  training, and bodies evolved on variable terrain 16%.
+- **Selecting for robustness costs little.** Bodies chosen by their worst
+  reward across the three rules keep at least 91% of each rule's best reward
+  in sample.
 
 This repository holds the training code, the analysis code and the run
 records. From the released run summaries, one seeded CPU script recomputes
 2,401 values, among them nearly every statistic that the paper reports for the
-UNIMAL bodies, without any GPU training.
+UNIMAL bodies, in a few minutes and without any GPU training.
 
 ## Contents
 
@@ -85,8 +90,8 @@ python scripts/check_numbers.py numbers.json
 ```
 
 The first command takes about 5 minutes on a laptop CPU. It recomputes 2,401
-values from the run summaries, the kept training logs, the review-period
-panels and a MuJoCo re-run of the zero-action rollouts. Its bootstraps and
+values from the run summaries, the kept training logs, the panels in
+other design spaces and a MuJoCo re-run of the zero-action rollouts. Its bootstraps and
 permutation tests are seeded, so `check_numbers.py` finds every value equal to
 the recorded
 [`records/camera_ready_numbers.json`](records/camera_ready_numbers.json) up to
@@ -112,14 +117,15 @@ of the installation.
 
 | Paper | Command | Time |
 | --- | --- | --- |
-| Figures 2 to 10 and 13 | `python scripts/figures/make_figures.py` | about 1 minute |
-| Figures 1, 11, 12 and 14 (MuJoCo scenes) | `python scripts/figures/make_figures.py --render` | a few minutes |
-| Panels in other design spaces (Section 4.8, Appendix Q.1) | `python scripts/review_panels.py` | 4 to 6 minutes |
-| Planned tests (Appendix D) | `python scripts/analyze_sac_full_panel.py` and the other commands in [docs/REPRODUCE.md](docs/REPRODUCE.md#3-other-analysis-scripts) | seconds to 10 minutes |
+| Figures 2 to 9 and 12 | `python scripts/figures/make_figures.py` | about 1 minute |
+| Figures 1, 10, 11 and 13 (MuJoCo scenes) | `python scripts/figures/make_figures.py --render` | a few minutes |
+| Panels in other design spaces (Section 4.8, Appendix P.1) | `python scripts/review_panels.py` | 4 to 6 minutes |
+| SAC panel (Appendix J) and other analyses | `python scripts/analyze_sac_full_panel.py` and the other commands in [docs/REPRODUCE.md](docs/REPRODUCE.md#3-other-analysis-scripts) | seconds to 10 minutes |
 | Croissant metadata | `mlcroissant validate --jsonld dataset/croissant.json` (separate environment, `requirements-croissant.txt`) | seconds |
 
-The figures use the Lato font bundled in `fonts/` and an offscreen OpenGL
-backend (EGL by default, or `MUJOCO_GL=osmesa`). [docs/REPRODUCE.md](docs/REPRODUCE.md)
+The plots use the STIX fonts that ship with matplotlib, and the four renders
+use the Lato font bundled in `fonts/` and an offscreen OpenGL backend (EGL by
+default, or `MUJOCO_GL=osmesa`). [docs/REPRODUCE.md](docs/REPRODUCE.md)
 gives the details of every step, and [scripts/README.md](scripts/README.md)
 lists every script by purpose.
 
@@ -129,9 +135,9 @@ The archives of release v1.1.2 are released under CC BY 4.0.
 
 | Archive | Size | Contents |
 | --- | --- | --- |
-| `runs.zip` | 2.4 MB | Run summaries of the UNIMAL panels and of the stopped existing-robot panel (3,306 runs) as JSON and as one CSV table, the morphology features, simulation probe records and the joint traces behind Figures 1, 5 and 14 |
+| `runs.zip` | 2.4 MB | Run summaries of the UNIMAL panels and of a panel on four existing legged robots (3,306 runs) as JSON and as one CSV table, the morphology features, simulation probe records and the joint traces behind Figures 1, 5 and 13 |
 | `logs.zip` | 9.7 MB | The training logs that were kept |
-| `panels.zip` | 1.1 MB | Per-cell results, specifications and frozen reports of the review-period panels in Humanoid, Ant and Evolution Gym bodies (5,860 runs) |
+| `panels.zip` | 1.1 MB | Per-cell results, specifications and frozen reports of the panels in Humanoid, Ant and Evolution Gym bodies (5,860 runs) |
 
 The data card, [dataset/README.md](dataset/README.md), documents every field,
 how the runs were made and the known issues, and
@@ -154,7 +160,7 @@ python scripts/train_mjx.py --threshold 0.20 --seed 42 --start_idx 0 --end_idx 1
 # -> retrain/standard_seed42/results.json and checkpoints/
 ```
 
-The trainer's defaults are the corpus settings of the paper's Table 5, and a
+The trainer's defaults are the corpus settings of the paper's Table 4, and a
 new `--out_dir` keeps the run apart from the released summaries in `results/`
 (the trainer skips bodies that its output folder already holds). One run of
 5M environment steps takes about an hour on one GPU, and the 900-run corpus
@@ -173,7 +179,7 @@ scripts/
   fetch_unimal_assets.py    downloads and checks the 100 UNIMAL body files
   train_mjx.py              PPO trainer (JAX, MuJoCo MJX)
   train_sac_mjx.py          SAC trainer (Brax)
-  review_panels.py          recomputes the review-period panel reports
+  review_panels.py          recomputes the reports of the other-design-space panels
   figures/                  one script per paper figure; make_figures.py runs them all
 records/                    planned-test specifications and reports, recorded outputs
 dataset/                    data card, Croissant metadata and record loader
@@ -181,7 +187,7 @@ corpus_revision/            trainer revisions and launchers that produced the co
 slurm/                      launch recipe of every panel
 assets/unimals_100/         hashes of the 100 UNIMAL body files
 docs/                       reproduction guide and README images
-fonts/                      Lato for the figures (SIL Open Font License)
+fonts/                      Lato for the render labels (SIL Open Font License)
 ```
 
 ## Citation

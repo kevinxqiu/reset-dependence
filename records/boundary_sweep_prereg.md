@@ -235,7 +235,7 @@ after commit is a deviation; the affected B value drops.
 If any cell fails QC or reliability, drop that B value. If both new B
 values fail, the dose-response is dropped entirely; the boundary-free
 panel (primary) stands on its own. If boundary-free itself fails, the
-sweep is moot and is not analyzed.
+sweep is moot and is not integrated.
 
 ## Pre-smoke clarification (2026-04-22, before B=3001 data)
 

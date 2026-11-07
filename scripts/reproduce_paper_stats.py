@@ -486,7 +486,7 @@ def main() -> None:
     print(f"  F = {F_d:.2f}, p = {p_d:.5f}  (paper: F=8.37, p<0.001)")
     out["distance_rf_over_epi_anova"] = {"f": float(F_d), "p": float(p_d)}
 
-    # Fixed-horizon fitness/Tmax robustness (paper Appendix I.7)
+    # Fixed-horizon fitness/Tmax robustness (paper Appendix H.7)
     section_header("G''. Fixed-horizon fitness/Tmax RF/Epi ANOVA")
     fitness = {
         p: seed_avg(load_per_seed(t, eval_key=EVAL_KEY, metric="fitness"))

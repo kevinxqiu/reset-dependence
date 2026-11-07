@@ -5,7 +5,7 @@ STATUS 2026-04-19. This spec drove the leave-one-protocol-out (LOPO) analysis
 gate (best-robust vs best-naive at k=5, paired-bootstrap CI excluding zero, 2/3
 wins) returned DROP: mean diff = +0.04 PSR across splits, CI = [-0.42, +0.23],
 2/3 splits favor robust. The paper reports this outcome in Section 4.3 and
-Appendix D; its selection claim is the in-sample worst-case retention across
+Appendix E; its selection claim is the in-sample worst-case retention across
 the three protocols (>=92% at k=5), not generalization to a held-out protocol.
 The pre-commitments below are unchanged.
 

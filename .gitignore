@@ -32,3 +32,4 @@ __pycache__/
 *.npz
 *.mp4
 *.gif
+!docs/images/*.gif

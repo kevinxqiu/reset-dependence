@@ -107,7 +107,7 @@ BG_COLOR = np.array([250, 248, 243], dtype=np.uint8)
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _paper_style import TEXT, apply_style  # noqa: E402
+from _render_style import TEXT, apply_style  # noqa: E402
 
 apply_style()
 

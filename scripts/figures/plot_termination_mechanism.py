@@ -205,21 +205,19 @@ def draw_I0(ax):
     )
 
 
-def draw_region_labels(ax, post_fall_pos=(0.82, -0.44), walking_pos=(0.78, 0.50), post_fall_size=8.6, post_fall_box=0.55):
+def draw_region_labels(ax, post_fall_pos=(0.82, -0.44), walking_pos=(0.78, 0.50), post_fall_size=9.2, post_fall_box=None):
     # Color-code the region labels to match their regions: blue text = blue
     # visited oval (walking), orange-brown text = orange fall sublevel set.
-    # Light bbox (alpha 0.55) keeps text legible without looking stickered.
     ax.text(
         walking_pos[0],
         walking_pos[1],
         "walking\nstates",
-        fontsize=8.6,
+        fontsize=9.2,
         color="#3d5d8b",
         ha="center",
         va="center",
         style="italic",
         zorder=6,
-        bbox=dict(facecolor="white", edgecolor="none", alpha=0.55, pad=0.3),
     )
     ax.text(
         post_fall_pos[0],
@@ -231,7 +229,9 @@ def draw_region_labels(ax, post_fall_pos=(0.82, -0.44), walking_pos=(0.78, 0.50)
         va="center",
         style="italic",
         zorder=6,
-        bbox=dict(facecolor="white", edgecolor="none", alpha=post_fall_box, pad=0.3),
+        # a light patch only where the label crosses the cutoff line or the hatching
+        bbox=(dict(facecolor="white", edgecolor="none", alpha=post_fall_box, pad=0.3)
+              if post_fall_box else None),
     )
 
 
@@ -240,7 +240,7 @@ def fall_label(ax, y_thresh, x=-0.20, dy=0.05):
         x,
         y_thresh - dy,
         r"$z < \tau z_0$",
-        fontsize=8.5,
+        fontsize=9.0,
         color="#8b3a1f",
         ha="center",
         va="top",
@@ -298,7 +298,7 @@ def draw_strict(ax, bean):
         -0.68,
         -0.17,
         "reset",
-        fontsize=8.5,
+        fontsize=9.0,
         color=RESET,
         style="italic",
         ha="center",
@@ -349,7 +349,7 @@ def draw_episodic(ax, bean):
         -0.02,
         -0.08,
         "reset",
-        fontsize=8.2,
+        fontsize=9.0,
         color=RESET,
         style="italic",
         ha="center",
@@ -414,7 +414,7 @@ def draw_reset_free(ax, bean):
         -0.05,
         0.49,
         "no fall reset",
-        fontsize=8.2,
+        fontsize=9.0,
         color=RESET,
         style="italic",
         ha="center",
@@ -442,9 +442,9 @@ def main() -> None:
         # In reset-free, the trajectory ends in the lower-right; move the
         # post-fall/recovery label to the lower-left so it does not occlude.
         if key == "reset_free":
-            draw_region_labels(ax, post_fall_pos=(-0.45, -0.47), walking_pos=(0.12, 0.22), post_fall_size=7.8, post_fall_box=0.85)
+            draw_region_labels(ax, post_fall_pos=(-0.45, -0.47), walking_pos=(0.12, 0.22), post_fall_size=8.6, post_fall_box=0.85)
         elif key == "episodic":
-            draw_region_labels(ax, post_fall_pos=(-0.28, -0.49), walking_pos=(0.68, 0.20), post_fall_size=7.8)
+            draw_region_labels(ax, post_fall_pos=(-0.28, -0.49), walking_pos=(0.68, 0.20), post_fall_size=8.6, post_fall_box=0.85)
         else:
             draw_region_labels(ax, post_fall_pos=(0.45, -0.36), walking_pos=(0.52, 0.38))
         ax.text(
@@ -453,8 +453,7 @@ def main() -> None:
             title,
             ha="center",
             va="bottom",
-            fontsize=10.5,
-            weight="bold",
+            fontsize=11.0,
             color=TEXT,
             zorder=6,
         )
@@ -464,7 +463,8 @@ def main() -> None:
             sub,
             ha="center",
             va="top",
-            fontsize=8.7,
+            fontsize=9.0,
+            linespacing=1.0,
             color=TEXT,
             zorder=6,
         )
@@ -475,16 +475,16 @@ def main() -> None:
         "",
         xy=(-1.13, 0.55),
         xytext=(-1.13, -0.55),
-        arrowprops=dict(arrowstyle="->", color=DEEMPH, linewidth=0.7),
+        arrowprops=dict(arrowstyle="->", color="#4D4D4D", linewidth=0.8),
         zorder=1,
     )
     ax0.text(
         -1.17,
         0.0,
         "torso height $z$",
-        fontsize=8,
+        fontsize=9,
         rotation=90,
-        color=DEEMPH,
+        color="#4D4D4D",
         ha="right",
         va="center",
         zorder=1,
@@ -493,15 +493,15 @@ def main() -> None:
         "",
         xy=(-0.58, -0.61),
         xytext=(-1.13, -0.61),
-        arrowprops=dict(arrowstyle="->", color=DEEMPH, linewidth=0.7),
+        arrowprops=dict(arrowstyle="->", color="#4D4D4D", linewidth=0.8),
         zorder=1,
     )
     ax0.text(
         -0.86,
         -0.67,
         "pose",
-        fontsize=8,
-        color=DEEMPH,
+        fontsize=9,
+        color="#4D4D4D",
         ha="center",
         va="top",
         zorder=1,

@@ -139,13 +139,15 @@ def main() -> int:
             ax.errorbar(
                 xs, means, yerr=yerr,
                 fmt="none",
-                ecolor=RATIO_COLORS[ratio_label],
+                ecolor=TEXT,
                 elinewidth=0.9,
                 capsize=2.4,
                 capthick=0.9,
                 zorder=4,
             )
-            value_labels(ax, xs, means, dy=0.015, color=TEXT)
+            for xv, mean, hi in zip(xs, means, his):  # value above the interval
+                ax.text(xv, hi + 0.015, f"{mean:.2f}", ha="center", va="bottom",
+                        fontsize=8.5, color=TEXT)
 
         ax.axhline(1.0, color=DEEMPH, linewidth=0.6, linestyle=(0, (4, 3)),
                    zorder=1)
@@ -171,7 +173,7 @@ def main() -> int:
         bbox_to_anchor=(0.52, 1.01),
         handletextpad=0.35,
         columnspacing=1.0,
-        fontsize=8.0,
+        fontsize=9.0,
     )
 
     OUT_PDF.parent.mkdir(parents=True, exist_ok=True)

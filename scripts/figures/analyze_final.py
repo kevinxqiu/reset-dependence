@@ -7,8 +7,8 @@ statistics from the MJX-PPO 5M data: 100 common UNIMAL morphologies x
 fig3 (threshold curves) additionally loads tau in {0.10, 0.35} runs
 under the same seeds for the 5-threshold continuous panel.
 
-Figure fonts are configured as sans-serif Lato with Type 42 PDF
-embedding for NeurIPS submission font compliance.
+Figure text is set in STIX (a Times design that ships with matplotlib) through
+_paper_style.py, with Type 42 font embedding in the PDFs.
 
 Usage:
     python scripts/figures/analyze_final.py --out_dir figures --stats_out figures/final_stats.json
@@ -569,10 +569,10 @@ def fig3_threshold_curves(fam_idx, morphs, out_dir):
             marker=FAMILY_MARKER[fam],
             color=COLORS[fam],
             label=FAMILY_LABELS[fam],
-            markersize=4.8,
-            linewidth=1.55,
-            markerfacecolor="white",
-            markeredgewidth=1.1,
+            markersize=5.5,
+            linewidth=1.8,
+            markeredgecolor="#262626",
+            markeredgewidth=0.6,
             zorder=3,
         )
 
@@ -580,7 +580,7 @@ def fig3_threshold_curves(fam_idx, morphs, out_dir):
     ax.set_ylabel("Mean per-step reward\n(evaluated at $\\tau$=0.20)")
     ax.set_ylim(1.0, 3.35)
     ax.legend(frameon=False, loc="upper center", ncol=3, bbox_to_anchor=(0.5, 0.985),
-              borderaxespad=0.0, fontsize=8.0, handletextpad=0.35, columnspacing=1.0)
+              borderaxespad=0.0, fontsize=9.0, handletextpad=0.35, columnspacing=1.0)
     ax.axvline(0.20, color=DEEMPH, linestyle=(0, (2, 2)), linewidth=0.7, alpha=0.7)
     ax.axvline(0.50, color=DEEMPH, linestyle=(0, (2, 2)), linewidth=0.7, alpha=0.7)
     light_grid(ax, axis="y")
@@ -645,11 +645,11 @@ def fig4_ratio_distributions(rf_epi_ratios, str_epi_ratios, fam_idx, out_dir):
             ax.scatter(
                 pos,
                 np.mean(vals),
-                s=32,
+                s=34,
                 marker="D",
-                facecolors="white",
-                edgecolors=color,
-                linewidths=1.1,
+                facecolors=color,
+                edgecolors="#262626",
+                linewidths=0.7,
                 zorder=4,
             )
 

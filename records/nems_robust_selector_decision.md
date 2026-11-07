@@ -37,8 +37,7 @@ delta.
 
 ## Action
 
-- The camera-ready paper reports this outcome with every other planned test
-  (Appendix D, "Feature-based selector").
+- The selector was never scored, so the paper does not report this test.
 - Analysis JSON deposited at `records/nems_robust_selector_analysis.json`.
 - This decision log deposited at the current path for auditability.
 - No follow-up experiment planned. A feature-based selector that generalises

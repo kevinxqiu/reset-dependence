@@ -113,9 +113,9 @@ DESCRIPTION = (
     "episode when the torso drops below a fraction tau of its reset height (Reset-free tau = 0, "
     "Standard tau = 0.20, Strict tau = 0.50, plus 0.10 and 0.35), with seeds 42, 43 and 44, and "
     "each controller was scored over 20 episodes by three evaluators. The dataset holds "
-    "one JSON summary per run for the 900-run corpus and the other UNIMAL panels (3,306 runs "
-    "in all, including SAC, retraining, time-limit, contact-termination, non-evolved-body, "
-    "longer-budget and existing-robot panels), a flat CSV of all runs, structural features of the "
+    "one JSON summary per run for the 900-run corpus, the other UNIMAL panels and the stopped "
+    "existing-robot panel (3,306 runs in all, including the SAC, retraining, time-limit, "
+    "contact-termination, non-evolved-body and longer-budget panels), a flat CSV of all runs, structural features of the "
     "bodies, the zero-action and probe simulation records, joint-angle traces of nine illustrative "
     "controllers, and training logs where they were kept. No policy checkpoints are included. The UNIMAL "
     "body files are not included; the code repository downloads them from the upstream release and "
@@ -293,7 +293,7 @@ SOURCES = [
         "@id": "https://github.com/agrimgupta92/metamorph",
         "@type": "prov:Entity",
         "name": "UNIMAL-100 benchmark of MetaMorph (training set chosen from the bodies evolved by DERL)",
-        "description": "The 100 UNIMAL training bodies of the UNIMAL-100 benchmark (unimals_100/train/xml) that every UNIMAL panel trains on (Gupta, Fan, Ganguli and Fei-Fei, ICLR 2022). MetaMorph chose them from the bodies that DERL evolved (Gupta, Savarese, Ganguli and Fei-Fei, Nature Communications 12, 5721, 2021). The upstream repository declares no license, so the files are not included. The code repository downloads them and checks their SHA-256.",
+        "description": "The 100 UNIMAL training bodies of the UNIMAL-100 benchmark (unimals_100/train/xml) that the evolved-body panels train on (Gupta, Fan, Ganguli and Fei-Fei, ICLR 2022). MetaMorph chose them from the bodies that DERL evolved (Gupta, Savarese, Ganguli and Fei-Fei, Nature Communications 12, 5721, 2021). The upstream repository declares no license, so the files are not included. The code repository downloads them and checks their SHA-256.",
         "url": "https://github.com/agrimgupta92/metamorph",
     },
     {
@@ -443,9 +443,9 @@ def build(archives: Path | None) -> dict:
         "conformsTo": ["http://mlcommons.org/croissant/1.1", "http://mlcommons.org/croissant/RAI/1.0"],
         "citeAs": CITE,
         "creator": PERSON,
-        "datePublished": "2026-11-06",
+        "datePublished": "2026-10-31",
         "dateCreated": "2026-04-05",
-        "dateModified": "2026-10-13",
+        "dateModified": "2026-11-01",
         "version": VERSION,
         "inLanguage": "en",
         "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -458,14 +458,14 @@ def build(archives: Path | None) -> dict:
         "rai:dataCollection": "All records were produced by the authors in simulation. The run summaries in runs.zip come from GPU PPO and SAC training in MuJoCo MJX in April 2026, and the zero-action and probe records were produced on CPU on 2026-10-05. The review-period panels in panels.zip were trained between 25 July and 1 August 2026 (Brax PPO in MuJoCo MJX for Humanoid and Ant, Stable-Baselines3 PPO in Evolution Gym). No human subjects or personal data are involved.",
         "rai:dataCollectionType": "Simulation",
         "rai:dataPreprocessingProtocol": "Run summaries are the JSON files written by the training scripts, unchanged except that GPU host names are replaced by stable pseudonyms (gpu-node-NN) and home directories in recorded paths are masked. Job ids and code commits are kept. The CSV tables are flattened copies of the JSON summaries and morphology features. The review-period panel tables (panels.zip) copy a fixed list of fields from each run's raw records, with no host names or paths; every score equals the one the panel's frozen report used. The frozen reports are copied unchanged except for one masked design-note path in the Evolution Gym report, and the panel specifications are shipped without their root binding tokens and storage locations, as in the reports.",
-        "rai:dataLimitations": "Two defects in the fall thresholds (described in the paper): the Standard cutoff lies below the torso radius for 28 bodies, and the Strict cutoff ends episodes during the reset drop for ten VT bodies (an eleventh body, from the Floor family, is cut off without an identified mechanism). The corpus, intermediate-tau and SAC records do not store the code version, full settings or GPU. No policy checkpoints were saved. Results hold for one task (forward locomotion), one PPO preset and three seeds. The review-period panels are small (20 to 30 bodies per pool, four or five seeds), use other trainers, budgets and evaluators than the UNIMAL panels, and the two arms of the Humanoid time-limit panel were trained with different code revisions.",
+        "rai:dataLimitations": "Two defects in the fall thresholds (described in the paper): the Standard cutoff lies below the torso radius for 28 bodies, and the Strict cutoff ends episodes during the reset drop for ten VT bodies (an eleventh body, from the Floor family, is cut off without an identified mechanism). The corpus, intermediate-tau and SAC records do not store the code version, full settings or GPU. No checkpoints of the UNIMAL runs were saved. Results hold for one task (forward locomotion), one PPO preset and three seeds. The review-period panels are small (20 to 30 bodies per pool, four or five seeds), use other trainers, budgets and evaluators than the UNIMAL panels, and the two arms of the Humanoid time-limit panel were trained with different code revisions.",
         "rai:dataBiases": "The 100 bodies are MetaMorph's selection from the bodies that DERL evolved and are not a random sample of designs. Family sizes are unequal (41 Floor, 37 VT, 22 MVT).",
         "rai:dataUseCases": "Recomputing the paper's statistics; studying how training-protocol choices change morphology rankings; benchmarking reporting practices in co-design. Not suitable for training or deploying controllers on hardware.",
         "rai:dataSocialImpact": "Low. The data describe simulated locomotion and contain no personal information.",
         "rai:personalSensitiveInformation": "None.",
         # Not a term of the RAI 1.0 vocabulary (mlcroissant ignores it); NeurIPS 2026 lists it among the minimal items.
         "rai:hasSyntheticData": True,
-        "rai:dataCollectionMissingData": "No policy checkpoints were saved. No training logs exist for the corpus and SAC runs. The corpus, intermediate-tau and SAC summaries do not record the code commit, full settings or GPU. For the review-period panels, the raw run records, policy checkpoints and generated body files are not included (the tables keep the SHA-256 of each raw result and configuration file and of each body); the Ant breadth panel's report.json was not kept, so its frozen summary table is shipped instead, and its table lacks the evaluation details, body hashes, wall times and job ids. The A2C panel records are not included.",
+        "rai:dataCollectionMissingData": "No checkpoints of the UNIMAL runs were saved. No training logs exist for the corpus and SAC runs. The corpus, intermediate-tau and SAC summaries do not record the code commit, full settings or GPU. For the review-period panels, the raw run records, policy checkpoints and generated body files are not included (the tables keep the SHA-256 of each raw result and configuration file and of each body); the Ant breadth panel's report.json was not kept, so its frozen summary table is shipped instead, and its table lacks the evaluation details, body hashes, wall times and job ids. The A2C panel records are not included.",
         "rai:dataReleaseMaintenancePlan": "Versioned GitHub releases of the code repository; corrections are published as new releases with a changelog in the data card.",
         "prov:wasDerivedFrom": SOURCES,
         "prov:wasGeneratedBy": ACTIVITIES,

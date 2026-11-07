@@ -3,7 +3,8 @@
 The 900 corpus runs (tau = 0, 0.20, 0.50, seeds 42 to 44) were trained over
 several launches between 5 and 8 April 2026, before the code in `scripts/`
 gained the options used by the later panels. These files are the code of that
-period, taken from the project's git history. Only site-specific lines were
+period, taken from the git history of the development repository, which is
+not public (the commit hashes below refer to it). Only site-specific lines were
 edited for release (the cluster QOS line, the working directory, the
 environment path and the default body folder, each marked in the file);
 every training line is as it ran. The two launchers are records of how the

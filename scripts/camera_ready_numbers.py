@@ -1936,7 +1936,7 @@ def section_ranking(D: Data, R: Registry, args, sets, extra):
             post_hoc=PH_YES,
             definition="Strict vs Reset-free rho after subtracting each family's mean PSR per rule.",
         )
-    # Fig. 10 diagonal counts
+    # Fig. 9 diagonal counts
     for f in FAMS:
         sel = fam == f
         R.add(

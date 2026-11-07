@@ -19,7 +19,7 @@ outcome data.
 
 - LOPO analysis (`records/protocol_robust_lopo_spec.md`, ran
   2026-04-19) DROPPED per its gate (tests cross-protocol generalisation, not
-  cross-morphology); the paper reports it in Appendix D. This NEMS test is a different
+  cross-morphology); the paper reports it in Section 4.3 and Appendix E. This NEMS test is a different
   question: held-out MORPHOLOGIES, not held-out PROTOCOLS.
 - The NEMS structural-predictor M2 transfer (`sec:nems_result`) shows feature
   prediction of Delta_str-rf transfers at rho = 0.41. That is NOT the same as
@@ -97,8 +97,9 @@ The APPENDIX gate requires weaker evidence than the MAIN-TEXT gate.
 A DROP outcome ends the test, and the analysis output is deposited in the
 records.
 
-> Note added for the release: the camera-ready paper reports this test's
-> outcome with every other planned test (Appendix D, "Feature-based selector").
+> Note added for the release: this test stopped at its quality gate
+> (cross-validated R^2 = 0.06), so no selector was scored; the paper does not
+> report it.
 
 ## QC gates (any failure forces DROP)
 

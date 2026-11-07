@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 6 of the paper: where the fall cutoffs sit relative to each body's torso.
+"""Zero-action probe plot for Appendix C.1 (not a paper figure): where the fall cutoffs sit relative to each body's torso.
 
 Both panels come from CPU MuJoCo rollouts with zero action, starting from
 the nominal reset pose (no reset noise), with the floor substitution of

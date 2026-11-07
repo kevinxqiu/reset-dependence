@@ -242,4 +242,4 @@ If EITHER new arm fails smoke or QC, that arm drops; the other arm may
 still be analyzed as a single-tau boundary removal. If BOTH arms fail,
 the factorial drops; the boundary-free panel (primary) stands on its
 own. If the boundary-free panel itself already failed (per its own
-spec), the factorial is not analyzed.
+spec), the factorial is not integrated.

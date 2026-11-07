@@ -24,4 +24,4 @@ A robot is said to be hurt by a protocol if the 95% CI of the relevant ratio lie
 
 Figure: `figures/fig_menagerie_panel.pdf` shows the RF/Epi and Str/Epi bars with 95% CIs per robot.
 
-Note (2026-04-18): the panel was stopped before the submission. Only `unitree_go2` and `anybotics_anymal_c` passed the training-quality check (`toddlerbot_2xc` earns a per-step reward near zero under every rule, and `unitree_g1` trained to NaN), and two robots are too few for the planned external-validity reading, so the robot panel was dropped. The paper lists it with the other planned tests (Appendix D).
+Note (2026-04-18): the panel was stopped before the submission. Only `unitree_go2` and `anybotics_anymal_c` passed the training-quality check (`toddlerbot_2xc` earns a per-step reward near zero under every rule, and `unitree_g1` trained to NaN), and two robots are too few for the planned external-validity reading, so the robot panel was dropped. The paper does not report it.

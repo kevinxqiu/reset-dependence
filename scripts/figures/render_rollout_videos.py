@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rollout videos for the project page: one body under the three training rules.
 
-Replays the joint traces behind Figures 1, 5 and 14 (gait-traces/ from the
+Replays the joint traces behind Figures 1, 5 and 13 (gait-traces/ from the
 dataset) in MuJoCo, one row per rule as in Figure 1, with a camera that
 follows the torso. Playback is real time: 500 control steps of 0.02 s give
 10 s of video. A rollout that ended early (done_step > 0) freezes at its last
@@ -47,7 +47,7 @@ BODIES = {
     "mvt-5506-13-10-17-12-25-45": "MVT A",
     "floor-1409-0-7-01-15-15-26": "Floor B",
 }
-# (trace suffix, rule, threshold, colour from _paper_style.PROTOCOL_COLOR)
+# (trace suffix, rule, threshold, colour from _render_style.PROTOCOL_COLOR)
 RULES = (
     ("tau0p00", "Reset-free", "τ = 0", "#3B6FB6"),
     ("tau0p20", "Standard", "τ = 0.20", "#4D9DA5"),
